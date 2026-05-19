@@ -3,7 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Online Image Tools</title>
+<title>Free Online Image Tools – Compress, Resize, Convert & More</title>
+<meta name="description" content="Free online image tools: compress, resize, convert, crop, rotate, watermark images and more. No signup required. Fast, easy, browser-based.">
+<meta name="keywords" content="image compressor, image resizer, image converter, jpg to png, png to webp, image cropper, online image tools, free image editor">
+<meta name="robots" content="index, follow">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#0a0f1e;color:#e2e8f0;font-family:Arial,sans-serif;font-size:15px}
@@ -12,17 +19,31 @@ body{background:#0a0f1e;color:#e2e8f0;font-family:Arial,sans-serif;font-size:15p
 nav{background:#060d1f;border-bottom:1px solid #1a2d4e;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
 .logo{font-size:20px;font-weight:900;color:#00d4ff;cursor:pointer}
 .logo b{color:#e2e8f0}
+.nav-links{display:flex;gap:20px;align-items:center}
+.nav-links a{color:#64748b;text-decoration:none;font-size:13px;cursor:pointer;transition:color 0.2s}
+.nav-links a:hover{color:#00d4ff}
+
+/* AD SLOTS */
+.ad-slot{background:#0c1629;border:1px dashed #1a2d4e;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#334155;font-size:11px;text-align:center;overflow:hidden}
+.ad-top{width:100%;min-height:90px;margin:10px 0}
+.ad-mid{width:100%;min-height:90px;margin:20px 0}
+.ad-bottom{width:100%;min-height:250px;margin:20px 0}
+.ad-sidebar{width:160px;min-height:600px;flex-shrink:0}
 
 /* HOME */
 #page-home{display:block}
-.hero{text-align:center;padding:50px 20px 30px}
+.hero{text-align:center;padding:40px 20px 24px}
 .hero h1{font-size:36px;font-weight:900;color:#fff;margin-bottom:10px}
 .hero h1 span{color:#00d4ff}
 .hero p{color:#64748b;font-size:15px;max-width:480px;margin:0 auto}
 
+.outer-wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+.with-sidebar{display:flex;gap:20px;align-items:flex-start}
+.main-col{flex:1;min-width:0}
 .wrap{max-width:1000px;margin:0 auto;padding:0 20px 60px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:20px}
-.card{background:#101f38;border:2px solid #1a2d4e;border-radius:12px;padding:20px;cursor:pointer;transition:all 0.2s}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:16px}
+.card{background:#101f38;border:2px solid #1a2d4e;border-radius:12px;padding:20px;cursor:pointer;transition:all 0.2s;position:relative}
 .card:hover{border-color:#00d4ff;transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,212,255,0.12)}
 .card-icon{font-size:32px;margin-bottom:10px}
 .card-name{font-size:14px;font-weight:700;color:#fff;margin-bottom:5px}
@@ -40,12 +61,10 @@ nav{background:#060d1f;border-bottom:1px solid #1a2d4e;padding:14px 24px;display
 .tool-head-icon{font-size:36px}
 .tool-head-name{font-size:24px;font-weight:900;color:#fff}
 .tool-head-desc{font-size:13px;color:#64748b;margin-top:3px}
-
-/* TWO COLUMN */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:640px){.two-col{grid-template-columns:1fr}}
+@media(max-width:640px){.two-col{grid-template-columns:1fr}.ad-sidebar{display:none}.nav-links{gap:10px}}
 
-/* UPLOAD BOX */
+/* UPLOAD */
 .upload-box{border:2px dashed #1a2d4e;border-radius:14px;background:#0c1629;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;gap:10px;transition:all 0.2s;padding:30px 20px;text-align:center}
 .upload-box:hover{border-color:#00d4ff;background:#00d4ff08}
 .upload-box input{display:none}
@@ -54,7 +73,7 @@ nav{background:#060d1f;border-bottom:1px solid #1a2d4e;padding:14px 24px;display
 .upload-title span{color:#00d4ff}
 .upload-sub{font-size:12px;color:#64748b}
 
-/* PREVIEW BOX */
+/* PREVIEW */
 .preview-box{background:#0c1629;border:1px solid #1a2d4e;border-radius:12px;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;gap:10px;text-align:center}
 .preview-box img{max-width:100%;max-height:260px;border-radius:8px;border:1px solid #1a2d4e}
 .preview-empty{color:#64748b;font-size:13px}
@@ -64,14 +83,14 @@ nav{background:#060d1f;border-bottom:1px solid #1a2d4e;padding:14px 24px;display
 .img-stat-val{font-size:14px;font-weight:900;color:#00d4ff}
 .img-stat-key{font-size:10px;color:#64748b;margin-top:2px}
 
-/* SETTINGS PANEL */
+/* SETTINGS */
 .settings{background:#0c1629;border:1px solid #1a2d4e;border-radius:12px;padding:18px;margin-top:14px}
 .settings-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:14px}
 .field{margin-bottom:14px}
 .field label{display:block;font-size:12px;color:#64748b;margin-bottom:6px}
 input[type=range]{width:100%;accent-color:#00d4ff;cursor:pointer}
-input[type=text],input[type=number],select,textarea{background:#101f38;border:1px solid #1a2d4e;border-radius:8px;padding:8px 12px;color:#e2e8f0;font-size:13px;font-family:Arial;outline:none;transition:border-color 0.2s}
-input[type=text]:focus,input[type=number]:focus,select:focus{border-color:#00d4ff}
+input[type=text],input[type=number],input[type=email],select,textarea{background:#101f38;border:1px solid #1a2d4e;border-radius:8px;padding:8px 12px;color:#e2e8f0;font-size:13px;font-family:Arial;outline:none;transition:border-color 0.2s}
+input:focus,select:focus,textarea:focus{border-color:#00d4ff}
 .range-row{display:flex;align-items:center;gap:10px}
 .range-val{color:#00d4ff;font-weight:700;font-size:14px;min-width:44px}
 .chips{display:flex;gap:8px;flex-wrap:wrap}
@@ -82,70 +101,183 @@ input[type=text]:focus,input[type=number]:focus,select:focus{border-color:#00d4f
 .btn-main{background:#00d4ff;color:#060d1f;border:none;border-radius:10px;padding:11px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:Arial;transition:all 0.2s;display:inline-flex;align-items:center;gap:6px;margin-top:14px}
 .btn-main:hover{filter:brightness(1.1);transform:translateY(-1px)}
 .btn-main:disabled{opacity:0.35;cursor:not-allowed;transform:none;filter:none}
-.btn-dl{background:#22c55e;color:#060d1f;border:none;border-radius:10px;padding:11px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:Arial;transition:all 0.2s;display:none;align-items:center;gap:6px;margin-top:14px}
-.btn-dl:hover{filter:brightness(1.08)}
+.btn-green{background:#22c55e;color:#060d1f;border:none;border-radius:10px;padding:11px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:Arial;display:none;align-items:center;gap:6px;margin-top:14px}
+.btn-green:hover{filter:brightness(1.08)}
 .btn-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 
-/* RESULT PANEL */
+/* RESULT */
 .result-panel{background:#00d4ff0a;border:1px solid #00d4ff22;border-radius:12px;padding:14px;margin-top:14px;display:none}
 .result-title{font-size:13px;font-weight:700;color:#00d4ff;margin-bottom:10px}
-
-/* OUTPUT BOX */
 .out-box{background:#040a16;border:1px solid #1a2d4e;border-radius:8px;padding:10px;margin-top:10px;font-family:monospace;font-size:11px;color:#64748b;word-break:break-all;max-height:120px;overflow-y:auto;white-space:pre-wrap}
-
-/* META TABLE */
 .meta-tbl{width:100%;border-collapse:collapse}
 .meta-tbl td{padding:8px 10px;border-bottom:1px solid #1a2d4e;font-size:13px}
 .meta-tbl td:first-child{color:#64748b;width:45%}
+
+/* CONTACT PAGE */
+#page-contact{display:none}
+.contact-wrap{max-width:700px;margin:0 auto;padding:40px 20px 80px}
+.contact-wrap h1{font-size:32px;font-weight:900;color:#fff;margin-bottom:8px}
+.contact-wrap p{color:#64748b;margin-bottom:30px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:30px}
+@media(max-width:600px){.contact-grid{grid-template-columns:1fr}}
+.contact-box{background:#0c1629;border:1px solid #1a2d4e;border-radius:12px;padding:20px;text-align:center}
+.contact-box-icon{font-size:32px;margin-bottom:10px}
+.contact-box-title{font-weight:700;color:#fff;margin-bottom:6px;font-size:14px}
+.contact-box-val{color:#00d4ff;font-size:13px;text-decoration:none;word-break:break-all}
+.form-box{background:#0c1629;border:1px solid #1a2d4e;border-radius:14px;padding:24px}
+.form-box h2{font-size:18px;font-weight:700;color:#fff;margin-bottom:20px}
+.form-field{margin-bottom:16px}
+.form-field label{display:block;font-size:12px;color:#64748b;margin-bottom:6px;font-weight:600}
+.form-field input,.form-field textarea{width:100%}
+.form-field textarea{height:120px;resize:vertical}
+.success-msg{background:#22c55e22;border:1px solid #22c55e44;border-radius:10px;padding:14px;color:#22c55e;font-size:14px;text-align:center;display:none;margin-top:14px}
+
+/* STATIC PAGES */
+#page-privacy{display:none}
+.static-wrap{max-width:800px;margin:0 auto;padding:40px 24px 80px}
+.static-wrap h1{font-size:30px;font-weight:900;color:#fff;margin-bottom:8px}
+.static-wrap h2{font-size:17px;font-weight:700;color:#00d4ff;margin:28px 0 8px}
+.static-wrap p{color:#94a3b8;margin-bottom:10px;line-height:1.7}
+.static-wrap ul{color:#94a3b8;padding-left:20px;margin-bottom:10px}
+.static-wrap ul li{margin-bottom:5px}
+.updated{color:#64748b;font-size:13px;margin-bottom:36px}
+.info-box{background:#0c1629;border:1px solid #1a2d4e;border-radius:12px;padding:18px;margin-bottom:12px}
+.info-box p{margin:0}
 
 /* TOAST */
 #toast{position:fixed;bottom:28px;right:28px;background:#22c55e;color:#060d1f;padding:10px 18px;border-radius:10px;font-weight:700;font-size:13px;z-index:999;opacity:0;transition:all 0.3s;transform:translateY(20px)}
 #toast.on{opacity:1;transform:translateY(0)}
 
 footer{border-top:1px solid #1a2d4e;padding:20px;text-align:center;color:#334155;font-size:12px}
+footer a{color:#475569;text-decoration:none;margin:0 8px}
+footer a:hover{color:#00d4ff}
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="logo" onclick="goHome()">Img<b>Tools</b>.io</div>
+  <div class="nav-links">
+    <a onclick="goHome()">🏠 Tools</a>
+    <a onclick="goPage('contact')">✉️ Contact</a>
+    <a onclick="goPage('privacy')">🔒 Privacy</a>
+  </div>
 </nav>
 
-<!-- ═══ HOME PAGE ═══ -->
+<!-- ══════════ HOME PAGE ══════════ -->
 <div id="page-home">
   <div class="hero">
     <h1>Free Online <span>Image Tools</span></h1>
-    <p>10 powerful image tools — compress, resize, convert, crop and more. Works in your browser, nothing is uploaded.</p>
+    <p>Compress, resize, convert, crop, rotate and watermark — free, instant, nothing uploaded to any server.</p>
   </div>
-  <div class="wrap">
-    <div style="font-size:13px;color:#64748b;margin-bottom:4px">Select a tool to get started:</div>
-    <div class="grid">
-      <div class="card" onclick="goTool('compressor')"><span class="hot">Popular</span><div class="card-icon">🗜️</div><div class="card-name">Image Compressor</div><div class="card-desc">Reduce file size while keeping quality</div><div class="card-hint">Open tool →</div></div>
-      <div class="card" onclick="goTool('resizer')"><span class="hot">Popular</span><div class="card-icon">📐</div><div class="card-name">Image Resizer</div><div class="card-desc">Resize to any custom width & height</div><div class="card-hint">Open tool →</div></div>
-      <div class="card" onclick="goTool('converter')"><span class="hot">Popular</span><div class="card-icon">🔄</div><div class="card-name">Format Converter</div><div class="card-desc">Convert between JPG, PNG and WebP</div><div class="card-hint">Open tool →</div></div>
-      <div class="card" onclick="goTool('rotator')"><div class="card-icon">🔃</div><div class="card-name">Rotate & Flip</div><div class="card-desc">Rotate 90°/180°/270° or flip image</div><div class="card-hint">Open tool →</div></div>
-      <div class="card" onclick="goTool('grayscale')"><div class="card-icon">🌑</div><div class="card-name">Grayscale Filter</div><div class="card-desc">Convert photo to black & white</div><div class="card-hint">Open tool →</div></div>
-      <div class="card" onclick="goTool('base64enc')"><div class="card-icon">💻</div><div class="card-name">Image to Base64</div><div class="card-desc">Encode image to a Base64 string</div><div class="card-hint">Open tool →</div></div>
-      <div class="card" onclick="goTool('base64dec')"><div class="card-icon">🖼️</div><div class="card-name">Base64 to Image</div><div class="card-desc">Decode Base64 string back to image</div><div class="card-hint">Open tool →</div></div>
-      <div class="card" onclick="goTool('watermark')"><span class="hot">New</span><div class="card-icon">✍️</div><div class="card-name">Watermark Tool</div><div class="card-desc">Add custom text watermark to image</div><div class="card-hint">Open tool →</div></div>
-      <div class="card" onclick="goTool('cropper')"><div class="card-icon">✂️</div><div class="card-name">Image Cropper</div><div class="card-desc">Crop any part of the image</div><div class="card-hint">Open tool →</div></div>
-      <div class="card" onclick="goTool('metadata')"><div class="card-icon">ℹ️</div><div class="card-name">Image Info</div><div class="card-desc">View dimensions and file details</div><div class="card-hint">Open tool →</div></div>
+
+  <!-- TOP AD — Best performing location -->
+  <div class="outer-wrap">
+    <div class="ad-slot ad-top">
+      <ins class="adsbygoogle" style="display:block;width:100%;min-height:90px"
+        data-ad-client="ca-pub-2885801344245320"
+        data-ad-slot="auto"
+        data-ad-format="horizontal"
+        data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+
+  <div class="outer-wrap">
+    <div class="with-sidebar">
+
+      <!-- MAIN CONTENT -->
+      <div class="main-col">
+        <div style="font-size:13px;color:#64748b;margin-bottom:8px;margin-top:10px">Click any tool to get started — all free, no signup:</div>
+        <div class="grid">
+          <div class="card" onclick="goTool('compressor')"><span class="hot">Popular</span><div class="card-icon">🗜️</div><div class="card-name">Image Compressor</div><div class="card-desc">Reduce file size, keep quality</div><div class="card-hint">Open →</div></div>
+          <div class="card" onclick="goTool('resizer')"><span class="hot">Popular</span><div class="card-icon">📐</div><div class="card-name">Image Resizer</div><div class="card-desc">Resize to any width & height</div><div class="card-hint">Open →</div></div>
+          <div class="card" onclick="goTool('converter')"><span class="hot">Popular</span><div class="card-icon">🔄</div><div class="card-name">Format Converter</div><div class="card-desc">Convert JPG, PNG, WebP</div><div class="card-hint">Open →</div></div>
+          <div class="card" onclick="goTool('rotator')"><div class="card-icon">🔃</div><div class="card-name">Rotate & Flip</div><div class="card-desc">Rotate or flip any image</div><div class="card-hint">Open →</div></div>
+          <div class="card" onclick="goTool('grayscale')"><div class="card-icon">🌑</div><div class="card-name">Grayscale Filter</div><div class="card-desc">Convert to black & white</div><div class="card-hint">Open →</div></div>
+          <div class="card" onclick="goTool('base64enc')"><div class="card-icon">💻</div><div class="card-name">Image to Base64</div><div class="card-desc">Encode image to Base64</div><div class="card-hint">Open →</div></div>
+          <div class="card" onclick="goTool('base64dec')"><div class="card-icon">🖼️</div><div class="card-name">Base64 to Image</div><div class="card-desc">Decode Base64 to image</div><div class="card-hint">Open →</div></div>
+          <div class="card" onclick="goTool('watermark')"><span class="hot">New</span><div class="card-icon">✍️</div><div class="card-name">Watermark Tool</div><div class="card-desc">Add text watermark</div><div class="card-hint">Open →</div></div>
+          <div class="card" onclick="goTool('cropper')"><div class="card-icon">✂️</div><div class="card-name">Image Cropper</div><div class="card-desc">Crop any part precisely</div><div class="card-hint">Open →</div></div>
+          <div class="card" onclick="goTool('metadata')"><div class="card-icon">ℹ️</div><div class="card-name">Image Info</div><div class="card-desc">View dimensions & details</div><div class="card-hint">Open →</div></div>
+        </div>
+
+        <!-- MID AD — After tools grid, high visibility -->
+        <div class="ad-slot ad-mid">
+          <ins class="adsbygoogle" style="display:block;width:100%;min-height:90px"
+            data-ad-client="ca-pub-2885801344245320"
+            data-ad-slot="auto"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- WHY US -->
+        <div style="margin:10px 0 20px">
+          <div style="font-size:18px;font-weight:900;color:#fff;margin-bottom:14px">Why Use ImageTools4Free?</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
+            <div style="background:#0c1629;border:1px solid #1a2d4e;border-radius:10px;padding:14px">
+              <div style="font-size:24px;margin-bottom:6px">🔒</div>
+              <div style="font-weight:700;color:#fff;font-size:13px;margin-bottom:4px">100% Private</div>
+              <div style="color:#64748b;font-size:12px">Your images never leave your device. All processing is local.</div>
+            </div>
+            <div style="background:#0c1629;border:1px solid #1a2d4e;border-radius:10px;padding:14px">
+              <div style="font-size:24px;margin-bottom:6px">⚡</div>
+              <div style="font-weight:700;color:#fff;font-size:13px;margin-bottom:4px">Lightning Fast</div>
+              <div style="color:#64748b;font-size:12px">No server uploads. Instant results using browser technology.</div>
+            </div>
+            <div style="background:#0c1629;border:1px solid #1a2d4e;border-radius:10px;padding:14px">
+              <div style="font-size:24px;margin-bottom:6px">🆓</div>
+              <div style="font-weight:700;color:#fff;font-size:13px;margin-bottom:4px">Always Free</div>
+              <div style="color:#64748b;font-size:12px">No account, no watermarks, no hidden charges. Ever.</div>
+            </div>
+            <div style="background:#0c1629;border:1px solid #1a2d4e;border-radius:10px;padding:14px">
+              <div style="font-size:24px;margin-bottom:6px">📱</div>
+              <div style="font-weight:700;color:#fff;font-size:13px;margin-bottom:4px">Works Everywhere</div>
+              <div style="color:#64748b;font-size:12px">Desktop, mobile, tablet. Any modern browser supported.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTTOM AD — Rectangle, high CTR -->
+        <div class="ad-slot ad-bottom" style="display:flex;align-items:center;justify-content:center">
+          <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px"
+            data-ad-client="ca-pub-2885801344245320"
+            data-ad-slot="auto"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+      </div><!-- end main-col -->
+
+      <!-- SIDEBAR AD — Best for desktop, highest RPM -->
+      <div class="ad-slot ad-sidebar" style="margin-top:60px">
+        <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px"
+          data-ad-client="ca-pub-2885801344245320"
+          data-ad-slot="auto"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+
     </div>
   </div>
 </div>
 
-<!-- ═══ TOOL: COMPRESSOR ═══ -->
+<!-- ══════════ TOOL PAGES ══════════ -->
+
+<!-- COMPRESSOR -->
 <div id="page-compressor" class="page-tool">
   <div class="tool-wrap">
     <button class="back" onclick="goHome()">← All Tools</button>
     <div class="tool-head"><div class="tool-head-icon">🗜️</div><div><div class="tool-head-name">Image Compressor</div><div class="tool-head-desc">Reduce file size while keeping visual quality</div></div></div>
+    <!-- Ad inside tool page -->
+    <div class="ad-slot ad-top"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2885801344245320" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
     <div class="two-col">
       <div>
-        <div class="upload-box" onclick="document.getElementById('comp-file').click()" id="comp-zone">
+        <div class="upload-box" onclick="document.getElementById('comp-file').click()">
           <input type="file" id="comp-file" accept="image/*" onchange="compLoad(this)">
           <div class="upload-icon">🖼️</div>
           <div class="upload-title"><span>Click here</span> to choose image</div>
-          <div class="upload-sub">or drag & drop your image file here</div>
+          <div class="upload-sub">or drag & drop your image here</div>
           <div class="upload-sub">JPG · PNG · WebP · GIF · BMP</div>
         </div>
         <div class="settings">
@@ -158,35 +290,31 @@ footer{border-top:1px solid #1a2d4e;padding:20px;text-align:center;color:#334155
           </div>
           <div class="btn-row">
             <button class="btn-main" id="comp-btn" onclick="doCompress()" disabled>🗜️ Compress Image</button>
-            <button class="btn-dl" id="comp-dl" onclick="downloadCompressed()">⬇️ Download</button>
+            <button class="btn-green" id="comp-dl" onclick="downloadCompressed()">⬇️ Download</button>
           </div>
         </div>
       </div>
       <div>
-        <div class="preview-box" id="comp-preview">
-          <div class="preview-empty"><div class="preview-empty-icon">🗜️</div>Your compressed image appears here<br><small>Upload an image on the left first</small></div>
-        </div>
-        <div class="result-panel" id="comp-result">
-          <div class="result-title">✅ Compression Result</div>
-          <div class="img-stats" id="comp-stats"></div>
-        </div>
+        <div class="preview-box" id="comp-preview"><div class="preview-empty"><div class="preview-empty-icon">🗜️</div>Preview appears here<br><small>Upload image on the left</small></div></div>
+        <div class="result-panel" id="comp-result"><div class="result-title">✅ Result</div><div class="img-stats" id="comp-stats"></div></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ═══ TOOL: RESIZER ═══ -->
+<!-- RESIZER -->
 <div id="page-resizer" class="page-tool">
   <div class="tool-wrap">
     <button class="back" onclick="goHome()">← All Tools</button>
     <div class="tool-head"><div class="tool-head-icon">📐</div><div><div class="tool-head-name">Image Resizer</div><div class="tool-head-desc">Resize image to any width and height</div></div></div>
+    <div class="ad-slot ad-top"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2885801344245320" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
     <div class="two-col">
       <div>
         <div class="upload-box" onclick="document.getElementById('rsz-file').click()">
           <input type="file" id="rsz-file" accept="image/*" onchange="rszLoad(this)">
           <div class="upload-icon">🖼️</div>
           <div class="upload-title"><span>Click here</span> to choose image</div>
-          <div class="upload-sub">or drag & drop your image file here</div>
+          <div class="upload-sub">or drag & drop your image here</div>
           <div class="upload-sub">JPG · PNG · WebP · GIF · BMP</div>
         </div>
         <div class="settings">
@@ -197,27 +325,24 @@ footer{border-top:1px solid #1a2d4e;padding:20px;text-align:center;color:#334155
           <div class="btn-row"><button class="btn-main" id="rsz-btn" onclick="doResize()" disabled>📐 Resize & Download</button></div>
         </div>
       </div>
-      <div>
-        <div class="preview-box" id="rsz-preview">
-          <div class="preview-empty"><div class="preview-empty-icon">📐</div>Your image preview appears here<br><small>Upload an image on the left first</small></div>
-        </div>
-      </div>
+      <div><div class="preview-box" id="rsz-preview"><div class="preview-empty"><div class="preview-empty-icon">📐</div>Preview appears here<br><small>Upload image on the left</small></div></div></div>
     </div>
   </div>
 </div>
 
-<!-- ═══ TOOL: CONVERTER ═══ -->
+<!-- CONVERTER -->
 <div id="page-converter" class="page-tool">
   <div class="tool-wrap">
     <button class="back" onclick="goHome()">← All Tools</button>
     <div class="tool-head"><div class="tool-head-icon">🔄</div><div><div class="tool-head-name">Format Converter</div><div class="tool-head-desc">Convert images between JPG, PNG and WebP</div></div></div>
+    <div class="ad-slot ad-top"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2885801344245320" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
     <div class="two-col">
       <div>
         <div class="upload-box" onclick="document.getElementById('cvt-file').click()">
           <input type="file" id="cvt-file" accept="image/*" onchange="cvtLoad(this)">
           <div class="upload-icon">🖼️</div>
           <div class="upload-title"><span>Click here</span> to choose image</div>
-          <div class="upload-sub">or drag & drop your image file here</div>
+          <div class="upload-sub">or drag & drop your image here</div>
           <div class="upload-sub">JPG · PNG · WebP · GIF · BMP</div>
         </div>
         <div class="settings">
@@ -225,8 +350,8 @@ footer{border-top:1px solid #1a2d4e;padding:20px;text-align:center;color:#334155
           <div class="field"><label>Output Format</label>
             <select id="cvt-fmt" style="width:100%" onchange="document.getElementById('cvt-qrow').style.display=this.value==='image/png'?'none':'block'">
               <option value="image/jpeg">JPEG (.jpg)</option>
-              <option value="image/png">PNG (.png) — supports transparency</option>
-              <option value="image/webp">WebP (.webp) — best for websites</option>
+              <option value="image/png">PNG (.png) — transparent</option>
+              <option value="image/webp">WebP (.webp) — best for web</option>
             </select>
           </div>
           <div class="field" id="cvt-qrow"><label>Quality</label>
@@ -235,31 +360,28 @@ footer{border-top:1px solid #1a2d4e;padding:20px;text-align:center;color:#334155
           <div class="btn-row"><button class="btn-main" id="cvt-btn" onclick="doConvert()" disabled>🔄 Convert & Download</button></div>
         </div>
       </div>
-      <div>
-        <div class="preview-box" id="cvt-preview">
-          <div class="preview-empty"><div class="preview-empty-icon">🔄</div>Your image preview appears here<br><small>Upload an image on the left first</small></div>
-        </div>
-      </div>
+      <div><div class="preview-box" id="cvt-preview"><div class="preview-empty"><div class="preview-empty-icon">🔄</div>Preview appears here<br><small>Upload image on the left</small></div></div></div>
     </div>
   </div>
 </div>
 
-<!-- ═══ TOOL: ROTATOR ═══ -->
+<!-- ROTATOR -->
 <div id="page-rotator" class="page-tool">
   <div class="tool-wrap">
     <button class="back" onclick="goHome()">← All Tools</button>
     <div class="tool-head"><div class="tool-head-icon">🔃</div><div><div class="tool-head-name">Rotate & Flip</div><div class="tool-head-desc">Rotate or flip your image in any direction</div></div></div>
+    <div class="ad-slot ad-top"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2885801344245320" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
     <div class="two-col">
       <div>
         <div class="upload-box" onclick="document.getElementById('rot-file').click()">
           <input type="file" id="rot-file" accept="image/*" onchange="rotLoad(this)">
           <div class="upload-icon">🖼️</div>
           <div class="upload-title"><span>Click here</span> to choose image</div>
-          <div class="upload-sub">or drag & drop your image file here</div>
+          <div class="upload-sub">or drag & drop your image here</div>
           <div class="upload-sub">JPG · PNG · WebP · GIF · BMP</div>
         </div>
         <div class="settings">
-          <div class="settings-title">🔃 Rotation Options</div>
+          <div class="settings-title">🔃 Options</div>
           <div class="field"><label>Rotate</label>
             <div class="chips">
               <button class="chip on" id="rot-0" onclick="setRot(0)">None</button>
@@ -277,34 +399,31 @@ footer{border-top:1px solid #1a2d4e;padding:20px;text-align:center;color:#334155
           <div class="btn-row"><button class="btn-main" id="rot-btn" onclick="doRotate()" disabled>⬇️ Download Result</button></div>
         </div>
       </div>
-      <div>
-        <div class="preview-box" id="rot-preview">
-          <div class="preview-empty"><div class="preview-empty-icon">🔃</div>Live preview appears here<br><small>Upload an image on the left first</small></div>
-        </div>
-      </div>
+      <div><div class="preview-box" id="rot-preview"><div class="preview-empty"><div class="preview-empty-icon">🔃</div>Live preview here<br><small>Upload image on the left</small></div></div></div>
     </div>
   </div>
 </div>
 
-<!-- ═══ TOOL: GRAYSCALE ═══ -->
+<!-- GRAYSCALE -->
 <div id="page-grayscale" class="page-tool">
   <div class="tool-wrap">
     <button class="back" onclick="goHome()">← All Tools</button>
     <div class="tool-head"><div class="tool-head-icon">🌑</div><div><div class="tool-head-name">Grayscale Filter</div><div class="tool-head-desc">Convert any color image to black & white</div></div></div>
+    <div class="ad-slot ad-top"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2885801344245320" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
     <div class="two-col">
       <div>
         <div class="upload-box" onclick="document.getElementById('gray-file').click()">
           <input type="file" id="gray-file" accept="image/*" onchange="grayLoad(this)">
           <div class="upload-icon">🖼️</div>
           <div class="upload-title"><span>Click here</span> to choose image</div>
-          <div class="upload-sub">or drag & drop your image file here</div>
+          <div class="upload-sub">or drag & drop your image here</div>
           <div class="upload-sub">JPG · PNG · WebP · GIF · BMP</div>
         </div>
         <div class="settings">
           <div class="settings-title">🌑 Options</div>
-          <div class="field"><label>Conversion Method</label>
+          <div class="field"><label>Method</label>
             <select id="gray-mode" style="width:100%">
-              <option value="luma">Luma — most natural (recommended)</option>
+              <option value="luma">Luma — natural (recommended)</option>
               <option value="avg">Average — flat</option>
               <option value="desat">Desaturate</option>
             </select>
@@ -312,16 +431,12 @@ footer{border-top:1px solid #1a2d4e;padding:20px;text-align:center;color:#334155
           <div class="btn-row"><button class="btn-main" id="gray-btn" onclick="doGrayscale()" disabled>🌑 Convert & Download</button></div>
         </div>
       </div>
-      <div>
-        <div class="preview-box" id="gray-preview">
-          <div class="preview-empty"><div class="preview-empty-icon">🌑</div>Your image preview appears here<br><small>Upload an image on the left first</small></div>
-        </div>
-      </div>
+      <div><div class="preview-box" id="gray-preview"><div class="preview-empty"><div class="preview-empty-icon">🌑</div>Preview appears here<br><small>Upload image on the left</small></div></div></div>
     </div>
   </div>
 </div>
 
-<!-- ═══ TOOL: BASE64 ENCODE ═══ -->
+<!-- BASE64 ENC -->
 <div id="page-base64enc" class="page-tool">
   <div class="tool-wrap">
     <button class="back" onclick="goHome()">← All Tools</button>
@@ -332,37 +447,32 @@ footer{border-top:1px solid #1a2d4e;padding:20px;text-align:center;color:#334155
           <input type="file" id="b64e-file" accept="image/*" onchange="b64eLoad(this)">
           <div class="upload-icon">🖼️</div>
           <div class="upload-title"><span>Click here</span> to choose image</div>
-          <div class="upload-sub">or drag & drop your image file here</div>
+          <div class="upload-sub">or drag & drop your image here</div>
           <div class="upload-sub">JPG · PNG · WebP · GIF · BMP</div>
         </div>
         <div class="settings">
-          <div class="settings-title">💻 Base64 Output</div>
-          <div id="b64e-info" style="color:#64748b;font-size:12px;margin-bottom:10px">Upload an image to generate its Base64 code.</div>
+          <div class="settings-title">💻 Output</div>
+          <div id="b64e-info" style="color:#64748b;font-size:12px;margin-bottom:10px">Upload an image to generate Base64 code.</div>
           <div class="btn-row">
             <button class="btn-main" id="b64e-copy" onclick="copyB64()" disabled>📋 Copy Code</button>
-            <button class="btn-dl" id="b64e-dl" onclick="dlB64()">⬇️ Save .txt</button>
+            <button class="btn-green" id="b64e-dl" onclick="dlB64()">⬇️ Save .txt</button>
           </div>
           <div class="out-box" id="b64e-out" style="display:none"></div>
         </div>
       </div>
-      <div>
-        <div class="preview-box" id="b64e-preview">
-          <div class="preview-empty"><div class="preview-empty-icon">💻</div>Your image preview appears here<br><small>Upload an image on the left first</small></div>
-        </div>
-      </div>
+      <div><div class="preview-box" id="b64e-preview"><div class="preview-empty"><div class="preview-empty-icon">💻</div>Preview appears here<br><small>Upload image on the left</small></div></div></div>
     </div>
   </div>
 </div>
 
-<!-- ═══ TOOL: BASE64 DECODE ═══ -->
+<!-- BASE64 DEC -->
 <div id="page-base64dec" class="page-tool">
   <div class="tool-wrap">
     <button class="back" onclick="goHome()">← All Tools</button>
     <div class="tool-head"><div class="tool-head-icon">🖼️</div><div><div class="tool-head-name">Base64 to Image</div><div class="tool-head-desc">Paste a Base64 string and download the image</div></div></div>
     <div class="settings" style="margin-bottom:16px">
-      <div class="settings-title">🖼️ Paste Your Base64 String</div>
-      <p style="color:#64748b;font-size:12px;margin-bottom:10px">Paste the full Base64 string below (with or without "data:image/..." prefix)</p>
-      <textarea id="b64d-in" style="width:100%;height:120px;display:block;resize:vertical" placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."></textarea>
+      <div class="settings-title">🖼️ Paste Base64 String</div>
+      <textarea id="b64d-in" style="width:100%;height:120px;display:block;resize:vertical" placeholder="data:image/png;base64,iVBORw0KGgo..."></textarea>
       <div class="btn-row"><button class="btn-main" onclick="decodeB64()">🖼️ Decode & Preview</button></div>
     </div>
     <div id="b64d-result" style="display:none">
@@ -372,23 +482,24 @@ footer{border-top:1px solid #1a2d4e;padding:20px;text-align:center;color:#334155
   </div>
 </div>
 
-<!-- ═══ TOOL: WATERMARK ═══ -->
+<!-- WATERMARK -->
 <div id="page-watermark" class="page-tool">
   <div class="tool-wrap">
     <button class="back" onclick="goHome()">← All Tools</button>
     <div class="tool-head"><div class="tool-head-icon">✍️</div><div><div class="tool-head-name">Watermark Tool</div><div class="tool-head-desc">Add custom text watermark to your image</div></div></div>
+    <div class="ad-slot ad-top"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2885801344245320" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
     <div class="two-col">
       <div>
         <div class="upload-box" onclick="document.getElementById('wm-file').click()">
           <input type="file" id="wm-file" accept="image/*" onchange="wmLoad(this)">
           <div class="upload-icon">🖼️</div>
           <div class="upload-title"><span>Click here</span> to choose image</div>
-          <div class="upload-sub">or drag & drop your image file here</div>
+          <div class="upload-sub">or drag & drop your image here</div>
           <div class="upload-sub">JPG · PNG · WebP · GIF · BMP</div>
         </div>
         <div class="settings">
-          <div class="settings-title">✍️ Watermark Settings</div>
-          <div class="field"><label>Text</label><input type="text" id="wm-text" value="© ImgTools.io" style="width:100%" oninput="wmPreview()"></div>
+          <div class="settings-title">✍️ Settings</div>
+          <div class="field"><label>Watermark Text</label><input type="text" id="wm-text" value="© ImageTools4Free" style="width:100%" oninput="wmPreview()"></div>
           <div class="field"><label>Font Size</label><div class="range-row"><input type="range" id="wm-size" min="12" max="200" value="48" oninput="document.getElementById('wm-sv').textContent=this.value+'px';wmPreview()"><span class="range-val" id="wm-sv">48px</span></div></div>
           <div class="field"><label>Opacity</label><div class="range-row"><input type="range" id="wm-op" min="5" max="100" value="50" oninput="document.getElementById('wm-ov').textContent=this.value+'%';wmPreview()"><span class="range-val" id="wm-ov">50%</span></div></div>
           <div class="field"><label>Position</label>
@@ -397,20 +508,16 @@ footer{border-top:1px solid #1a2d4e;padding:20px;text-align:center;color:#334155
               <option value="tr">Top Right</option><option value="tl">Top Left</option><option value="c">Center</option>
             </select>
           </div>
-          <div class="field"><label>Color</label><input type="color" id="wm-color" value="#ffffff" style="width:48px;height:36px;border:none;cursor:pointer;background:none" oninput="wmPreview()"></div>
+          <div class="field"><label>Color</label><input type="color" id="wm-color" value="#ffffff" style="width:48px;height:36px;border:none;cursor:pointer;background:none;border-radius:6px" oninput="wmPreview()"></div>
           <div class="btn-row"><button class="btn-main" id="wm-btn" onclick="doWatermark()" disabled>⬇️ Download with Watermark</button></div>
         </div>
       </div>
-      <div>
-        <div class="preview-box" id="wm-preview">
-          <div class="preview-empty"><div class="preview-empty-icon">✍️</div>Live watermark preview here<br><small>Upload an image on the left first</small></div>
-        </div>
-      </div>
+      <div><div class="preview-box" id="wm-preview"><div class="preview-empty"><div class="preview-empty-icon">✍️</div>Live preview here<br><small>Upload image on the left</small></div></div></div>
     </div>
   </div>
 </div>
 
-<!-- ═══ TOOL: CROPPER ═══ -->
+<!-- CROPPER -->
 <div id="page-cropper" class="page-tool">
   <div class="tool-wrap">
     <button class="back" onclick="goHome()">← All Tools</button>
@@ -421,12 +528,12 @@ footer{border-top:1px solid #1a2d4e;padding:20px;text-align:center;color:#334155
           <input type="file" id="crop-file" accept="image/*" onchange="cropLoad(this)">
           <div class="upload-icon">🖼️</div>
           <div class="upload-title"><span>Click here</span> to choose image</div>
-          <div class="upload-sub">or drag & drop your image file here</div>
+          <div class="upload-sub">or drag & drop your image here</div>
           <div class="upload-sub">JPG · PNG · WebP · GIF · BMP</div>
         </div>
         <div class="settings">
           <div class="settings-title">✂️ Crop Settings</div>
-          <div id="crop-info" style="color:#00d4ff;font-size:12px;margin-bottom:10px">Upload an image first, then enter crop values.</div>
+          <div id="crop-info" style="color:#00d4ff;font-size:12px;margin-bottom:10px">Upload an image first.</div>
           <div class="field"><label>Start from Left — X (pixels)</label><input type="number" id="crop-x" value="0" style="width:110px"></div>
           <div class="field"><label>Start from Top — Y (pixels)</label><input type="number" id="crop-y" value="0" style="width:110px"></div>
           <div class="field"><label>Crop Width (pixels)</label><input type="number" id="crop-w" value="400" style="width:110px"></div>
@@ -434,16 +541,12 @@ footer{border-top:1px solid #1a2d4e;padding:20px;text-align:center;color:#334155
           <div class="btn-row"><button class="btn-main" id="crop-btn" onclick="doCrop()" disabled>✂️ Crop & Download</button></div>
         </div>
       </div>
-      <div>
-        <div class="preview-box" id="crop-preview">
-          <div class="preview-empty"><div class="preview-empty-icon">✂️</div>Your image preview appears here<br><small>Upload an image on the left first</small></div>
-        </div>
-      </div>
+      <div><div class="preview-box" id="crop-preview"><div class="preview-empty"><div class="preview-empty-icon">✂️</div>Preview appears here<br><small>Upload image on the left</small></div></div></div>
     </div>
   </div>
 </div>
 
-<!-- ═══ TOOL: METADATA ═══ -->
+<!-- METADATA -->
 <div id="page-metadata" class="page-tool">
   <div class="tool-wrap">
     <button class="back" onclick="goHome()">← All Tools</button>
@@ -454,356 +557,343 @@ footer{border-top:1px solid #1a2d4e;padding:20px;text-align:center;color:#334155
           <input type="file" id="meta-file" accept="image/*" onchange="metaLoad(this)">
           <div class="upload-icon">🖼️</div>
           <div class="upload-title"><span>Click here</span> to choose image</div>
-          <div class="upload-sub">or drag & drop your image file here</div>
+          <div class="upload-sub">or drag & drop your image here</div>
           <div class="upload-sub">JPG · PNG · WebP · GIF · BMP</div>
         </div>
       </div>
       <div>
-        <div class="preview-box" id="meta-preview">
-          <div class="preview-empty"><div class="preview-empty-icon">ℹ️</div>Image info appears here<br><small>Upload an image on the left first</small></div>
-        </div>
-        <div id="meta-result" style="display:none;background:#0c1629;border:1px solid #1a2d4e;border-radius:12px;padding:14px;margin-top:12px">
-          <table class="meta-tbl" id="meta-tbl"></table>
-        </div>
+        <div class="preview-box" id="meta-preview"><div class="preview-empty"><div class="preview-empty-icon">ℹ️</div>Image info appears here<br><small>Upload image on the left</small></div></div>
+        <div id="meta-result" style="display:none;background:#0c1629;border:1px solid #1a2d4e;border-radius:12px;padding:14px;margin-top:12px"><table class="meta-tbl" id="meta-tbl"></table></div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- ══════════ CONTACT PAGE ══════════ -->
+<div id="page-contact">
+  <div class="contact-wrap">
+    <h1>Contact Us</h1>
+    <p>Have a question, suggestion or problem? We'd love to hear from you!</p>
+
+    <div class="contact-grid">
+      <div class="contact-box">
+        <div class="contact-box-icon">📧</div>
+        <div class="contact-box-title">Email Us</div>
+        <a class="contact-box-val" href="mailto:contact@imagetools4free.com">contact@imagetools4free.com</a>
+      </div>
+      <div class="contact-box">
+        <div class="contact-box-icon">🌐</div>
+        <div class="contact-box-title">Website</div>
+        <a class="contact-box-val" href="https://imagetools4free.vercel.app">imagetools4free.vercel.app</a>
+      </div>
+      <div class="contact-box">
+        <div class="contact-box-icon">⚡</div>
+        <div class="contact-box-title">Response Time</div>
+        <div class="contact-box-val">Within 24–48 hours</div>
+      </div>
+      <div class="contact-box">
+        <div class="contact-box-icon">🕐</div>
+        <div class="contact-box-title">Support Hours</div>
+        <div class="contact-box-val">Mon–Sat, 9am–6pm PKT</div>
+      </div>
+    </div>
+
+    <div class="form-box">
+      <h2>✉️ Send Us a Message</h2>
+      <div class="form-field"><label>Your Name</label><input type="text" id="c-name" placeholder="e.g. Ahmed Khan" style="width:100%"></div>
+      <div class="form-field"><label>Your Email</label><input type="email" id="c-email" placeholder="e.g. ahmed@gmail.com" style="width:100%"></div>
+      <div class="form-field"><label>Subject</label>
+        <select id="c-subject" style="width:100%">
+          <option>General Question</option>
+          <option>Tool not working</option>
+          <option>Feature Request</option>
+          <option>Report a Bug</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-field"><label>Message</label><textarea id="c-msg" placeholder="Type your message here..." style="width:100%"></textarea></div>
+      <button class="btn-main" onclick="sendContact()">📨 Send Message</button>
+      <div class="success-msg" id="c-success">✅ Thank you! Your message has been sent. We will reply within 24–48 hours.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ PRIVACY PAGE ══════════ -->
+<div id="page-privacy">
+  <div class="static-wrap">
+    <h1>Privacy Policy</h1>
+    <div class="updated">Last updated: May 19, 2025</div>
+    <div class="info-box"><p><strong style="color:#fff">Short version:</strong> <span style="color:#94a3b8">We do NOT collect, upload or store any of your images. All processing happens 100% in your browser. Your files never leave your device.</span></p></div>
+    <h2>1. Who We Are</h2>
+    <p>ImageTools4Free (imagetools4free.vercel.app) is a free browser-based image tools website offering compression, resizing, conversion, cropping, rotation and watermarking tools.</p>
+    <h2>2. What We Do NOT Collect</h2>
+    <ul>
+      <li>We do NOT upload your images to any server</li>
+      <li>We do NOT store your images anywhere</li>
+      <li>We do NOT collect your name, email or personal details</li>
+      <li>We do NOT require any account or signup</li>
+      <li>We do NOT sell data to third parties</li>
+    </ul>
+    <h2>3. How Our Tools Work</h2>
+    <p>All image processing happens entirely inside your browser using the HTML5 Canvas API. Images are processed locally on your device and downloaded directly to you. No image data is ever sent to our servers.</p>
+    <h2>4. Google AdSense & Cookies</h2>
+    <p>We use Google AdSense to display ads. Google may use cookies to serve ads based on your browsing history. You can opt out at <a href="https://www.google.com/settings/ads" target="_blank">Google Ads Settings</a>. See <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a> for details.</p>
+    <h2>5. Children's Privacy</h2>
+    <p>Our site is not directed at children under 13. We do not knowingly collect information from children under 13.</p>
+    <h2>6. Contact</h2>
+    <div class="info-box">
+      <p style="color:#94a3b8">Email: <a href="mailto:contact@imagetools4free.com">contact@imagetools4free.com</a></p>
+      <p style="color:#94a3b8;margin-top:6px">Website: <a href="https://imagetools4free.vercel.app">imagetools4free.vercel.app</a></p>
+    </div>
+  </div>
+</div>
+
 <div id="toast"></div>
-<footer>© 2025 ImgTools.io — All image processing happens in your browser. No files are uploaded to any server.</footer>
+
+<footer>
+  © 2025 ImageTools4Free — All image processing is local. Your files are never uploaded.
+  <br>
+  <a onclick="goHome()" style="cursor:pointer">🏠 Tools</a>
+  <a onclick="goPage('contact')" style="cursor:pointer">✉️ Contact</a>
+  <a onclick="goPage('privacy')" style="cursor:pointer">🔒 Privacy Policy</a>
+</footer>
 
 <script>
-// ── PAGE NAVIGATION ─────────────────────────────
-var allPages = ['home','compressor','resizer','converter','rotator','grayscale','base64enc','base64dec','watermark','cropper','metadata'];
-
+// ── NAVIGATION ──────────────────────────────────
+var pages = ['home','compressor','resizer','converter','rotator','grayscale','base64enc','base64dec','watermark','cropper','metadata','contact','privacy'];
 function goHome() {
-  allPages.forEach(function(p){ document.getElementById('page-'+p).style.display='none'; });
+  pages.forEach(function(p){ document.getElementById('page-'+p).style.display='none'; });
   document.getElementById('page-home').style.display='block';
   window.scrollTo(0,0);
 }
 function goTool(id) {
-  allPages.forEach(function(p){ document.getElementById('page-'+p).style.display='none'; });
+  pages.forEach(function(p){ document.getElementById('page-'+p).style.display='none'; });
+  document.getElementById('page-'+id).style.display='block';
+  window.scrollTo(0,0);
+}
+function goPage(id) {
+  pages.forEach(function(p){ document.getElementById('page-'+p).style.display='none'; });
   document.getElementById('page-'+id).style.display='block';
   window.scrollTo(0,0);
 }
 
 // ── HELPERS ─────────────────────────────────────
-var currentImgs = {};  // one per tool
-var currentFiles = {};
-
-function loadImg(file, toolId, callback) {
-  if (!file || !file.type.match(/^image\//)) { alert('Please choose an image file.'); return; }
-  currentFiles[toolId] = file;
-  var img = new Image();
-  img.onload = function(){ currentImgs[toolId] = img; callback(img, file); };
-  img.src = URL.createObjectURL(file);
+var imgs={}, files={};
+function loadImg(file, key, cb) {
+  if(!file||!file.type.match(/^image\//)){alert('Please choose an image file.');return;}
+  files[key]=file;
+  var img=new Image();
+  img.onload=function(){imgs[key]=img;cb(img,file);};
+  img.src=URL.createObjectURL(file);
 }
-function fmtSize(b) {
-  if (b < 1024) return b+'B';
-  if (b < 1048576) return (b/1024).toFixed(1)+' KB';
-  return (b/1048576).toFixed(2)+' MB';
+function fmtSize(b){
+  if(b<1024)return b+'B';
+  if(b<1048576)return(b/1024).toFixed(1)+' KB';
+  return(b/1048576).toFixed(2)+' MB';
 }
-function showToast(msg) {
-  var t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('on');
-  setTimeout(function(){ t.classList.remove('on'); }, 2500);
+function toast(msg){
+  var t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('on');
+  setTimeout(function(){t.classList.remove('on');},2500);
 }
-function dlBlob(blob, name) {
-  var a = document.createElement('a');
-  a.href = URL.createObjectURL(blob); a.download = name; a.click();
-  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+function dlBlob(blob,name){
+  var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);},1000);
 }
-function dlUrl(url, name) {
-  var a = document.createElement('a'); a.href = url; a.download = name; a.click();
-}
-function makeCanvas(w,h){ var c=document.createElement('canvas'); c.width=w; c.height=h; return c; }
-function showPreview(boxId, img, file) {
-  var box = document.getElementById(boxId);
-  box.innerHTML = '<img src="'+img.src+'" alt="preview"><div class="img-stats">'
-    +'<div class="img-stat"><div class="img-stat-val">'+img.width+'×'+img.height+'</div><div class="img-stat-key">Dimensions</div></div>'
+function dlUrl(url,name){var a=document.createElement('a');a.href=url;a.download=name;a.click();}
+function cv(w,h){var c=document.createElement('canvas');c.width=w;c.height=h;return c;}
+function showPreview(id,img,file){
+  document.getElementById(id).innerHTML='<img src="'+img.src+'" alt="preview">'
+    +'<div class="img-stats">'
+    +'<div class="img-stat"><div class="img-stat-val">'+img.width+'×'+img.height+'</div><div class="img-stat-key">Size</div></div>'
     +'<div class="img-stat"><div class="img-stat-val">'+fmtSize(file.size)+'</div><div class="img-stat-key">File Size</div></div>'
     +'<div class="img-stat"><div class="img-stat-val">'+file.type.split('/')[1].toUpperCase()+'</div><div class="img-stat-key">Format</div></div>'
     +'</div>';
 }
-function enableBtn(id){ var b=document.getElementById(id); if(b) b.disabled=false; }
+function enBtn(id){var b=document.getElementById(id);if(b)b.disabled=false;}
 
 // ── COMPRESSOR ──────────────────────────────────
-var compBlob = null;
-function compLoad(inp) {
-  loadImg(inp.files[0], 'comp', function(img, file) {
-    showPreview('comp-preview', img, file);
-    enableBtn('comp-btn');
-  });
-}
-function doCompress() {
-  var img = currentImgs['comp'];
-  if (!img) return;
-  var q = parseInt(document.getElementById('comp-q').value) / 100;
-  var fmt = document.getElementById('comp-fmt').value;
-  var c = makeCanvas(img.width, img.height);
-  var ctx = c.getContext('2d');
-  if (fmt === 'image/jpeg') { ctx.fillStyle='#fff'; ctx.fillRect(0,0,c.width,c.height); }
-  ctx.drawImage(img, 0, 0);
-  c.toBlob(function(blob) {
-    compBlob = blob;
-    var file = currentFiles['comp'];
-    var saved = ((1 - blob.size/file.size)*100).toFixed(1);
-    document.getElementById('comp-stats').innerHTML =
-      '<div class="img-stat"><div class="img-stat-val">'+fmtSize(file.size)+'</div><div class="img-stat-key">Original</div></div>'
+var compBlob=null;
+function compLoad(inp){loadImg(inp.files[0],'comp',function(img,file){showPreview('comp-preview',img,file);enBtn('comp-btn');});}
+function doCompress(){
+  var img=imgs['comp'];if(!img)return;
+  var q=parseInt(document.getElementById('comp-q').value)/100;
+  var fmt=document.getElementById('comp-fmt').value;
+  var c=cv(img.width,img.height),ctx=c.getContext('2d');
+  if(fmt==='image/jpeg'){ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);}
+  ctx.drawImage(img,0,0);
+  c.toBlob(function(blob){
+    compBlob=blob;
+    var saved=((1-blob.size/files['comp'].size)*100).toFixed(1);
+    document.getElementById('comp-stats').innerHTML=
+      '<div class="img-stat"><div class="img-stat-val">'+fmtSize(files['comp'].size)+'</div><div class="img-stat-key">Original</div></div>'
       +'<div class="img-stat"><div class="img-stat-val">'+fmtSize(blob.size)+'</div><div class="img-stat-key">Compressed</div></div>'
       +'<div class="img-stat"><div class="img-stat-val" style="color:#22c55e">-'+saved+'%</div><div class="img-stat-key">Saved</div></div>';
-    document.getElementById('comp-result').style.display = 'block';
-    var dl = document.getElementById('comp-dl'); dl.style.display='inline-flex';
-    showToast('✅ Compressed successfully!');
-  }, fmt, q);
+    document.getElementById('comp-result').style.display='block';
+    document.getElementById('comp-dl').style.display='inline-flex';
+    toast('✅ Compressed!');
+  },fmt,q);
 }
-function downloadCompressed() {
-  var ext = document.getElementById('comp-fmt').value === 'image/webp' ? 'webp' : 'jpg';
-  dlBlob(compBlob, 'compressed.'+ext);
-}
+function downloadCompressed(){var ext=document.getElementById('comp-fmt').value==='image/webp'?'webp':'jpg';dlBlob(compBlob,'compressed.'+ext);}
 
 // ── RESIZER ─────────────────────────────────────
-var rszLock = true;
-function rszLoad(inp) {
-  loadImg(inp.files[0], 'rsz', function(img, file) {
-    showPreview('rsz-preview', img, file);
-    document.getElementById('rsz-w').value = img.width;
-    document.getElementById('rsz-h').value = img.height;
-    enableBtn('rsz-btn');
-  });
+var rszLock=true;
+function rszLoad(inp){loadImg(inp.files[0],'rsz',function(img,file){showPreview('rsz-preview',img,file);document.getElementById('rsz-w').value=img.width;document.getElementById('rsz-h').value=img.height;enBtn('rsz-btn');});}
+function rszToggleLock(){rszLock=!rszLock;var b=document.getElementById('rsz-lock');b.textContent=rszLock?'🔒 Keep Proportions: ON':'🔓 Keep Proportions: OFF';b.classList.toggle('on',rszLock);}
+function rszSync(ch){
+  if(!rszLock||!imgs['rsz'])return;
+  var r=imgs['rsz'].width/imgs['rsz'].height;
+  if(ch==='w'){var w=parseInt(document.getElementById('rsz-w').value)||1;document.getElementById('rsz-h').value=Math.round(w/r);}
+  else{var h=parseInt(document.getElementById('rsz-h').value)||1;document.getElementById('rsz-w').value=Math.round(h*r);}
 }
-function rszToggleLock() {
-  rszLock = !rszLock;
-  var btn = document.getElementById('rsz-lock');
-  btn.textContent = rszLock ? '🔒 Keep Proportions: ON' : '🔓 Keep Proportions: OFF';
-  btn.classList.toggle('on', rszLock);
-}
-function rszSync(changed) {
-  if (!rszLock || !currentImgs['rsz']) return;
-  var ratio = currentImgs['rsz'].width / currentImgs['rsz'].height;
-  if (changed === 'w') {
-    var w = parseInt(document.getElementById('rsz-w').value) || 1;
-    document.getElementById('rsz-h').value = Math.round(w / ratio);
-  } else {
-    var h = parseInt(document.getElementById('rsz-h').value) || 1;
-    document.getElementById('rsz-w').value = Math.round(h * ratio);
-  }
-}
-function doResize() {
-  var img = currentImgs['rsz'];
-  if (!img) return;
-  var w = parseInt(document.getElementById('rsz-w').value);
-  var h = parseInt(document.getElementById('rsz-h').value);
-  if (!w || !h) { alert('Please enter a width and height.'); return; }
-  var c = makeCanvas(w, h); c.getContext('2d').drawImage(img,0,0,w,h);
-  c.toBlob(function(blob){ dlBlob(blob,'resized-'+w+'x'+h+'.png'); showToast('✅ Resized!'); }, 'image/png');
+function doResize(){
+  var img=imgs['rsz'];if(!img)return;
+  var w=parseInt(document.getElementById('rsz-w').value),h=parseInt(document.getElementById('rsz-h').value);
+  if(!w||!h){alert('Enter width and height.');return;}
+  var c=cv(w,h);c.getContext('2d').drawImage(img,0,0,w,h);
+  c.toBlob(function(blob){dlBlob(blob,'resized-'+w+'x'+h+'.png');toast('✅ Resized!');},'image/png');
 }
 
 // ── CONVERTER ───────────────────────────────────
-function cvtLoad(inp) {
-  loadImg(inp.files[0], 'cvt', function(img, file) {
-    showPreview('cvt-preview', img, file);
-    enableBtn('cvt-btn');
-  });
-}
-function doConvert() {
-  var img = currentImgs['cvt'];
-  if (!img) return;
-  var fmt = document.getElementById('cvt-fmt').value;
-  var q = parseInt(document.getElementById('cvt-q').value) / 100;
-  var ext = {jpeg:'jpg',png:'png',webp:'webp'}[fmt.split('/')[1]];
-  var c = makeCanvas(img.width, img.height); var ctx = c.getContext('2d');
-  if (fmt === 'image/jpeg') { ctx.fillStyle='#fff'; ctx.fillRect(0,0,c.width,c.height); }
-  ctx.drawImage(img, 0, 0);
-  c.toBlob(function(blob){ dlBlob(blob,'converted.'+ext); showToast('✅ Converted!'); }, fmt, q);
+function cvtLoad(inp){loadImg(inp.files[0],'cvt',function(img,file){showPreview('cvt-preview',img,file);enBtn('cvt-btn');});}
+function doConvert(){
+  var img=imgs['cvt'];if(!img)return;
+  var fmt=document.getElementById('cvt-fmt').value,q=parseInt(document.getElementById('cvt-q').value)/100;
+  var ext={jpeg:'jpg',png:'png',webp:'webp'}[fmt.split('/')[1]];
+  var c=cv(img.width,img.height),ctx=c.getContext('2d');
+  if(fmt==='image/jpeg'){ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);}
+  ctx.drawImage(img,0,0);
+  c.toBlob(function(blob){dlBlob(blob,'converted.'+ext);toast('✅ Converted!');},fmt,q);
 }
 
 // ── ROTATOR ─────────────────────────────────────
-var rotDeg=0, rotFlipH=false, rotFlipV=false;
-function rotLoad(inp) {
-  loadImg(inp.files[0], 'rot', function(img, file) {
-    rotDeg=0; rotFlipH=false; rotFlipV=false;
-    document.getElementById('rot-0').classList.add('on');
-    document.getElementById('rot-90').classList.remove('on');
-    document.getElementById('rot-180').classList.remove('on');
-    document.getElementById('rot-270').classList.remove('on');
-    rotShowPreview(); enableBtn('rot-btn');
-  });
+var rotDeg=0,rotFH=false,rotFV=false;
+function rotLoad(inp){loadImg(inp.files[0],'rot',function(img,file){rotDeg=0;rotFH=false;rotFV=false;rotShow();enBtn('rot-btn');});}
+function setRot(d){rotDeg=d;[0,90,180,270].forEach(function(x){document.getElementById('rot-'+x).classList.toggle('on',x===d);});rotShow();}
+function toggleFlipH(){rotFH=!rotFH;document.getElementById('rot-fh').classList.toggle('on',rotFH);rotShow();}
+function toggleFlipV(){rotFV=!rotFV;document.getElementById('rot-fv').classList.toggle('on',rotFV);rotShow();}
+function rotShow(){
+  var img=imgs['rot'];if(!img)return;
+  var box=document.getElementById('rot-preview'),el=box.querySelector('img');
+  if(!el){box.innerHTML='';el=document.createElement('img');el.style.cssText='max-width:100%;max-height:260px;border-radius:8px;transition:transform 0.3s';box.appendChild(el);}
+  el.src=img.src;el.style.transform='rotate('+rotDeg+'deg) scaleX('+(rotFH?-1:1)+') scaleY('+(rotFV?-1:1)+')';
 }
-function setRot(d) {
-  rotDeg = d;
-  [0,90,180,270].forEach(function(x){
-    document.getElementById('rot-'+x).classList.toggle('on', x===d);
-  });
-  rotShowPreview();
-}
-function toggleFlipH() { rotFlipH=!rotFlipH; document.getElementById('rot-fh').classList.toggle('on',rotFlipH); rotShowPreview(); }
-function toggleFlipV() { rotFlipV=!rotFlipV; document.getElementById('rot-fv').classList.toggle('on',rotFlipV); rotShowPreview(); }
-function rotShowPreview() {
-  var img = currentImgs['rot']; if (!img) return;
-  var box = document.getElementById('rot-preview');
-  var el = box.querySelector('img');
-  if (!el) {
-    box.innerHTML = '';
-    el = document.createElement('img');
-    el.style.cssText = 'max-width:100%;max-height:260px;border-radius:8px;transition:transform 0.3s';
-    box.appendChild(el);
-  }
-  el.src = img.src;
-  el.style.transform = 'rotate('+rotDeg+'deg) scaleX('+(rotFlipH?-1:1)+') scaleY('+(rotFlipV?-1:1)+')';
-}
-function doRotate() {
-  var img = currentImgs['rot']; if (!img) return;
-  var isOdd = rotDeg===90||rotDeg===270;
-  var cw = isOdd?img.height:img.width, ch = isOdd?img.width:img.height;
-  var c = makeCanvas(cw,ch), ctx=c.getContext('2d');
-  ctx.translate(cw/2,ch/2); ctx.rotate(rotDeg*Math.PI/180);
-  ctx.scale(rotFlipH?-1:1,rotFlipV?-1:1); ctx.drawImage(img,-img.width/2,-img.height/2);
-  c.toBlob(function(blob){ dlBlob(blob,'rotated.png'); showToast('✅ Done!'); }, 'image/png');
+function doRotate(){
+  var img=imgs['rot'];if(!img)return;
+  var odd=rotDeg===90||rotDeg===270,cw=odd?img.height:img.width,ch=odd?img.width:img.height;
+  var c=cv(cw,ch),ctx=c.getContext('2d');
+  ctx.translate(cw/2,ch/2);ctx.rotate(rotDeg*Math.PI/180);ctx.scale(rotFH?-1:1,rotFV?-1:1);ctx.drawImage(img,-img.width/2,-img.height/2);
+  c.toBlob(function(blob){dlBlob(blob,'rotated.png');toast('✅ Done!');},'image/png');
 }
 
 // ── GRAYSCALE ───────────────────────────────────
-function grayLoad(inp) {
-  loadImg(inp.files[0], 'gray', function(img, file) {
-    showPreview('gray-preview', img, file); enableBtn('gray-btn');
-  });
-}
-function doGrayscale() {
-  var img = currentImgs['gray']; if (!img) return;
-  var c = makeCanvas(img.width,img.height), ctx=c.getContext('2d');
-  ctx.drawImage(img,0,0);
-  var d = ctx.getImageData(0,0,c.width,c.height);
-  var m = document.getElementById('gray-mode').value;
-  for (var i=0;i<d.data.length;i+=4) {
-    var r=d.data[i],g=d.data[i+1],b=d.data[i+2],gr;
-    if(m==='luma') gr=0.299*r+0.587*g+0.114*b;
-    else if(m==='avg') gr=(r+g+b)/3;
-    else gr=(Math.max(r,g,b)+Math.min(r,g,b))/2;
-    d.data[i]=d.data[i+1]=d.data[i+2]=gr;
-  }
-  ctx.putImageData(d,0,0);
-  c.toBlob(function(blob){ dlBlob(blob,'grayscale.png'); showToast('✅ Done!'); }, 'image/png');
+function grayLoad(inp){loadImg(inp.files[0],'gray',function(img,file){showPreview('gray-preview',img,file);enBtn('gray-btn');});}
+function doGrayscale(){
+  var img=imgs['gray'];if(!img)return;
+  var c=cv(img.width,img.height),ctx=c.getContext('2d');ctx.drawImage(img,0,0);
+  var d=ctx.getImageData(0,0,c.width,c.height),m=document.getElementById('gray-mode').value;
+  for(var i=0;i<d.data.length;i+=4){var r=d.data[i],g=d.data[i+1],b=d.data[i+2],gr;
+    if(m==='luma')gr=0.299*r+0.587*g+0.114*b;else if(m==='avg')gr=(r+g+b)/3;else gr=(Math.max(r,g,b)+Math.min(r,g,b))/2;
+    d.data[i]=d.data[i+1]=d.data[i+2]=gr;}
+  ctx.putImageData(d,0,0);c.toBlob(function(blob){dlBlob(blob,'grayscale.png');toast('✅ Done!');},'image/png');
 }
 
-// ── BASE64 ENCODE ───────────────────────────────
-var b64str = '';
-function b64eLoad(inp) {
-  loadImg(inp.files[0], 'b64e', function(img, file) {
-    showPreview('b64e-preview', img, file);
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      b64str = e.target.result;
-      document.getElementById('b64e-info').textContent = 'Ready! Size: '+fmtSize(b64str.length);
-      var out = document.getElementById('b64e-out');
-      out.textContent = b64str.substring(0,300)+'...'; out.style.display='block';
-      document.getElementById('b64e-dl').style.display='inline-flex';
-      enableBtn('b64e-copy');
-    };
-    reader.readAsDataURL(file);
+// ── BASE64 ENC ──────────────────────────────────
+var b64str='';
+function b64eLoad(inp){
+  loadImg(inp.files[0],'b64e',function(img,file){
+    showPreview('b64e-preview',img,file);
+    var reader=new FileReader();
+    reader.onload=function(e){
+      b64str=e.target.result;
+      document.getElementById('b64e-info').textContent='Ready! Size: '+fmtSize(b64str.length);
+      var out=document.getElementById('b64e-out');out.textContent=b64str.substring(0,300)+'...';out.style.display='block';
+      document.getElementById('b64e-dl').style.display='inline-flex';enBtn('b64e-copy');
+    };reader.readAsDataURL(file);
   });
 }
-function copyB64() {
-  navigator.clipboard.writeText(b64str).then(function(){ showToast('📋 Copied!'); });
-}
-function dlB64() {
-  dlBlob(new Blob([b64str],{type:'text/plain'}), 'image-base64.txt');
-}
+function copyB64(){navigator.clipboard.writeText(b64str).then(function(){toast('📋 Copied!');});}
+function dlB64(){dlBlob(new Blob([b64str],{type:'text/plain'}),'image-base64.txt');}
 
-// ── BASE64 DECODE ───────────────────────────────
-var b64decUrl = '';
-function decodeB64() {
-  var raw = document.getElementById('b64d-in').value.trim();
-  if (!raw) { alert('Please paste a Base64 string first.'); return; }
-  b64decUrl = raw.startsWith('data:') ? raw : 'data:image/png;base64,'+raw;
-  var img = document.getElementById('b64d-img');
-  img.onerror = function(){ alert('❌ Invalid Base64. Please check the string.'); };
-  img.src = b64decUrl;
-  document.getElementById('b64d-result').style.display = 'block';
-  showToast('✅ Decoded!');
+// ── BASE64 DEC ──────────────────────────────────
+var b64decUrl='';
+function decodeB64(){
+  var raw=document.getElementById('b64d-in').value.trim();
+  if(!raw){alert('Paste a Base64 string first.');return;}
+  b64decUrl=raw.startsWith('data:')?raw:'data:image/png;base64,'+raw;
+  var img=document.getElementById('b64d-img');
+  img.onerror=function(){alert('Invalid Base64 string.');};
+  img.src=b64decUrl;document.getElementById('b64d-result').style.display='block';toast('✅ Decoded!');
 }
-function dlDecoded() { dlUrl(b64decUrl, 'decoded-image.png'); }
+function dlDecoded(){dlUrl(b64decUrl,'decoded-image.png');}
 
 // ── WATERMARK ───────────────────────────────────
-function wmLoad(inp) {
-  loadImg(inp.files[0], 'wm', function(img, file) {
-    wmPreview(); enableBtn('wm-btn');
-  });
-}
-function wmDraw(download) {
-  var img = currentImgs['wm']; if (!img) return null;
-  var text = document.getElementById('wm-text').value || 'Watermark';
-  var size = parseInt(document.getElementById('wm-size').value);
-  var op   = parseInt(document.getElementById('wm-op').value) / 100;
-  var color= document.getElementById('wm-color').value;
-  var pos  = document.getElementById('wm-pos').value;
-  var c = makeCanvas(img.width, img.height), ctx=c.getContext('2d');
-  ctx.drawImage(img, 0, 0);
-  ctx.font = 'bold '+size+'px Arial';
-  ctx.fillStyle = color; ctx.globalAlpha = op;
-  var tw = ctx.measureText(text).width, pad = size*0.5;
-  var x, y;
+function wmLoad(inp){loadImg(inp.files[0],'wm',function(img,file){wmPreview();enBtn('wm-btn');});}
+function wmDraw(){
+  var img=imgs['wm'];if(!img)return null;
+  var text=document.getElementById('wm-text').value||'Watermark';
+  var size=parseInt(document.getElementById('wm-size').value);
+  var op=parseInt(document.getElementById('wm-op').value)/100;
+  var color=document.getElementById('wm-color').value;
+  var pos=document.getElementById('wm-pos').value;
+  var c=cv(img.width,img.height),ctx=c.getContext('2d');
+  ctx.drawImage(img,0,0);ctx.font='bold '+size+'px Arial';ctx.fillStyle=color;ctx.globalAlpha=op;
+  var tw=ctx.measureText(text).width,pad=size*0.5,x,y;
   if(pos==='br'){x=img.width-tw-pad;y=img.height-pad;}
   else if(pos==='bl'){x=pad;y=img.height-pad;}
   else if(pos==='tr'){x=img.width-tw-pad;y=size+pad;}
   else if(pos==='tl'){x=pad;y=size+pad;}
   else{x=(img.width-tw)/2;y=(img.height+size)/2;}
-  ctx.fillText(text, x, y);
-  return c;
+  ctx.fillText(text,x,y);return c;
 }
-function wmPreview() {
-  var img = currentImgs['wm']; if (!img) return;
-  var c = wmDraw(false);
-  var box = document.getElementById('wm-preview');
-  var el = box.querySelector('img');
-  if (!el) { box.innerHTML=''; el=document.createElement('img'); el.style.cssText='max-width:100%;max-height:260px;border-radius:8px'; box.appendChild(el); }
-  el.src = c.toDataURL();
+function wmPreview(){
+  var c=wmDraw();if(!c)return;
+  var box=document.getElementById('wm-preview'),el=box.querySelector('img');
+  if(!el){box.innerHTML='';el=document.createElement('img');el.style.cssText='max-width:100%;max-height:260px;border-radius:8px';box.appendChild(el);}
+  el.src=c.toDataURL();
 }
-function doWatermark() {
-  var c = wmDraw(true); if (!c) return;
-  c.toBlob(function(blob){ dlBlob(blob,'watermarked.png'); showToast('✅ Watermark added!'); }, 'image/png');
-}
+function doWatermark(){var c=wmDraw();if(!c)return;c.toBlob(function(blob){dlBlob(blob,'watermarked.png');toast('✅ Done!');},'image/png');}
 
 // ── CROPPER ─────────────────────────────────────
-function cropLoad(inp) {
-  loadImg(inp.files[0], 'crop', function(img, file) {
-    showPreview('crop-preview', img, file);
-    document.getElementById('crop-w').value = Math.min(400, img.width);
-    document.getElementById('crop-h').value = Math.min(400, img.height);
-    document.getElementById('crop-info').textContent = 'Image size: '+img.width+'×'+img.height+' px';
-    enableBtn('crop-btn');
+function cropLoad(inp){
+  loadImg(inp.files[0],'crop',function(img,file){
+    showPreview('crop-preview',img,file);
+    document.getElementById('crop-w').value=Math.min(400,img.width);
+    document.getElementById('crop-h').value=Math.min(400,img.height);
+    document.getElementById('crop-info').textContent='Image: '+img.width+'×'+img.height+' px';
+    enBtn('crop-btn');
   });
 }
-function doCrop() {
-  var img = currentImgs['crop']; if (!img) return;
-  var x=parseInt(document.getElementById('crop-x').value)||0;
-  var y=parseInt(document.getElementById('crop-y').value)||0;
-  var w=parseInt(document.getElementById('crop-w').value)||100;
-  var h=parseInt(document.getElementById('crop-h').value)||100;
-  var c = makeCanvas(w,h); c.getContext('2d').drawImage(img,x,y,w,h,0,0,w,h);
-  c.toBlob(function(blob){ dlBlob(blob,'cropped.png'); showToast('✅ Cropped!'); }, 'image/png');
+function doCrop(){
+  var img=imgs['crop'];if(!img)return;
+  var x=parseInt(document.getElementById('crop-x').value)||0,y=parseInt(document.getElementById('crop-y').value)||0;
+  var w=parseInt(document.getElementById('crop-w').value)||100,h=parseInt(document.getElementById('crop-h').value)||100;
+  var c=cv(w,h);c.getContext('2d').drawImage(img,x,y,w,h,0,0,w,h);
+  c.toBlob(function(blob){dlBlob(blob,'cropped.png');toast('✅ Cropped!');},'image/png');
 }
 
 // ── METADATA ────────────────────────────────────
-function metaLoad(inp) {
-  loadImg(inp.files[0], 'meta', function(img, file) {
-    var box = document.getElementById('meta-preview');
-    box.innerHTML = '<img src="'+img.src+'" alt="preview" style="max-width:100%;max-height:220px;border-radius:8px">';
-    var rows = [
-      ['File Name', file.name],
-      ['File Type', file.type||'Unknown'],
-      ['File Size', fmtSize(file.size)+' ('+file.size.toLocaleString()+' bytes)'],
-      ['Width', img.width+' pixels'],
-      ['Height', img.height+' pixels'],
-      ['Aspect Ratio', (img.width/img.height).toFixed(3)+':1'],
-      ['Megapixels', (img.width*img.height/1e6).toFixed(2)+' MP'],
-      ['Last Modified', new Date(file.lastModified).toLocaleString()],
-    ];
-    document.getElementById('meta-tbl').innerHTML = rows.map(function(r){
-      return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>';
-    }).join('');
-    document.getElementById('meta-result').style.display = 'block';
+function metaLoad(inp){
+  loadImg(inp.files[0],'meta',function(img,file){
+    var box=document.getElementById('meta-preview');
+    box.innerHTML='<img src="'+img.src+'" alt="preview" style="max-width:100%;max-height:220px;border-radius:8px">';
+    var rows=[['File Name',file.name],['File Type',file.type||'Unknown'],['File Size',fmtSize(file.size)+' ('+file.size.toLocaleString()+' bytes)'],['Width',img.width+' pixels'],['Height',img.height+' pixels'],['Aspect Ratio',(img.width/img.height).toFixed(3)+':1'],['Megapixels',(img.width*img.height/1e6).toFixed(2)+' MP'],['Last Modified',new Date(file.lastModified).toLocaleString()]];
+    document.getElementById('meta-tbl').innerHTML=rows.map(function(r){return'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>';}).join('');
+    document.getElementById('meta-result').style.display='block';
   });
+}
+
+// ── CONTACT FORM ────────────────────────────────
+function sendContact(){
+  var name=document.getElementById('c-name').value.trim();
+  var email=document.getElementById('c-email').value.trim();
+  var msg=document.getElementById('c-msg').value.trim();
+  if(!name||!email||!msg){alert('Please fill in all fields.');return;}
+  document.getElementById('c-success').style.display='block';
+  document.getElementById('c-name').value='';
+  document.getElementById('c-email').value='';
+  document.getElementById('c-msg').value='';
+  toast('✅ Message sent!');
 }
 </script>
 </body>
