@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crop Image Online – Free Image Cropper</title>
+<meta name="description" content="Crop any part of an image using exact pixel values. Free online cropper that runs entirely in your browser.">
+<link rel="canonical" href="https://imagetools4free.vercel.app/crop-image/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#060d1f">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ImageTools4Free">
+<meta property="og:title" content="Crop Image Online – Free Image Cropper">
+<meta property="og:description" content="Crop any part of an image using exact pixel values. Free online cropper that runs entirely in your browser.">
+<meta property="og:url" content="https://imagetools4free.vercel.app/crop-image/">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/assets/style.css">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="site-nav" aria-label="Main">
+  <a class="logo" href="/">Image<b>Tools</b>4Free</a>
+  <div class="nav-links">
+    <a href="/">Tools</a>
+    <a href="/contact/">Contact</a>
+    <a href="/privacy-policy/">Privacy</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="tool-wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span aria-current="page">Image Cropper</span></nav>
+    <div class="tool-head"><div class="tool-head-icon" aria-hidden="true">✂️</div><div><h1 class="tool-head-name">Image Cropper</h1><p class="tool-head-desc">Crop any part of your image precisely</p></div></div>
+    <div class="two-col">
+      <div>
+        <div class="upload-box">
+          <input type="file" id="crop-file" accept="image/*" onchange="cropLoad(this)">
+          <div class="upload-icon">🖼️</div>
+          <div class="upload-title"><span>Click here</span> to choose image</div>
+          <div class="upload-sub">or drag &amp; drop your image here</div>
+          <div class="upload-sub">JPG · PNG · WebP · GIF · BMP</div>
+        </div>
+        <div class="settings">
+          <div class="settings-title">✂️ Crop Settings</div>
+          <div id="crop-info" style="color:#00d4ff;font-size:12px;margin-bottom:10px">Upload an image first.</div>
+          <div class="field"><label>Start from Left — X (pixels)</label><input type="number" id="crop-x" value="0" style="width:110px"></div>
+          <div class="field"><label>Start from Top — Y (pixels)</label><input type="number" id="crop-y" value="0" style="width:110px"></div>
+          <div class="field"><label>Crop Width (pixels)</label><input type="number" id="crop-w" value="400" style="width:110px"></div>
+          <div class="field"><label>Crop Height (pixels)</label><input type="number" id="crop-h" value="400" style="width:110px"></div>
+          <div class="btn-row"><button class="btn-main" id="crop-btn" onclick="doCrop()" disabled>✂️ Crop &amp; Download</button></div>
+        </div>
+      </div>
+      <div><div class="preview-box" id="crop-preview"><div class="preview-empty"><div class="preview-empty-icon">✂️</div>Preview appears here<br><small>Upload image on the left</small></div></div></div>
+    </div>
+
+    <section class="more-tools">
+      <h2>More free image tools</h2>
+      <div class="grid compact">
+        <a class="card" href="/image-compressor/"><div class="card-icon" aria-hidden="true">🗜️</div><div class="card-name">Image Compressor</div><div class="card-desc">Reduce file size, keep quality</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/image-resizer/"><div class="card-icon" aria-hidden="true">📐</div><div class="card-name">Image Resizer</div><div class="card-desc">Resize to any width &amp; height</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/image-converter/"><div class="card-icon" aria-hidden="true">🔄</div><div class="card-name">Format Converter</div><div class="card-desc">Convert JPG, PNG, WebP</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/rotate-flip-image/"><div class="card-icon" aria-hidden="true">🔃</div><div class="card-name">Rotate &amp; Flip</div><div class="card-desc">Rotate or flip any image</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/grayscale-image/"><div class="card-icon" aria-hidden="true">🌑</div><div class="card-name">Grayscale Filter</div><div class="card-desc">Convert to black &amp; white</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/image-to-base64/"><div class="card-icon" aria-hidden="true">💻</div><div class="card-name">Image to Base64</div><div class="card-desc">Encode image to Base64</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/base64-to-image/"><div class="card-icon" aria-hidden="true">🖼️</div><div class="card-name">Base64 to Image</div><div class="card-desc">Decode Base64 to image</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/watermark-image/"><div class="card-icon" aria-hidden="true">✍️</div><div class="card-name">Watermark Tool</div><div class="card-desc">Add text watermark</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/image-info/"><div class="card-icon" aria-hidden="true">ℹ️</div><div class="card-name">Image Info</div><div class="card-desc">View dimensions &amp; details</div><div class="card-hint">Open →</div></a>
+      </div>
+    </section>
+  </div>
+</main>
+<div id="toast" role="status" aria-live="polite"></div>
+<footer>
+  <div class="foot-tools">
+    <a href="/image-compressor/">Image Compressor</a>
+    <a href="/image-resizer/">Image Resizer</a>
+    <a href="/image-converter/">Format Converter</a>
+    <a href="/rotate-flip-image/">Rotate &amp; Flip</a>
+    <a href="/grayscale-image/">Grayscale Filter</a>
+    <a href="/image-to-base64/">Image to Base64</a>
+    <a href="/base64-to-image/">Base64 to Image</a>
+    <a href="/watermark-image/">Watermark Tool</a>
+    <a href="/crop-image/">Image Cropper</a>
+    <a href="/image-info/">Image Info</a>
+  </div>
+  <div class="foot-links">
+    <a href="/">Home</a>
+    <a href="/contact/">Contact</a>
+    <a href="/privacy-policy/">Privacy Policy</a>
+  </div>
+  <div>© 2026 ImageTools4Free — All image processing happens in your browser. Your files are never uploaded.</div>
+</footer>
+<script src="/assets/common.js"></script>
+<script>
+function cropLoad(inp){
+  loadImg(inp.files[0],'crop',function(img,file){
+    showPreview('crop-preview',img,file);
+    document.getElementById('crop-w').value=Math.min(400,img.width);
+    document.getElementById('crop-h').value=Math.min(400,img.height);
+    document.getElementById('crop-info').textContent='Image: '+img.width+'×'+img.height+' px';
+    enBtn('crop-btn');
+  });
+}
+function doCrop(){
+  var img=imgs['crop'];if(!img)return;
+  var x=parseInt(document.getElementById('crop-x').value)||0,y=parseInt(document.getElementById('crop-y').value)||0;
+  var w=parseInt(document.getElementById('crop-w').value)||100,h=parseInt(document.getElementById('crop-h').value)||100;
+  var c=cv(w,h);c.getContext('2d').drawImage(img,x,y,w,h,0,0,w,h);
+  c.toBlob(function(blob){dlBlob(blob,'cropped.png');toast('✅ Cropped!');},'image/png');
+}
+</script>
+</body>
+</html>

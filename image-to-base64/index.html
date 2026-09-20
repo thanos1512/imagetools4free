@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image to Base64 Converter – Encode Images Online</title>
+<meta name="description" content="Convert any image to a Base64 data URI string. Copy the code or save it as a text file. Free, fast and private.">
+<link rel="canonical" href="https://imagetools4free.vercel.app/image-to-base64/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#060d1f">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ImageTools4Free">
+<meta property="og:title" content="Image to Base64 Converter – Encode Images Online">
+<meta property="og:description" content="Convert any image to a Base64 data URI string. Copy the code or save it as a text file. Free, fast and private.">
+<meta property="og:url" content="https://imagetools4free.vercel.app/image-to-base64/">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/assets/style.css">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="site-nav" aria-label="Main">
+  <a class="logo" href="/">Image<b>Tools</b>4Free</a>
+  <div class="nav-links">
+    <a href="/">Tools</a>
+    <a href="/contact/">Contact</a>
+    <a href="/privacy-policy/">Privacy</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="tool-wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span aria-current="page">Image to Base64</span></nav>
+    <div class="tool-head"><div class="tool-head-icon" aria-hidden="true">💻</div><div><h1 class="tool-head-name">Image to Base64</h1><p class="tool-head-desc">Convert image to a Base64 encoded string</p></div></div>
+    <div class="two-col">
+      <div>
+        <div class="upload-box">
+          <input type="file" id="b64e-file" accept="image/*" onchange="b64eLoad(this)">
+          <div class="upload-icon">🖼️</div>
+          <div class="upload-title"><span>Click here</span> to choose image</div>
+          <div class="upload-sub">or drag &amp; drop your image here</div>
+          <div class="upload-sub">JPG · PNG · WebP · GIF · BMP</div>
+        </div>
+        <div class="settings">
+          <div class="settings-title">💻 Output</div>
+          <div id="b64e-info" style="color:#64748b;font-size:12px;margin-bottom:10px">Upload an image to generate Base64 code.</div>
+          <div class="btn-row">
+            <button class="btn-main" id="b64e-copy" onclick="copyB64()" disabled>📋 Copy Code</button>
+            <button class="btn-green" id="b64e-dl" onclick="dlB64()">⬇️ Save .txt</button>
+          </div>
+          <div class="out-box" id="b64e-out" style="display:none"></div>
+        </div>
+      </div>
+      <div><div class="preview-box" id="b64e-preview"><div class="preview-empty"><div class="preview-empty-icon">💻</div>Preview appears here<br><small>Upload image on the left</small></div></div></div>
+    </div>
+
+    <section class="more-tools">
+      <h2>More free image tools</h2>
+      <div class="grid compact">
+        <a class="card" href="/image-compressor/"><div class="card-icon" aria-hidden="true">🗜️</div><div class="card-name">Image Compressor</div><div class="card-desc">Reduce file size, keep quality</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/image-resizer/"><div class="card-icon" aria-hidden="true">📐</div><div class="card-name">Image Resizer</div><div class="card-desc">Resize to any width &amp; height</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/image-converter/"><div class="card-icon" aria-hidden="true">🔄</div><div class="card-name">Format Converter</div><div class="card-desc">Convert JPG, PNG, WebP</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/rotate-flip-image/"><div class="card-icon" aria-hidden="true">🔃</div><div class="card-name">Rotate &amp; Flip</div><div class="card-desc">Rotate or flip any image</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/grayscale-image/"><div class="card-icon" aria-hidden="true">🌑</div><div class="card-name">Grayscale Filter</div><div class="card-desc">Convert to black &amp; white</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/base64-to-image/"><div class="card-icon" aria-hidden="true">🖼️</div><div class="card-name">Base64 to Image</div><div class="card-desc">Decode Base64 to image</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/watermark-image/"><div class="card-icon" aria-hidden="true">✍️</div><div class="card-name">Watermark Tool</div><div class="card-desc">Add text watermark</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/crop-image/"><div class="card-icon" aria-hidden="true">✂️</div><div class="card-name">Image Cropper</div><div class="card-desc">Crop any part precisely</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/image-info/"><div class="card-icon" aria-hidden="true">ℹ️</div><div class="card-name">Image Info</div><div class="card-desc">View dimensions &amp; details</div><div class="card-hint">Open →</div></a>
+      </div>
+    </section>
+  </div>
+</main>
+<div id="toast" role="status" aria-live="polite"></div>
+<footer>
+  <div class="foot-tools">
+    <a href="/image-compressor/">Image Compressor</a>
+    <a href="/image-resizer/">Image Resizer</a>
+    <a href="/image-converter/">Format Converter</a>
+    <a href="/rotate-flip-image/">Rotate &amp; Flip</a>
+    <a href="/grayscale-image/">Grayscale Filter</a>
+    <a href="/image-to-base64/">Image to Base64</a>
+    <a href="/base64-to-image/">Base64 to Image</a>
+    <a href="/watermark-image/">Watermark Tool</a>
+    <a href="/crop-image/">Image Cropper</a>
+    <a href="/image-info/">Image Info</a>
+  </div>
+  <div class="foot-links">
+    <a href="/">Home</a>
+    <a href="/contact/">Contact</a>
+    <a href="/privacy-policy/">Privacy Policy</a>
+  </div>
+  <div>© 2026 ImageTools4Free — All image processing happens in your browser. Your files are never uploaded.</div>
+</footer>
+<script src="/assets/common.js"></script>
+<script>
+var b64str='';
+function b64eLoad(inp){
+  loadImg(inp.files[0],'b64e',function(img,file){
+    showPreview('b64e-preview',img,file);
+    var reader=new FileReader();
+    reader.onload=function(e){
+      b64str=e.target.result;
+      document.getElementById('b64e-info').textContent='Ready! Size: '+fmtSize(b64str.length);
+      var out=document.getElementById('b64e-out');out.textContent=b64str.substring(0,300)+'...';out.style.display='block';
+      document.getElementById('b64e-dl').style.display='inline-flex';enBtn('b64e-copy');
+    };reader.readAsDataURL(file);
+  });
+}
+function copyB64(){navigator.clipboard.writeText(b64str).then(function(){toast('📋 Copied!');});}
+function dlB64(){dlBlob(new Blob([b64str],{type:'text/plain'}),'image-base64.txt');}
+</script>
+</body>
+</html>

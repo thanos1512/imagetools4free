@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Image Compressor – Reduce Image File Size Online</title>
+<meta name="description" content="Compress JPG, PNG and WebP images online for free. Reduce file size with adjustable quality, right in your browser. No upload, no signup.">
+<link rel="canonical" href="https://imagetools4free.vercel.app/image-compressor/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#060d1f">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ImageTools4Free">
+<meta property="og:title" content="Free Image Compressor – Reduce Image File Size Online">
+<meta property="og:description" content="Compress JPG, PNG and WebP images online for free. Reduce file size with adjustable quality, right in your browser. No upload, no signup.">
+<meta property="og:url" content="https://imagetools4free.vercel.app/image-compressor/">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/assets/style.css">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="site-nav" aria-label="Main">
+  <a class="logo" href="/">Image<b>Tools</b>4Free</a>
+  <div class="nav-links">
+    <a href="/">Tools</a>
+    <a href="/contact/">Contact</a>
+    <a href="/privacy-policy/">Privacy</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="tool-wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span aria-current="page">Image Compressor</span></nav>
+    <div class="tool-head"><div class="tool-head-icon" aria-hidden="true">🗜️</div><div><h1 class="tool-head-name">Image Compressor</h1><p class="tool-head-desc">Reduce file size while keeping visual quality</p></div></div>
+    <div class="two-col">
+      <div>
+        <div class="upload-box">
+          <input type="file" id="comp-file" accept="image/*" onchange="compLoad(this)">
+          <div class="upload-icon">🖼️</div>
+          <div class="upload-title"><span>Click here</span> to choose image</div>
+          <div class="upload-sub">or drag &amp; drop your image here</div>
+          <div class="upload-sub">JPG · PNG · WebP · GIF · BMP</div>
+        </div>
+        <div class="settings">
+          <div class="settings-title">⚙️ Settings</div>
+          <div class="field"><label>Quality — lower = smaller file size</label>
+            <div class="range-row"><input type="range" id="comp-q" min="1" max="100" value="75" oninput="document.getElementById('comp-qv').textContent=this.value+'%'"><span class="range-val" id="comp-qv">75%</span></div>
+          </div>
+          <div class="field"><label>Output Format</label>
+            <select id="comp-fmt" style="width:100%"><option value="image/jpeg">JPEG (.jpg) — smallest size</option><option value="image/webp">WebP (.webp) — best quality/size</option></select>
+          </div>
+          <div class="btn-row">
+            <button class="btn-main" id="comp-btn" onclick="doCompress()" disabled>🗜️ Compress Image</button>
+            <button class="btn-green" id="comp-dl" onclick="downloadCompressed()">⬇️ Download</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="preview-box" id="comp-preview"><div class="preview-empty"><div class="preview-empty-icon">🗜️</div>Preview appears here<br><small>Upload image on the left</small></div></div>
+        <div class="result-panel" id="comp-result"><div class="result-title">✅ Result</div><div class="img-stats" id="comp-stats"></div></div>
+      </div>
+    </div>
+
+    <section class="more-tools">
+      <h2>More free image tools</h2>
+      <div class="grid compact">
+        <a class="card" href="/image-resizer/"><div class="card-icon" aria-hidden="true">📐</div><div class="card-name">Image Resizer</div><div class="card-desc">Resize to any width &amp; height</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/image-converter/"><div class="card-icon" aria-hidden="true">🔄</div><div class="card-name">Format Converter</div><div class="card-desc">Convert JPG, PNG, WebP</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/rotate-flip-image/"><div class="card-icon" aria-hidden="true">🔃</div><div class="card-name">Rotate &amp; Flip</div><div class="card-desc">Rotate or flip any image</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/grayscale-image/"><div class="card-icon" aria-hidden="true">🌑</div><div class="card-name">Grayscale Filter</div><div class="card-desc">Convert to black &amp; white</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/image-to-base64/"><div class="card-icon" aria-hidden="true">💻</div><div class="card-name">Image to Base64</div><div class="card-desc">Encode image to Base64</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/base64-to-image/"><div class="card-icon" aria-hidden="true">🖼️</div><div class="card-name">Base64 to Image</div><div class="card-desc">Decode Base64 to image</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/watermark-image/"><div class="card-icon" aria-hidden="true">✍️</div><div class="card-name">Watermark Tool</div><div class="card-desc">Add text watermark</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/crop-image/"><div class="card-icon" aria-hidden="true">✂️</div><div class="card-name">Image Cropper</div><div class="card-desc">Crop any part precisely</div><div class="card-hint">Open →</div></a>
+        <a class="card" href="/image-info/"><div class="card-icon" aria-hidden="true">ℹ️</div><div class="card-name">Image Info</div><div class="card-desc">View dimensions &amp; details</div><div class="card-hint">Open →</div></a>
+      </div>
+    </section>
+  </div>
+</main>
+<div id="toast" role="status" aria-live="polite"></div>
+<footer>
+  <div class="foot-tools">
+    <a href="/image-compressor/">Image Compressor</a>
+    <a href="/image-resizer/">Image Resizer</a>
+    <a href="/image-converter/">Format Converter</a>
+    <a href="/rotate-flip-image/">Rotate &amp; Flip</a>
+    <a href="/grayscale-image/">Grayscale Filter</a>
+    <a href="/image-to-base64/">Image to Base64</a>
+    <a href="/base64-to-image/">Base64 to Image</a>
+    <a href="/watermark-image/">Watermark Tool</a>
+    <a href="/crop-image/">Image Cropper</a>
+    <a href="/image-info/">Image Info</a>
+  </div>
+  <div class="foot-links">
+    <a href="/">Home</a>
+    <a href="/contact/">Contact</a>
+    <a href="/privacy-policy/">Privacy Policy</a>
+  </div>
+  <div>© 2026 ImageTools4Free — All image processing happens in your browser. Your files are never uploaded.</div>
+</footer>
+<script src="/assets/common.js"></script>
+<script>
+var compBlob=null;
+function compLoad(inp){loadImg(inp.files[0],'comp',function(img,file){showPreview('comp-preview',img,file);enBtn('comp-btn');});}
+function doCompress(){
+  var img=imgs['comp'];if(!img)return;
+  var q=parseInt(document.getElementById('comp-q').value)/100;
+  var fmt=document.getElementById('comp-fmt').value;
+  var c=cv(img.width,img.height),ctx=c.getContext('2d');
+  if(fmt==='image/jpeg'){ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);}
+  ctx.drawImage(img,0,0);
+  c.toBlob(function(blob){
+    compBlob=blob;
+    var saved=((1-blob.size/files['comp'].size)*100).toFixed(1);
+    document.getElementById('comp-stats').innerHTML=
+      '<div class="img-stat"><div class="img-stat-val">'+fmtSize(files['comp'].size)+'</div><div class="img-stat-key">Original</div></div>'
+      +'<div class="img-stat"><div class="img-stat-val">'+fmtSize(blob.size)+'</div><div class="img-stat-key">Compressed</div></div>'
+      +(parseFloat(saved)>=0
+        ? '<div class="img-stat"><div class="img-stat-val" style="color:#22c55e">-'+saved+'%</div><div class="img-stat-key">Saved</div></div>'
+        : '<div class="img-stat"><div class="img-stat-val" style="color:#f59e0b">+'+Math.abs(parseFloat(saved)).toFixed(1)+'%</div><div class="img-stat-key">Larger - lower the quality</div></div>');
+    document.getElementById('comp-result').style.display='block';
+    document.getElementById('comp-dl').style.display='inline-flex';
+    toast('✅ Compressed!');
+  },fmt,q);
+}
+function downloadCompressed(){var ext=document.getElementById('comp-fmt').value==='image/webp'?'webp':'jpg';dlBlob(compBlob,'compressed.'+ext);}
+</script>
+</body>
+</html>
