@@ -2,67 +2,77 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://imagetools4free.vercel.app/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://imagetools4free.vercel.app/image-compressor/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imagetools4free.vercel.app/image-resizer/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imagetools4free.vercel.app/image-converter/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imagetools4free.vercel.app/rotate-flip-image/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imagetools4free.vercel.app/grayscale-image/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imagetools4free.vercel.app/image-to-base64/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imagetools4free.vercel.app/base64-to-image/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imagetools4free.vercel.app/watermark-image/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imagetools4free.vercel.app/crop-image/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://imagetools4free.vercel.app/image-info/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://imagetools4free.vercel.app/about/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://imagetools4free.vercel.app/contact/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://imagetools4free.vercel.app/privacy-policy/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://imagetools4free.vercel.app/terms/</loc>
+    <lastmod>2026-09-21</lastmod>
     <priority>0.3</priority>
   </url>
 </urlset>
