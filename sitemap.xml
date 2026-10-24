@@ -75,4 +75,24 @@
     <lastmod>2026-10-24</lastmod>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://imagetools4free.vercel.app/guides/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imagetools4free.vercel.app/guides/reduce-image-size/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imagetools4free.vercel.app/guides/jpg-vs-png-vs-webp/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://imagetools4free.vercel.app/guides/photo-size-for-online-forms/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <priority>0.7</priority>
+  </url>
 </urlset>

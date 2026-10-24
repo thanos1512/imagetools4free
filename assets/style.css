@@ -178,3 +178,16 @@ a:focus-visible,button:focus-visible,.upload-box:focus-visible,select:focus-visi
 .table-wrap table{width:100%;border-collapse:collapse;font-size:13px}
 .table-wrap th{text-align:left;color:#fff;background:#101f38;padding:9px 12px;border-bottom:1px solid #1a2d4e}
 .table-wrap td{padding:9px 12px;border-bottom:1px solid #1a2d4e;color:#94a3b8}
+/* ---- guides ---- */
+.guide-list{display:grid;gap:14px;margin-top:10px}
+.guide-card{display:block;background:#0c1629;border:1px solid #1a2d4e;border-radius:12px;padding:20px;text-decoration:none;transition:border-color 0.2s}
+.guide-card:hover{border-color:#00d4ff}
+.static-wrap .guide-card h2{margin:0 0 6px;color:#fff;font-size:18px}
+.static-wrap .guide-card p{margin:0 0 8px}
+.guide-card span{color:#00d4ff;font-size:13px;font-weight:700}
+.article ol{color:#94a3b8;padding-left:22px;margin-bottom:12px;line-height:1.7}
+.article li{margin-bottom:6px;line-height:1.7}
+.article strong{color:#e2e8f0}
+.article code{background:#101f38;border:1px solid #1a2d4e;border-radius:4px;padding:1px 5px;font-size:13px;color:#e2e8f0}
+.read-next{margin-top:36px;padding-top:20px;border-top:1px solid #1a2d4e}
+@media(max-width:640px){.site-nav{flex-wrap:wrap;gap:8px 16px;padding:12px 16px}.nav-links{flex-wrap:wrap;gap:6px 16px}}
