@@ -19,6 +19,7 @@
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Image Compressor", "url": "https://imagetools4free.vercel.app/image-compressor/", "description": "Compress JPG, PNG and WebP images online for free. Reduce file size with adjustable quality, right in your browser. No upload, no signup.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Any (runs in the browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://imagetools4free.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Image Compressor", "item": "https://imagetools4free.vercel.app/image-compressor/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is the Image Compressor really free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. There is no limit on how many images you can compress, no signup and no watermark added to your pictures."}}, {"@type": "Question", "name": "Are my images uploaded to a server?", "acceptedAnswer": {"@type": "Answer", "text": "No. Compression happens inside your browser on your own device. Your images are never sent to our servers."}}, {"@type": "Question", "name": "Will compressing remove transparency from my PNG?", "acceptedAnswer": {"@type": "Answer", "text": "If you choose JPEG, transparent areas become white, because JPEG does not support transparency. Choose WebP if you need to keep transparent areas."}}, {"@type": "Question", "name": "What is the best size for website images?", "acceptedAnswer": {"@type": "Answer", "text": "For most websites, a photo under 200 KB loads quickly. Resize the image to the width it will be shown at first, then compress it."}}]}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -26,6 +27,7 @@
   <a class="logo" href="/">Image<b>Tools</b>4Free</a>
   <div class="nav-links">
     <a href="/">Tools</a>
+    <a href="/about/">About</a>
     <a href="/contact/">Contact</a>
     <a href="/privacy-policy/">Privacy</a>
   </div>
@@ -64,6 +66,32 @@
       </div>
     </div>
 
+    <section class="tool-content">
+<h2>How to compress an image</h2>
+<ol>
+<li>Click the upload box, or drag a picture onto it. JPG, PNG, WebP, GIF and BMP files all work.</li>
+<li>Move the <strong>Quality</strong> slider. 70–80% is a good starting point for photos.</li>
+<li>Pick the output format: JPEG for the widest support, or WebP for smaller files at the same quality.</li>
+<li>Press <strong>Compress Image</strong>. You will see the original size, the new size and how much you saved.</li>
+<li>If you are happy with the result, press <strong>Download</strong>. If not, change the quality and try again.</li>
+</ol>
+<h2>Choosing the right quality</h2>
+<p>Quality controls how much detail the compressor is allowed to throw away. At 90% and above, the file is usually close to the original and the saving is small. Between 60% and 80%, most photos look the same to the eye but the file is often half the size or less. Below 50%, you may start to see blocky patches in smooth areas like skies and skin.</p><p>A simple method is to start at 75%, compress, and look at the preview closely. Lower the quality step by step until you notice a change, then go back up one step.</p>
+<h2>JPEG or WebP?</h2>
+<p>JPEG works everywhere: every browser, phone, email program and photo app can open it. WebP is a newer format made by Google that usually gives a file 25–35% smaller than JPEG at the same visual quality. All modern browsers support WebP, so it is a great choice for images on your own website. If you are sending a picture to someone or uploading it to a form, JPEG is the safer choice.</p>
+<h2>Why did my file get bigger?</h2>
+<p>This can happen when the original is already well compressed, or when it is a PNG with large flat areas of colour such as a screenshot or logo. Re-saving such a file as JPEG can add size instead of removing it. Lower the quality, or try WebP. For screenshots with text, the <a href="/image-converter/">Format Converter</a> to PNG sometimes gives better results.</p>
+<h2>Frequently asked questions</h2>
+<h3>Is the Image Compressor really free?</h3>
+<p>Yes. There is no limit on how many images you can compress, no signup and no watermark added to your pictures.</p>
+<h3>Are my images uploaded to a server?</h3>
+<p>No. Compression happens inside your browser on your own device. Your images are never sent to our servers.</p>
+<h3>Will compressing remove transparency from my PNG?</h3>
+<p>If you choose JPEG, transparent areas become white, because JPEG does not support transparency. Choose WebP if you need to keep transparent areas.</p>
+<h3>What is the best size for website images?</h3>
+<p>For most websites, a photo under 200 KB loads quickly. Resize the image to the width it will be shown at first, then compress it.</p>
+</section>
+
     <section class="more-tools">
       <h2>More free image tools</h2>
       <div class="grid compact">
@@ -96,8 +124,10 @@
   </div>
   <div class="foot-links">
     <a href="/">Home</a>
+    <a href="/about/">About</a>
     <a href="/contact/">Contact</a>
     <a href="/privacy-policy/">Privacy Policy</a>
+    <a href="/terms/">Terms of Service</a>
   </div>
   <div>© 2026 ImageTools4Free — All image processing happens in your browser. Your files are never uploaded.</div>
 </footer>

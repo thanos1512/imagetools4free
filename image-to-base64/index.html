@@ -19,6 +19,7 @@
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Image to Base64", "url": "https://imagetools4free.vercel.app/image-to-base64/", "description": "Convert any image to a Base64 data URI string. Copy the code or save it as a text file. Free, fast and private.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Any (runs in the browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://imagetools4free.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Image to Base64", "item": "https://imagetools4free.vercel.app/image-to-base64/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why is the Base64 code bigger than my image?", "acceptedAnswer": {"@type": "Answer", "text": "Base64 uses four characters to store every three bytes of data, so the text is roughly one third larger than the original file."}}, {"@type": "Question", "name": "Can I turn the code back into an image?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Paste it into our Base64 to Image tool to preview and download the picture."}}, {"@type": "Question", "name": "Is my image sent to a server to be encoded?", "acceptedAnswer": {"@type": "Answer", "text": "No. Your browser does the encoding on your device."}}, {"@type": "Question", "name": "Which image formats are supported?", "acceptedAnswer": {"@type": "Answer", "text": "Any format your browser can open, including JPG, PNG, WebP, GIF, BMP and SVG."}}]}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -26,6 +27,7 @@
   <a class="logo" href="/">Image<b>Tools</b>4Free</a>
   <div class="nav-links">
     <a href="/">Tools</a>
+    <a href="/about/">About</a>
     <a href="/contact/">Contact</a>
     <a href="/privacy-policy/">Privacy</a>
   </div>
@@ -56,6 +58,28 @@
       </div>
       <div><div class="preview-box" id="b64e-preview"><div class="preview-empty"><div class="preview-empty-icon">💻</div>Preview appears here<br><small>Upload image on the left</small></div></div></div>
     </div>
+
+    <section class="tool-content">
+<h2>How to convert an image to Base64</h2>
+<ol>
+<li>Upload the image you want to encode.</li>
+<li>The tool creates the Base64 code straight away and shows the first part of it.</li>
+<li>Press <strong>Copy Code</strong> to copy the full code, or <strong>Save .txt</strong> to download it as a text file.</li>
+</ol>
+<h2>What is Base64?</h2>
+<p>Base64 is a way of writing binary data, such as a picture, using only ordinary letters, numbers and a few symbols. The result is a long piece of text that can be placed directly inside HTML, CSS, JSON or an email, without a separate image file.</p><p>This tool gives you a complete <em>data URL</em>, which starts with something like <code>data:image/png;base64,</code>. You can paste it directly where an image address is expected.</p>
+<h2>How to use the code</h2>
+<p>In HTML: <code>&lt;img src="data:image/png;base64,..." alt="logo"&gt;</code></p><p>In CSS: <code>background-image: url("data:image/png;base64,...");</code></p><p>Base64 text is about 33% larger than the original file, so it is best for small images such as icons, small logos and email signatures. Large photos are better served as normal image files.</p>
+<h2>Frequently asked questions</h2>
+<h3>Why is the Base64 code bigger than my image?</h3>
+<p>Base64 uses four characters to store every three bytes of data, so the text is roughly one third larger than the original file.</p>
+<h3>Can I turn the code back into an image?</h3>
+<p>Yes. Paste it into our Base64 to Image tool to preview and download the picture.</p>
+<h3>Is my image sent to a server to be encoded?</h3>
+<p>No. Your browser does the encoding on your device.</p>
+<h3>Which image formats are supported?</h3>
+<p>Any format your browser can open, including JPG, PNG, WebP, GIF, BMP and SVG.</p>
+</section>
 
     <section class="more-tools">
       <h2>More free image tools</h2>
@@ -89,8 +113,10 @@
   </div>
   <div class="foot-links">
     <a href="/">Home</a>
+    <a href="/about/">About</a>
     <a href="/contact/">Contact</a>
     <a href="/privacy-policy/">Privacy Policy</a>
+    <a href="/terms/">Terms of Service</a>
   </div>
   <div>© 2026 ImageTools4Free — All image processing happens in your browser. Your files are never uploaded.</div>
 </footer>

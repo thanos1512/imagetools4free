@@ -19,6 +19,7 @@
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Image Resizer", "url": "https://imagetools4free.vercel.app/image-resizer/", "description": "Resize any image to an exact width and height in pixels. Keep proportions or set custom sizes. Free, private, works in your browser.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Any (runs in the browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://imagetools4free.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Image Resizer", "item": "https://imagetools4free.vercel.app/image-resizer/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does resizing reduce file size?", "acceptedAnswer": {"@type": "Answer", "text": "Making an image smaller in pixels usually reduces the file size a lot. Because the resizer saves as PNG, run the result through the Image Compressor afterwards if you need a small JPG or WebP file."}}, {"@type": "Question", "name": "Why is the resized file saved as PNG?", "acceptedAnswer": {"@type": "Answer", "text": "PNG keeps full quality and transparency, so nothing is lost during resizing. You can convert it to JPG or WebP with the Format Converter."}}, {"@type": "Question", "name": "Can I resize photos from my phone?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The tool works in mobile browsers on Android and iPhone. Tap the upload box and choose a photo from your gallery."}}, {"@type": "Question", "name": "Is there a maximum image size?", "acceptedAnswer": {"@type": "Answer", "text": "There is no fixed limit, but very large images (above about 8,000 pixels on a side) can be slow or fail on phones with little memory."}}]}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -26,6 +27,7 @@
   <a class="logo" href="/">Image<b>Tools</b>4Free</a>
   <div class="nav-links">
     <a href="/">Tools</a>
+    <a href="/about/">About</a>
     <a href="/contact/">Contact</a>
     <a href="/privacy-policy/">Privacy</a>
   </div>
@@ -54,6 +56,31 @@
       </div>
       <div><div class="preview-box" id="rsz-preview"><div class="preview-empty"><div class="preview-empty-icon">📐</div>Preview appears here<br><small>Upload image on the left</small></div></div></div>
     </div>
+
+    <section class="tool-content">
+<h2>How to resize an image</h2>
+<ol>
+<li>Upload your picture by clicking the upload box or dragging the file onto it.</li>
+<li>The current width and height appear in the boxes. Type the new width <em>or</em> height in pixels.</li>
+<li>Leave <strong>Keep Proportions</strong> on so the other side changes automatically and the picture is not stretched.</li>
+<li>Press <strong>Resize &amp; Download</strong>. The resized image is saved as a PNG file named with its new size.</li>
+</ol>
+<h2>Common image sizes</h2>
+<div class="table-wrap"><table><thead><tr><th>Use</th><th>Typical size (pixels)</th></tr></thead><tbody><tr><td>Website banner / hero image</td><td>1920 × 1080</td></tr><tr><td>Blog post image</td><td>1200 × 675</td></tr><tr><td>Instagram square post</td><td>1080 × 1080</td></tr><tr><td>Instagram story / reel cover</td><td>1080 × 1920</td></tr><tr><td>YouTube thumbnail</td><td>1280 × 720</td></tr><tr><td>Profile picture</td><td>400 × 400</td></tr><tr><td>Email attachment photo</td><td>1600 wide or smaller</td></tr></tbody></table></div><p>Social networks change their recommended sizes from time to time, so check the platform's help pages if an exact size matters.</p>
+<h2>Keep proportions or not?</h2>
+<p>Every picture has an aspect ratio, which is the relationship between its width and height. When <em>Keep Proportions</em> is on, changing one number updates the other so the ratio stays the same and nothing looks squashed. Turn it off only when you need an exact width and height and do not mind some stretching. If you need an exact shape without stretching, <a href="/crop-image/">crop the image</a> to that shape first, then resize it.</p>
+<h2>Making images bigger</h2>
+<p>You can enlarge an image, but the resizer cannot invent detail that was not in the original, so a big increase will look soft or blurry. For the sharpest results, start from the largest original you have and make it smaller rather than larger.</p>
+<h2>Frequently asked questions</h2>
+<h3>Does resizing reduce file size?</h3>
+<p>Making an image smaller in pixels usually reduces the file size a lot. Because the resizer saves as PNG, run the result through the Image Compressor afterwards if you need a small JPG or WebP file.</p>
+<h3>Why is the resized file saved as PNG?</h3>
+<p>PNG keeps full quality and transparency, so nothing is lost during resizing. You can convert it to JPG or WebP with the Format Converter.</p>
+<h3>Can I resize photos from my phone?</h3>
+<p>Yes. The tool works in mobile browsers on Android and iPhone. Tap the upload box and choose a photo from your gallery.</p>
+<h3>Is there a maximum image size?</h3>
+<p>There is no fixed limit, but very large images (above about 8,000 pixels on a side) can be slow or fail on phones with little memory.</p>
+</section>
 
     <section class="more-tools">
       <h2>More free image tools</h2>
@@ -87,8 +114,10 @@
   </div>
   <div class="foot-links">
     <a href="/">Home</a>
+    <a href="/about/">About</a>
     <a href="/contact/">Contact</a>
     <a href="/privacy-policy/">Privacy Policy</a>
+    <a href="/terms/">Terms of Service</a>
   </div>
   <div>© 2026 ImageTools4Free — All image processing happens in your browser. Your files are never uploaded.</div>
 </footer>

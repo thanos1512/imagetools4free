@@ -154,3 +154,27 @@ a:focus-visible,button:focus-visible,.upload-box:focus-visible,select:focus-visi
 .notfound p{color:#94a3b8;margin-bottom:20px}
 .notfound a.btn-main{text-decoration:none}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ---- content sections (guides, FAQ, home) ---- */
+.grid-intro{font-size:13px;color:#94a3b8;margin:10px 0 8px}
+.why{margin:48px 0 20px}
+.why h2{font-size:18px;font-weight:900;color:#fff;margin-bottom:14px}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.why-item{background:#0c1629;border:1px solid #1a2d4e;border-radius:10px;padding:14px}
+.why-icon{font-size:24px;margin-bottom:6px}
+.why-item h3{font-weight:700;color:#fff;font-size:13px;margin-bottom:4px}
+.why-item p{color:#94a3b8;font-size:12px;line-height:1.5}
+.tool-content{margin-top:44px;padding-top:28px;border-top:1px solid #1a2d4e;max-width:760px;line-height:1.7}
+.tool-content h2{font-size:19px;font-weight:900;color:#fff;margin:28px 0 10px}
+.tool-content h2:first-child{margin-top:0}
+.tool-content h3{font-size:15px;font-weight:700;color:#e2e8f0;margin:18px 0 4px}
+.tool-content p{color:#94a3b8;margin-bottom:12px}
+.tool-content ol,.tool-content ul{color:#94a3b8;padding-left:22px;margin-bottom:12px}
+.tool-content li{margin-bottom:6px}
+.tool-content strong{color:#e2e8f0}
+.tool-content a,.static-wrap a{color:#00d4ff}
+.tool-content code{background:#101f38;border:1px solid #1a2d4e;border-radius:4px;padding:1px 5px;font-size:12px;color:#e2e8f0;word-break:break-all}
+.table-wrap{overflow-x:auto;margin:6px 0 14px}
+.table-wrap table{width:100%;border-collapse:collapse;font-size:13px}
+.table-wrap th{text-align:left;color:#fff;background:#101f38;padding:9px 12px;border-bottom:1px solid #1a2d4e}
+.table-wrap td{padding:9px 12px;border-bottom:1px solid #1a2d4e;color:#94a3b8}

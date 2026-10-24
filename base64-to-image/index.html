@@ -19,6 +19,7 @@
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Base64 to Image", "url": "https://imagetools4free.vercel.app/base64-to-image/", "description": "Paste a Base64 string and turn it back into an image you can preview and download. Free online decoder.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Any (runs in the browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://imagetools4free.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Base64 to Image", "item": "https://imagetools4free.vercel.app/base64-to-image/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need the data:image prefix?", "acceptedAnswer": {"@type": "Answer", "text": "No. If it is missing, the tool adds a PNG prefix automatically. Adding the correct prefix yourself helps for JPG, GIF and WebP images."}}, {"@type": "Question", "name": "Is my Base64 data sent anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. Decoding happens in your browser and nothing is uploaded."}}, {"@type": "Question", "name": "Why does it say the string is invalid?", "acceptedAnswer": {"@type": "Answer", "text": "The text is usually incomplete or contains extra characters such as quotes, spaces or line breaks from copying."}}, {"@type": "Question", "name": "Can I convert an image to Base64 too?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, use our Image to Base64 tool."}}]}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -26,6 +27,7 @@
   <a class="logo" href="/">Image<b>Tools</b>4Free</a>
   <div class="nav-links">
     <a href="/">Tools</a>
+    <a href="/about/">About</a>
     <a href="/contact/">Contact</a>
     <a href="/privacy-policy/">Privacy</a>
   </div>
@@ -44,6 +46,28 @@
       <div class="preview-box"><img id="b64d-img" alt="decoded" style="max-width:100%;max-height:320px;border-radius:8px"></div>
       <div class="btn-row"><button class="btn-main" style="background:#22c55e" onclick="dlDecoded()">⬇️ Download Image</button></div>
     </div>
+
+    <section class="tool-content">
+<h2>How to convert Base64 to an image</h2>
+<ol>
+<li>Paste your Base64 string into the box. It can start with <code>data:image/...;base64,</code> or be the raw code only.</li>
+<li>Press <strong>Decode &amp; Preview</strong> to see the picture.</li>
+<li>Press <strong>Download Image</strong> to save it to your device.</li>
+</ol>
+<h2>Where do Base64 images come from?</h2>
+<p>Developers often find Base64 images inside HTML source code, CSS files, API responses, JSON data or email source. This tool turns that text back into a picture you can see and save.</p>
+<h2>If the image does not appear</h2>
+<p>Make sure you copied the whole string with nothing cut off at the end, and that there are no extra quotation marks around it. If your code has no <code>data:</code> prefix, the tool assumes it is a PNG; if it is actually a JPG or GIF, add the right prefix, for example <code>data:image/jpeg;base64,</code>, before the code.</p>
+<h2>Frequently asked questions</h2>
+<h3>Do I need the data:image prefix?</h3>
+<p>No. If it is missing, the tool adds a PNG prefix automatically. Adding the correct prefix yourself helps for JPG, GIF and WebP images.</p>
+<h3>Is my Base64 data sent anywhere?</h3>
+<p>No. Decoding happens in your browser and nothing is uploaded.</p>
+<h3>Why does it say the string is invalid?</h3>
+<p>The text is usually incomplete or contains extra characters such as quotes, spaces or line breaks from copying.</p>
+<h3>Can I convert an image to Base64 too?</h3>
+<p>Yes, use our Image to Base64 tool.</p>
+</section>
 
     <section class="more-tools">
       <h2>More free image tools</h2>
@@ -77,8 +101,10 @@
   </div>
   <div class="foot-links">
     <a href="/">Home</a>
+    <a href="/about/">About</a>
     <a href="/contact/">Contact</a>
     <a href="/privacy-policy/">Privacy Policy</a>
+    <a href="/terms/">Terms of Service</a>
   </div>
   <div>© 2026 ImageTools4Free — All image processing happens in your browser. Your files are never uploaded.</div>
 </footer>

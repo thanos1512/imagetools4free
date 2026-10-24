@@ -19,6 +19,7 @@
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Image Cropper", "url": "https://imagetools4free.vercel.app/crop-image/", "description": "Crop any part of an image using exact pixel values. Free online cropper that runs entirely in your browser.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Any (runs in the browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://imagetools4free.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Image Cropper", "item": "https://imagetools4free.vercel.app/crop-image/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does cropping reduce quality?", "acceptedAnswer": {"@type": "Answer", "text": "No. The cropped area is saved as PNG with every pixel unchanged."}}, {"@type": "Question", "name": "How do I find the size of my image?", "acceptedAnswer": {"@type": "Answer", "text": "It is shown above the crop settings after you upload. You can also use our Image Info tool."}}, {"@type": "Question", "name": "What if my crop area goes past the edge?", "acceptedAnswer": {"@type": "Answer", "text": "Any part outside the picture will be transparent in the download, so keep X + width and Y + height within the image size."}}, {"@type": "Question", "name": "Is the cropper free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It is free, needs no signup and adds no watermark."}}]}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -26,6 +27,7 @@
   <a class="logo" href="/">Image<b>Tools</b>4Free</a>
   <div class="nav-links">
     <a href="/">Tools</a>
+    <a href="/about/">About</a>
     <a href="/contact/">Contact</a>
     <a href="/privacy-policy/">Privacy</a>
   </div>
@@ -56,6 +58,29 @@
       </div>
       <div><div class="preview-box" id="crop-preview"><div class="preview-empty"><div class="preview-empty-icon">✂️</div>Preview appears here<br><small>Upload image on the left</small></div></div></div>
     </div>
+
+    <section class="tool-content">
+<h2>How to crop an image</h2>
+<ol>
+<li>Upload your picture. Its full size in pixels is shown above the settings.</li>
+<li>Enter <strong>X</strong> (how far from the left edge to start) and <strong>Y</strong> (how far from the top to start).</li>
+<li>Enter the <strong>width</strong> and <strong>height</strong> of the area you want to keep.</li>
+<li>Press <strong>Crop &amp; Download</strong> to save the cropped area as a PNG.</li>
+</ol>
+<h2>Understanding X, Y, width and height</h2>
+<p>Picture positions are measured in pixels from the top-left corner. X = 0 and Y = 0 is that corner. If your image is 1000 × 800 pixels and you want the middle 500 × 400 area, start at X = 250 and Y = 200, with width 500 and height 400.</p><p>To crop to a square from the centre of a 1200 × 800 photo, use width and height 800, X = 200 and Y = 0.</p>
+<h2>Crop first, then resize</h2>
+<p>To get an image with an exact size such as 1080 × 1080 without stretching, crop it to the right shape first (a square in this case), then use the <a href="/image-resizer/">Image Resizer</a> to change it to the final size.</p>
+<h2>Frequently asked questions</h2>
+<h3>Does cropping reduce quality?</h3>
+<p>No. The cropped area is saved as PNG with every pixel unchanged.</p>
+<h3>How do I find the size of my image?</h3>
+<p>It is shown above the crop settings after you upload. You can also use our Image Info tool.</p>
+<h3>What if my crop area goes past the edge?</h3>
+<p>Any part outside the picture will be transparent in the download, so keep X + width and Y + height within the image size.</p>
+<h3>Is the cropper free?</h3>
+<p>Yes. It is free, needs no signup and adds no watermark.</p>
+</section>
 
     <section class="more-tools">
       <h2>More free image tools</h2>
@@ -89,8 +114,10 @@
   </div>
   <div class="foot-links">
     <a href="/">Home</a>
+    <a href="/about/">About</a>
     <a href="/contact/">Contact</a>
     <a href="/privacy-policy/">Privacy Policy</a>
+    <a href="/terms/">Terms of Service</a>
   </div>
   <div>© 2026 ImageTools4Free — All image processing happens in your browser. Your files are never uploaded.</div>
 </footer>
