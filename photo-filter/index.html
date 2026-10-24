@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Filters &amp; Editor Online – Brightness, Contrast and Presets Free</title>
+<meta name="description" content="Brighten dark photos, boost colour or add a vintage, warm or black and white look. Simple sliders and one-tap presets. Free, no signup, no upload.">
+<link rel="canonical" href="https://imagetools4free.vercel.app/photo-filter/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#f2f4f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1320" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ImageTools4Free">
+<meta property="og:title" content="Photo Filters &amp; Editor Online – Brightness, Contrast and Presets Free">
+<meta property="og:description" content="Brighten dark photos, boost colour or add a vintage, warm or black and white look. Simple sliders and one-tap presets. Free, no signup, no upload.">
+<meta property="og:url" content="https://imagetools4free.vercel.app/photo-filter/">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://imagetools4free.vercel.app/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ImageTools4Free – free online image tools">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600..800&display=swap">
+<link rel="stylesheet" href="/assets/style.css?v=3">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Photo Filters", "url": "https://imagetools4free.vercel.app/photo-filter/", "description": "Brighten dark photos, boost colour or add a vintage, warm or black and white look. Simple sliders and one-tap presets. Free, no signup, no upload.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Any (runs in the browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://imagetools4free.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Photo Filters", "item": "https://imagetools4free.vercel.app/photo-filter/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does the filter reduce my photo's size?", "acceptedAnswer": {"@type": "Answer", "text": "No. The preview is smaller so it stays fast, but the download is made from your full-size photo (up to about 24 megapixels)."}}, {"@type": "Question", "name": "Are my photos uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. All editing happens in your browser."}}, {"@type": "Question", "name": "Which format should I save as?", "acceptedAnswer": {"@type": "Answer", "text": "JPG gives a smaller file and is best for sharing. PNG keeps every detail and is best if you will edit the photo again."}}, {"@type": "Question", "name": "Can I combine a look with my own changes?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Pick a look first, then move any slider to adjust it."}}]}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="site-nav" aria-label="Main">
+  <a class="logo" href="/"><span class="logo-mark"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15l-5-5L6 20"/><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="9.5" r="1.5"/></svg></span><span>ImageTools<b>4Free</b></span></a>
+  <div class="nav-links"><a href="/">All tools</a><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/contact/">Contact</a></div>
+</nav>
+
+<main id="main">
+  <div class="tool-wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span aria-current="page">Photo Filters</span></nav>
+    <div class="tool-head"><div class="tool-head-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h9"/><path d="M17 6h3"/><path d="M4 12h3"/><path d="M11 12h9"/><path d="M4 18h11"/><path d="M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg></div><div><h1 class="tool-head-name">Photo Filters</h1><p class="tool-head-desc">Brighten, add colour or give your photo a new look</p></div></div>
+    <div class="two-col wide">
+      <div>
+        <div class="upload-box">
+          <input type="file" id="pf-file" accept="image/*" onchange="pfLoad(this)">
+          <div class="upload-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4"/><path d="M7 9l5-5 5 5"/><path d="M4 19h16"/></svg></div>
+          <div class="upload-title"><span>Choose an image</span></div>
+          <div class="upload-sub">or drop it here. You can also paste with Ctrl+V.</div>
+          <div class="upload-sub">JPG, PNG, WebP, GIF or BMP</div>
+        </div>
+        <div class="settings">
+          <div class="settings-title">Looks</div>
+          <div class="chips" id="pf-presets" role="group" aria-label="Looks"></div>
+          <div class="settings-title spaced">Adjust</div>
+          <div id="pf-sliders"></div>
+          <div class="field"><label for="pf-fmt">Save as</label>
+            <select id="pf-fmt"><option value="image/jpeg">JPG (smaller file)</option><option value="image/png">PNG (best quality)</option></select></div>
+          <div class="btn-row tight">
+            <button class="btn-ghost" id="pf-reset" onclick="pfPreset('Original')" disabled>Reset</button>
+            <button class="btn-ghost" id="pf-cmp" disabled>Hold to compare</button>
+          </div>
+          <div class="btn-row"><button class="btn-main" id="pf-btn" onclick="pfDownload()" disabled>Download photo</button></div>
+        </div>
+      </div>
+      <div>
+        <div class="preview-box stage" id="pf-stage"><div class="preview-empty">Your photo will appear here so you can see each change as you make it.</div></div>
+      </div>
+    </div>
+
+    <section class="tool-content">
+<h2>How to edit a photo with filters</h2>
+<ol>
+<li>Choose a photo. A live preview appears on the right.</li>
+<li>Tap a look such as <strong>Vivid</strong>, <strong>Warm</strong> or <strong>Vintage</strong> for a quick result.</li>
+<li>Fine-tune with the sliders. Press and hold <strong>Hold to compare</strong> to see the original.</li>
+<li>Choose JPG or PNG and press <strong>Download photo</strong>. The download keeps your photo's full size.</li>
+</ol>
+<h2>What each slider does</h2>
+<div class="table-wrap"><table><thead><tr><th>Slider</th><th>What it changes</th></tr></thead><tbody><tr><td>Brightness</td><td>Makes the whole photo lighter or darker. Helpful for photos taken indoors or at night.</td></tr><tr><td>Contrast</td><td>Increases or reduces the difference between light and dark areas.</td></tr><tr><td>Saturation</td><td>Makes colours stronger or weaker. All the way left gives black and white.</td></tr><tr><td>Warmth</td><td>Adds a golden, sunny tone or a cool, blue tone.</td></tr><tr><td>Fade</td><td>Softens the darkest and brightest parts for a gentle, film-like look.</td></tr><tr><td>Vignette</td><td>Darkens the corners to draw attention to the centre.</td></tr></tbody></table></div>
+<h2>Fixing common photo problems</h2>
+<p><strong>Too dark:</strong> raise Brightness a little and add some Contrast so it does not look washed out. <strong>Dull colours:</strong> raise Saturation by 15–30. <strong>Blue indoor light:</strong> move Warmth to the right. <strong>Harsh, too bright:</strong> lower Contrast or add a little Fade. Small changes usually look more natural than big ones.</p>
+<h2>Frequently asked questions</h2>
+<h3>Does the filter reduce my photo's size?</h3>
+<p>No. The preview is smaller so it stays fast, but the download is made from your full-size photo (up to about 24 megapixels).</p>
+<h3>Are my photos uploaded?</h3>
+<p>No. All editing happens in your browser.</p>
+<h3>Which format should I save as?</h3>
+<p>JPG gives a smaller file and is best for sharing. PNG keeps every detail and is best if you will edit the photo again.</p>
+<h3>Can I combine a look with my own changes?</h3>
+<p>Yes. Pick a look first, then move any slider to adjust it.</p>
+</section>
+
+    <section class="more-tools">
+      <h2>More free image tools</h2>
+      <div class="tiles"><a class="tile" href="/watermark-remover/" data-k="object &amp; watermark remover paint over text, stamps or objects to erase them remove watermark erase object text date stamp clean blemish logo"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 21h13"/><path d="M5.4 15.6l9.2-9.2a2 2 0 0 1 2.8 0l1.2 1.2a2 2 0 0 1 0 2.8L10 19H7.6l-2.2-2.2a1 1 0 0 1 0-1.2z"/><path d="M9.5 11.5l4 4"/></svg></span><span><span class="tile-name">Object &amp; Watermark Remover<span class="badge">New</span></span><span class="tile-desc">Paint over text, stamps or objects to erase them</span></span></a><a class="tile" href="/blur-image/" data-k="blur &amp; pixelate hide faces, names and numbers blur pixelate censor hide privacy face mosaic"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h4v4H4z"/><path d="M10 4h4v4h-4z"/><path d="M16 4h4v4h-4z"/><path d="M4 10h4v4H4z"/><path d="M16 10h4v4h-4z"/><path d="M4 16h4v4H4z"/><path d="M10 16h4v4h-4z"/><path d="M16 16h4v4h-4z"/></svg></span><span><span class="tile-name">Blur &amp; Pixelate<span class="badge">New</span></span><span class="tile-desc">Hide faces, names and numbers</span></span></a><a class="tile" href="/rotate-flip-image/" data-k="rotate &amp; flip fix sideways or mirrored photos rotate flip mirror turn sideways"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></span><span><span class="tile-name">Rotate &amp; Flip</span><span class="tile-desc">Fix sideways or mirrored photos</span></span></a><a class="tile" href="/grayscale-image/" data-k="black &amp; white filter turn a colour photo grayscale grayscale black white monochrome"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 0 1 0 18"/><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" stroke="none"/></svg></span><span><span class="tile-name">Black &amp; White Filter</span><span class="tile-desc">Turn a colour photo grayscale</span></span></a><a class="tile" href="/watermark-image/" data-k="add watermark put your name or brand on a photo watermark text copyright brand name"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7V5h14v2"/><path d="M12 5v14"/><path d="M9 19h6"/></svg></span><span><span class="tile-name">Add Watermark</span><span class="tile-desc">Put your name or brand on a photo</span></span></a><a class="tile" href="/image-compressor/" data-k="image compressor reduce file size and keep quality compress smaller kb mb reduce size jpg"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14h6v6"/><path d="M20 10h-6V4"/><path d="M14 10l7-7"/><path d="M3 21l7-7"/></svg></span><span><span class="tile-name">Image Compressor</span><span class="tile-desc">Reduce file size and keep quality</span></span></a></div>
+    </section>
+  </div>
+</main>
+<div id="toast" role="status" aria-live="polite"></div>
+<footer>
+  <div class="foot-inner">
+    <div class="foot-cols"><div><h2>Make images smaller or bigger</h2><ul><li><a href="/image-compressor/">Image Compressor</a></li><li><a href="/image-resizer/">Image Resizer</a></li><li><a href="/crop-image/">Image Cropper</a></li></ul></div><div><h2>Edit and fix photos</h2><ul><li><a href="/watermark-remover/">Object &amp; Watermark Remover</a></li><li><a href="/blur-image/">Blur &amp; Pixelate</a></li><li><a href="/photo-filter/">Photo Filters</a></li><li><a href="/rotate-flip-image/">Rotate &amp; Flip</a></li><li><a href="/grayscale-image/">Black &amp; White Filter</a></li><li><a href="/watermark-image/">Add Watermark</a></li></ul></div><div><h2>Convert and save</h2><ul><li><a href="/image-converter/">Format Converter</a></li><li><a href="/image-to-pdf/">Image to PDF</a></li></ul></div><div><h2>Inspect and code</h2><ul><li><a href="/image-info/">Image Info</a></li><li><a href="/color-picker/">Color Picker</a></li><li><a href="/image-to-base64/">Image to Base64</a></li><li><a href="/base64-to-image/">Base64 to Image</a></li></ul></div><div><h2>ImageTools4Free</h2><ul><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li></ul></div></div>
+    <p class="foot-note">© 2026 ImageTools4Free. All image processing happens in your browser. Your files are never uploaded.</p>
+  </div>
+</footer>
+<script src="/assets/common.js?v=3"></script>
+<script>
+var PF_S=[['br','Brightness',-100,100],['ct','Contrast',-100,100],['sa','Saturation',-100,100],['wa','Warmth',-100,100],['fd','Fade',0,100],['vg','Vignette',0,100]];
+var PF_P={'Original':{},'Vivid':{br:5,ct:15,sa:35},'Warm':{wa:35,sa:10},'Cool':{wa:-35,sa:5},'Vintage':{wa:30,sa:-35,fd:35,ct:-10,vg:40},'Black & white':{sa:-100,ct:20},'Fade':{fd:45,sa:-15,br:5},'Dramatic':{ct:40,sa:-20,vg:55,br:-5}};
+var pf={v:{},src:null,c:null,raf:0,cur:'Original'};
+(function(){
+  var sl=document.getElementById('pf-sliders');
+  sl.innerHTML=PF_S.map(function(s){return '<div class="field"><label for="pf-'+s[0]+'">'+s[1]+'</label><div class="range-row"><input type="range" id="pf-'+s[0]+'" min="'+s[2]+'" max="'+s[3]+'" value="0" oninput="pfSlide()" disabled><span class="range-val" id="pf-'+s[0]+'v">0</span></div></div>';}).join('');
+  document.getElementById('pf-presets').innerHTML=Object.keys(PF_P).map(function(k){return '<button class="chip'+(k==='Original'?' on':'')+'" data-p="'+k+'" onclick="pfPreset(this.dataset.p)" disabled>'+k+'</button>';}).join('');
+  var cmp=document.getElementById('pf-cmp');
+  function show(o){if(pf.src&&pf.c){if(o)pf.c.getContext('2d').putImageData(pf.src,0,0);else pfDraw();}}
+  cmp.addEventListener('pointerdown',function(){show(true);});['pointerup','pointerleave','pointercancel'].forEach(function(e){cmp.addEventListener(e,function(){show(false);});});
+})();
+function pfLoad(inp){loadImg(inp.files[0],'pf',function(img){
+  var s=Math.min(1,1100/Math.max(img.width,img.height)),w=Math.round(img.width*s),h=Math.round(img.height*s);
+  var stage=document.getElementById('pf-stage');stage.innerHTML='';var wrap=document.createElement('div');wrap.className='paint-wrap';
+  pf.c=cv(w,h);pf.c.className='paint-base';wrap.appendChild(pf.c);stage.appendChild(wrap);
+  var x=pf.c.getContext('2d');x.drawImage(img,0,0,w,h);pf.src=x.getImageData(0,0,w,h);
+  document.querySelectorAll('#pf-sliders input,#pf-presets button').forEach(function(el){el.disabled=false;});
+  ['pf-reset','pf-cmp','pf-btn'].forEach(enBtn);fitStage(stage,wrap,w,h);pfPreset(pf.cur);
+});}
+function pfPreset(k){pf.cur=k;var p=PF_P[k]||{};
+  PF_S.forEach(function(s){var v=p[s[0]]||0;document.getElementById('pf-'+s[0]).value=v;document.getElementById('pf-'+s[0]+'v').textContent=v;});
+  document.querySelectorAll('#pf-presets .chip').forEach(function(b){b.classList.toggle('on',b.dataset.p===k);});pfSlide(true);}
+function pfSlide(keep){
+  PF_S.forEach(function(s){var v=parseInt(document.getElementById('pf-'+s[0]).value);pf.v[s[0]]=v;document.getElementById('pf-'+s[0]+'v').textContent=v;});
+  if(!keep)document.querySelectorAll('#pf-presets .chip').forEach(function(b){b.classList.remove('on');});
+  if(!pf.raf)pf.raf=requestAnimationFrame(function(){pf.raf=0;pfDraw();});}
+function pfDraw(){if(!pf.src)return;var o=new ImageData(new Uint8ClampedArray(pf.src.data),pf.src.width,pf.src.height);applyFilter(o,pf.v);pf.c.getContext('2d').putImageData(o,0,0);}
+function applyFilter(im,v){
+  var d=im.data,w=im.width,h=im.height,br=(v.br||0)*1.2,c=(v.ct||0)*1.28,cf=(259*(c+255))/(255*(259-c)),sa=1+(v.sa||0)/100,wa=(v.wa||0)*0.3,fd=(v.fd||0)/100*0.35,vg=(v.vg||0)/100*0.75;
+  for(var y=0;y<h;y++){var dy=(y/h-0.5)*2;for(var x=0;x<w;x++){
+    var i=(y*w+x)*4,r=d[i]+br,g=d[i+1]+br,b=d[i+2]+br;
+    r=cf*(r-128)+128;g=cf*(g-128)+128;b=cf*(b-128)+128;
+    var gr=0.299*r+0.587*g+0.114*b;r=gr+(r-gr)*sa;g=gr+(g-gr)*sa;b=gr+(b-gr)*sa;
+    r+=wa;b-=wa;
+    if(fd){r=r*(1-fd)+140*fd;g=g*(1-fd)+135*fd;b=b*(1-fd)+125*fd;}
+    if(vg){var dx=(x/w-0.5)*2,k=1-vg*(dx*dx+dy*dy)/2;r*=k;g*=k;b*=k;}
+    d[i]=r;d[i+1]=g;d[i+2]=b;}}
+}
+function pfDownload(){
+  var img=imgs['pf'];if(!img)return;
+  var s=Math.min(1,Math.sqrt(24e6/(img.width*img.height))),w=Math.round(img.width*s),h=Math.round(img.height*s),fmt=document.getElementById('pf-fmt').value;
+  var c=cv(w,h),x=c.getContext('2d');if(fmt==='image/jpeg'){x.fillStyle='#fff';x.fillRect(0,0,w,h);}x.drawImage(img,0,0,w,h);
+  var im=x.getImageData(0,0,w,h);applyFilter(im,pf.v);x.putImageData(im,0,0);
+  c.toBlob(function(b){dlBlob(b,'filtered.'+(fmt==='image/png'?'png':'jpg'));toast('Photo downloaded.');},fmt,0.92);
+}
+</script>
+</body>
+</html>

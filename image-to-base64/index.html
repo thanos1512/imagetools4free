@@ -7,7 +7,8 @@
 <meta name="description" content="Convert any image to a Base64 data URI string. Copy the code or save it as a text file. Free, fast and private.">
 <link rel="canonical" href="https://imagetools4free.vercel.app/image-to-base64/">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#060d1f">
+<meta name="theme-color" content="#f2f4f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1320" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ImageTools4Free">
@@ -21,7 +22,10 @@
 <meta property="og:image:alt" content="ImageTools4Free – free online image tools">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600..800&display=swap">
+<link rel="stylesheet" href="/assets/style.css?v=3">
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
@@ -30,40 +34,34 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="site-nav" aria-label="Main">
-  <a class="logo" href="/">Image<b>Tools</b>4Free</a>
-  <div class="nav-links">
-    <a href="/">Tools</a>
-    <a href="/guides/">Guides</a>
-    <a href="/about/">About</a>
-    <a href="/contact/">Contact</a>
-    <a href="/privacy-policy/">Privacy</a>
-  </div>
+  <a class="logo" href="/"><span class="logo-mark"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15l-5-5L6 20"/><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="9.5" r="1.5"/></svg></span><span>ImageTools<b>4Free</b></span></a>
+  <div class="nav-links"><a href="/">All tools</a><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/contact/">Contact</a></div>
 </nav>
 
 <main id="main">
   <div class="tool-wrap">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span aria-current="page">Image to Base64</span></nav>
-    <div class="tool-head"><div class="tool-head-icon" aria-hidden="true">💻</div><div><h1 class="tool-head-name">Image to Base64</h1><p class="tool-head-desc">Convert image to a Base64 encoded string</p></div></div>
+    <div class="tool-head"><div class="tool-head-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8l-4 4 4 4"/><path d="M16 8l4 4-4 4"/><path d="M14 5l-4 14"/></svg></div><div><h1 class="tool-head-name">Image to Base64</h1><p class="tool-head-desc">Convert image to a Base64 encoded string</p></div></div>
     <div class="two-col">
       <div>
         <div class="upload-box">
           <input type="file" id="b64e-file" accept="image/*" onchange="b64eLoad(this)">
-          <div class="upload-icon">🖼️</div>
-          <div class="upload-title"><span>Click here</span> to choose image</div>
-          <div class="upload-sub">or drag &amp; drop your image here</div>
-          <div class="upload-sub">JPG · PNG · WebP · GIF · BMP</div>
+          <div class="upload-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4"/><path d="M7 9l5-5 5 5"/><path d="M4 19h16"/></svg></div>
+          <div class="upload-title"><span>Choose an image</span></div>
+          <div class="upload-sub">or drop it here. You can also paste with Ctrl+V.</div>
+          <div class="upload-sub">JPG, PNG, WebP, GIF or BMP</div>
         </div>
         <div class="settings">
-          <div class="settings-title">💻 Output</div>
-          <div id="b64e-info" style="color:#64748b;font-size:12px;margin-bottom:10px">Upload an image to generate Base64 code.</div>
+          <div class="settings-title">Output</div>
+          <div id="b64e-info" class="status-note">Upload an image to generate Base64 code.</div>
           <div class="btn-row">
-            <button class="btn-main" id="b64e-copy" onclick="copyB64()" disabled>📋 Copy Code</button>
-            <button class="btn-green" id="b64e-dl" onclick="dlB64()">⬇️ Save .txt</button>
+            <button class="btn-main" id="b64e-copy" onclick="copyB64()" disabled>Copy code</button>
+            <button class="btn-green" id="b64e-dl" onclick="dlB64()">Save as .txt</button>
           </div>
           <div class="out-box" id="b64e-out" style="display:none"></div>
         </div>
       </div>
-      <div><div class="preview-box" id="b64e-preview"><div class="preview-empty"><div class="preview-empty-icon">💻</div>Preview appears here<br><small>Upload image on the left</small></div></div></div>
+      <div><div class="preview-box" id="b64e-preview"><div class="preview-empty">Your preview will appear here after you choose an image.</div></div></div>
     </div>
 
     <section class="tool-content">
@@ -71,7 +69,7 @@
 <ol>
 <li>Upload the image you want to encode.</li>
 <li>The tool creates the Base64 code straight away and shows the first part of it.</li>
-<li>Press <strong>Copy Code</strong> to copy the full code, or <strong>Save .txt</strong> to download it as a text file.</li>
+<li>Press <strong>Copy code</strong> to copy the full code, or <strong>Save as .txt</strong> to download it as a text file.</li>
 </ol>
 <h2>What is Base64?</h2>
 <p>Base64 is a way of writing binary data, such as a picture, using only ordinary letters, numbers and a few symbols. The result is a long piece of text that can be placed directly inside HTML, CSS, JSON or an email, without a separate image file.</p><p>This tool gives you a complete <em>data URL</em>, which starts with something like <code>data:image/png;base64,</code>. You can paste it directly where an image address is expected.</p>
@@ -90,45 +88,18 @@
 
     <section class="more-tools">
       <h2>More free image tools</h2>
-      <div class="grid compact">
-        <a class="card" href="/image-compressor/"><div class="card-icon" aria-hidden="true">🗜️</div><div class="card-name">Image Compressor</div><div class="card-desc">Reduce file size, keep quality</div><div class="card-hint">Open →</div></a>
-        <a class="card" href="/image-resizer/"><div class="card-icon" aria-hidden="true">📐</div><div class="card-name">Image Resizer</div><div class="card-desc">Resize to any width &amp; height</div><div class="card-hint">Open →</div></a>
-        <a class="card" href="/image-converter/"><div class="card-icon" aria-hidden="true">🔄</div><div class="card-name">Format Converter</div><div class="card-desc">Convert JPG, PNG, WebP</div><div class="card-hint">Open →</div></a>
-        <a class="card" href="/rotate-flip-image/"><div class="card-icon" aria-hidden="true">🔃</div><div class="card-name">Rotate &amp; Flip</div><div class="card-desc">Rotate or flip any image</div><div class="card-hint">Open →</div></a>
-        <a class="card" href="/grayscale-image/"><div class="card-icon" aria-hidden="true">🌑</div><div class="card-name">Grayscale Filter</div><div class="card-desc">Convert to black &amp; white</div><div class="card-hint">Open →</div></a>
-        <a class="card" href="/base64-to-image/"><div class="card-icon" aria-hidden="true">🖼️</div><div class="card-name">Base64 to Image</div><div class="card-desc">Decode Base64 to image</div><div class="card-hint">Open →</div></a>
-        <a class="card" href="/watermark-image/"><div class="card-icon" aria-hidden="true">✍️</div><div class="card-name">Watermark Tool</div><div class="card-desc">Add text watermark</div><div class="card-hint">Open →</div></a>
-        <a class="card" href="/crop-image/"><div class="card-icon" aria-hidden="true">✂️</div><div class="card-name">Image Cropper</div><div class="card-desc">Crop any part precisely</div><div class="card-hint">Open →</div></a>
-        <a class="card" href="/image-info/"><div class="card-icon" aria-hidden="true">ℹ️</div><div class="card-name">Image Info</div><div class="card-desc">View dimensions &amp; details</div><div class="card-hint">Open →</div></a>
-      </div>
+      <div class="tiles"><a class="tile" href="/image-info/" data-k="image info see size, type and dimensions info details dimensions metadata size check"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16v-5"/><path d="M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg></span><span><span class="tile-name">Image Info</span><span class="tile-desc">See size, type and dimensions</span></span></a><a class="tile" href="/color-picker/" data-k="color picker get hex and rgb colours from a picture color colour picker hex rgb palette eyedropper"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.5-1.5H7l8.5-8.5"/><path d="M4.5 19.5V17l8.5-8.5"/><path d="M14 7l3-3a2.1 2.1 0 0 1 3 3l-3 3"/><path d="M12.5 5.5l6 6"/></svg></span><span><span class="tile-name">Color Picker<span class="badge">New</span></span><span class="tile-desc">Get HEX and RGB colours from a picture</span></span></a><a class="tile" href="/base64-to-image/" data-k="base64 to image turn base64 code back into a picture base64 decode data uri"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15l-5-5L6 20"/><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="9.5" r="1.5"/></svg></span><span><span class="tile-name">Base64 to Image</span><span class="tile-desc">Turn Base64 code back into a picture</span></span></a><a class="tile" href="/image-compressor/" data-k="image compressor reduce file size and keep quality compress smaller kb mb reduce size jpg"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14h6v6"/><path d="M20 10h-6V4"/><path d="M14 10l7-7"/><path d="M3 21l7-7"/></svg></span><span><span class="tile-name">Image Compressor</span><span class="tile-desc">Reduce file size and keep quality</span></span></a><a class="tile" href="/image-resizer/" data-k="image resizer change width and height in pixels resize dimensions scale pixels enlarge"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg></span><span><span class="tile-name">Image Resizer</span><span class="tile-desc">Change width and height in pixels</span></span></a><a class="tile" href="/image-converter/" data-k="format converter convert between jpg, png and webp convert jpg png webp jpeg format"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13l-3-3"/><path d="M20 16H7l3 3"/></svg></span><span><span class="tile-name">Format Converter</span><span class="tile-desc">Convert between JPG, PNG and WebP</span></span></a></div>
     </section>
   </div>
 </main>
 <div id="toast" role="status" aria-live="polite"></div>
 <footer>
-  <div class="foot-tools">
-    <a href="/image-compressor/">Image Compressor</a>
-    <a href="/image-resizer/">Image Resizer</a>
-    <a href="/image-converter/">Format Converter</a>
-    <a href="/rotate-flip-image/">Rotate &amp; Flip</a>
-    <a href="/grayscale-image/">Grayscale Filter</a>
-    <a href="/image-to-base64/">Image to Base64</a>
-    <a href="/base64-to-image/">Base64 to Image</a>
-    <a href="/watermark-image/">Watermark Tool</a>
-    <a href="/crop-image/">Image Cropper</a>
-    <a href="/image-info/">Image Info</a>
+  <div class="foot-inner">
+    <div class="foot-cols"><div><h2>Make images smaller or bigger</h2><ul><li><a href="/image-compressor/">Image Compressor</a></li><li><a href="/image-resizer/">Image Resizer</a></li><li><a href="/crop-image/">Image Cropper</a></li></ul></div><div><h2>Edit and fix photos</h2><ul><li><a href="/watermark-remover/">Object &amp; Watermark Remover</a></li><li><a href="/blur-image/">Blur &amp; Pixelate</a></li><li><a href="/photo-filter/">Photo Filters</a></li><li><a href="/rotate-flip-image/">Rotate &amp; Flip</a></li><li><a href="/grayscale-image/">Black &amp; White Filter</a></li><li><a href="/watermark-image/">Add Watermark</a></li></ul></div><div><h2>Convert and save</h2><ul><li><a href="/image-converter/">Format Converter</a></li><li><a href="/image-to-pdf/">Image to PDF</a></li></ul></div><div><h2>Inspect and code</h2><ul><li><a href="/image-info/">Image Info</a></li><li><a href="/color-picker/">Color Picker</a></li><li><a href="/image-to-base64/">Image to Base64</a></li><li><a href="/base64-to-image/">Base64 to Image</a></li></ul></div><div><h2>ImageTools4Free</h2><ul><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li></ul></div></div>
+    <p class="foot-note">© 2026 ImageTools4Free. All image processing happens in your browser. Your files are never uploaded.</p>
   </div>
-  <div class="foot-links">
-    <a href="/">Home</a>
-    <a href="/guides/">Guides</a>
-    <a href="/about/">About</a>
-    <a href="/contact/">Contact</a>
-    <a href="/privacy-policy/">Privacy Policy</a>
-    <a href="/terms/">Terms of Service</a>
-  </div>
-  <div>© 2026 ImageTools4Free — All image processing happens in your browser. Your files are never uploaded.</div>
 </footer>
-<script src="/assets/common.js"></script>
+<script src="/assets/common.js?v=3"></script>
 <script>
 var b64str='';
 function b64eLoad(inp){
@@ -143,7 +114,7 @@ function b64eLoad(inp){
     };reader.readAsDataURL(file);
   });
 }
-function copyB64(){navigator.clipboard.writeText(b64str).then(function(){toast('📋 Copied!');});}
+function copyB64(){navigator.clipboard.writeText(b64str).then(function(){toast('Copied!');});}
 function dlB64(){dlBlob(new Blob([b64str],{type:'text/plain'}),'image-base64.txt');}
 </script>
 </body>

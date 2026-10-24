@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image to PDF Converter – Combine JPG &amp; PNG into One PDF Free</title>
+<meta name="description" content="Turn one or many photos into a single PDF file. Choose A4 or Letter pages, orientation and margins. Free, works in your browser with no upload.">
+<link rel="canonical" href="https://imagetools4free.vercel.app/image-to-pdf/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#f2f4f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1320" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ImageTools4Free">
+<meta property="og:title" content="Image to PDF Converter – Combine JPG &amp; PNG into One PDF Free">
+<meta property="og:description" content="Turn one or many photos into a single PDF file. Choose A4 or Letter pages, orientation and margins. Free, works in your browser with no upload.">
+<meta property="og:url" content="https://imagetools4free.vercel.app/image-to-pdf/">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://imagetools4free.vercel.app/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ImageTools4Free – free online image tools">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600..800&display=swap">
+<link rel="stylesheet" href="/assets/style.css?v=3">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Image to PDF", "url": "https://imagetools4free.vercel.app/image-to-pdf/", "description": "Turn one or many photos into a single PDF file. Choose A4 or Letter pages, orientation and margins. Free, works in your browser with no upload.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Any (runs in the browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://imagetools4free.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Image to PDF", "item": "https://imagetools4free.vercel.app/image-to-pdf/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many images can I put in one PDF?", "acceptedAnswer": {"@type": "Answer", "text": "There is no fixed limit. Dozens of photos work fine on a computer; on older phones, very large batches may be slow."}}, {"@type": "Question", "name": "Are my images uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. The PDF is built in your browser, on your device."}}, {"@type": "Question", "name": "Do transparent PNG images work?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Transparent areas become white in the PDF."}}, {"@type": "Question", "name": "Can I convert a PDF back to images?", "acceptedAnswer": {"@type": "Answer", "text": "Not with this tool yet. It only turns images into a PDF."}}]}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="site-nav" aria-label="Main">
+  <a class="logo" href="/"><span class="logo-mark"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15l-5-5L6 20"/><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="9.5" r="1.5"/></svg></span><span>ImageTools<b>4Free</b></span></a>
+  <div class="nav-links"><a href="/">All tools</a><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/contact/">Contact</a></div>
+</nav>
+
+<main id="main">
+  <div class="tool-wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span aria-current="page">Image to PDF</span></nav>
+    <div class="tool-head"><div class="tool-head-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h4"/></svg></div><div><h1 class="tool-head-name">Image to PDF</h1><p class="tool-head-desc">Put one or many pictures into a single PDF file</p></div></div>
+    <div class="two-col">
+      <div>
+        <div class="upload-box">
+          <input type="file" id="pdf-file" accept="image/*" multiple onchange="pdfAdd(this)">
+          <div class="upload-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4"/><path d="M7 9l5-5 5 5"/><path d="M4 19h16"/></svg></div>
+          <div class="upload-title"><span>Choose images</span></div>
+          <div class="upload-sub">Select several at once, or drop them here. You can add more later.</div>
+          <div class="upload-sub">JPG, PNG, WebP, GIF or BMP</div>
+        </div>
+        <div class="settings">
+          <div class="settings-title">Page settings</div>
+          <div class="field"><label for="pdf-size">Page size</label>
+            <select id="pdf-size"><option value="a4">A4</option><option value="letter">US Letter</option><option value="fit">Same size as each image</option></select></div>
+          <div class="field"><label for="pdf-orient">Orientation</label>
+            <select id="pdf-orient"><option value="auto">Automatic (match each image)</option><option value="portrait">Portrait</option><option value="landscape">Landscape</option></select></div>
+          <div class="field"><label for="pdf-margin">Margin</label>
+            <select id="pdf-margin"><option value="0">No margin</option><option value="20" selected>Small</option><option value="45">Large</option></select></div>
+          <div class="field"><label for="pdf-q">Image quality</label>
+            <div class="range-row"><input type="range" id="pdf-q" min="40" max="100" value="85" oninput="document.getElementById('pdf-qv').textContent=this.value+'%'"><span class="range-val" id="pdf-qv">85%</span></div></div>
+          <div class="btn-row"><button class="btn-main" id="pdf-btn" onclick="pdfMake()" disabled>Create PDF</button></div>
+        </div>
+      </div>
+      <div>
+        <div class="preview-box list-box" id="pdf-list"><div class="preview-empty">Your pages will be listed here in order. Use the arrows to change the order.</div></div>
+        <div class="result-panel" id="pdf-result"><div class="result-title">PDF ready</div><div class="img-stats" id="pdf-stats"></div>
+          <div class="btn-row"><button class="btn-green" id="pdf-dl" onclick="pdfDownload()">Download PDF</button></div></div>
+      </div>
+    </div>
+
+    <section class="tool-content">
+<h2>How to convert images to PDF</h2>
+<ol>
+<li>Choose one or more images. You can select several at once and add more later.</li>
+<li>Check the order of the pages in the list. Use the arrows to move a page up or down, or × to remove it.</li>
+<li>Pick a page size (A4, US Letter or the size of each image), the orientation and the margin.</li>
+<li>Press <strong>Create PDF</strong>, then <strong>Download PDF</strong>.</li>
+</ol>
+<h2>When to use Image to PDF</h2>
+<p>Many forms and offices ask for documents as a single PDF. This tool is handy for putting scanned pages or phone photos of a document into one file, sending several receipts together, submitting an assignment, or sharing a set of photos that everyone can open on any device.</p>
+<h2>Choosing page settings</h2>
+<div class="table-wrap"><table><thead><tr><th>Setting</th><th>When to use it</th></tr></thead><tbody><tr><td>A4</td><td>Documents for most countries, including Pakistan, the UK and Europe</td></tr><tr><td>US Letter</td><td>Documents for the United States and Canada</td></tr><tr><td>Same size as each image</td><td>Photo albums and screenshots, where you do not want white borders</td></tr><tr><td>Automatic orientation</td><td>Mixed pictures: wide images get landscape pages and tall ones portrait pages</td></tr></tbody></table></div>
+<h2>Keeping the PDF small</h2>
+<p>Each image is stored in the PDF as a JPG. The <strong>Image quality</strong> slider controls how much it is compressed. 85% keeps text and photos clear while keeping the file reasonably small. If a website says your PDF is too large, lower the quality to 60–70%, or <a href="/image-resizer/">resize the images</a> before adding them.</p>
+<h2>Frequently asked questions</h2>
+<h3>How many images can I put in one PDF?</h3>
+<p>There is no fixed limit. Dozens of photos work fine on a computer; on older phones, very large batches may be slow.</p>
+<h3>Are my images uploaded?</h3>
+<p>No. The PDF is built in your browser, on your device.</p>
+<h3>Do transparent PNG images work?</h3>
+<p>Yes. Transparent areas become white in the PDF.</p>
+<h3>Can I convert a PDF back to images?</h3>
+<p>Not with this tool yet. It only turns images into a PDF.</p>
+</section>
+
+    <section class="more-tools">
+      <h2>More free image tools</h2>
+      <div class="tiles"><a class="tile" href="/image-converter/" data-k="format converter convert between jpg, png and webp convert jpg png webp jpeg format"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13l-3-3"/><path d="M20 16H7l3 3"/></svg></span><span><span class="tile-name">Format Converter</span><span class="tile-desc">Convert between JPG, PNG and WebP</span></span></a><a class="tile" href="/image-compressor/" data-k="image compressor reduce file size and keep quality compress smaller kb mb reduce size jpg"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14h6v6"/><path d="M20 10h-6V4"/><path d="M14 10l7-7"/><path d="M3 21l7-7"/></svg></span><span><span class="tile-name">Image Compressor</span><span class="tile-desc">Reduce file size and keep quality</span></span></a><a class="tile" href="/image-resizer/" data-k="image resizer change width and height in pixels resize dimensions scale pixels enlarge"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg></span><span><span class="tile-name">Image Resizer</span><span class="tile-desc">Change width and height in pixels</span></span></a><a class="tile" href="/watermark-remover/" data-k="object &amp; watermark remover paint over text, stamps or objects to erase them remove watermark erase object text date stamp clean blemish logo"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 21h13"/><path d="M5.4 15.6l9.2-9.2a2 2 0 0 1 2.8 0l1.2 1.2a2 2 0 0 1 0 2.8L10 19H7.6l-2.2-2.2a1 1 0 0 1 0-1.2z"/><path d="M9.5 11.5l4 4"/></svg></span><span><span class="tile-name">Object &amp; Watermark Remover<span class="badge">New</span></span><span class="tile-desc">Paint over text, stamps or objects to erase them</span></span></a><a class="tile" href="/photo-filter/" data-k="photo filters brightness, contrast, colour and presets filter brightness contrast saturation edit effects vintage warm"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h9"/><path d="M17 6h3"/><path d="M4 12h3"/><path d="M11 12h9"/><path d="M4 18h11"/><path d="M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><span><span class="tile-name">Photo Filters<span class="badge">New</span></span><span class="tile-desc">Brightness, contrast, colour and presets</span></span></a><a class="tile" href="/crop-image/" data-k="image cropper cut out the part you need crop cut trim square"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2v14a2 2 0 0 0 2 2h14"/><path d="M18 22V8a2 2 0 0 0-2-2H2"/></svg></span><span><span class="tile-name">Image Cropper</span><span class="tile-desc">Cut out the part you need</span></span></a></div>
+    </section>
+  </div>
+</main>
+<div id="toast" role="status" aria-live="polite"></div>
+<footer>
+  <div class="foot-inner">
+    <div class="foot-cols"><div><h2>Make images smaller or bigger</h2><ul><li><a href="/image-compressor/">Image Compressor</a></li><li><a href="/image-resizer/">Image Resizer</a></li><li><a href="/crop-image/">Image Cropper</a></li></ul></div><div><h2>Edit and fix photos</h2><ul><li><a href="/watermark-remover/">Object &amp; Watermark Remover</a></li><li><a href="/blur-image/">Blur &amp; Pixelate</a></li><li><a href="/photo-filter/">Photo Filters</a></li><li><a href="/rotate-flip-image/">Rotate &amp; Flip</a></li><li><a href="/grayscale-image/">Black &amp; White Filter</a></li><li><a href="/watermark-image/">Add Watermark</a></li></ul></div><div><h2>Convert and save</h2><ul><li><a href="/image-converter/">Format Converter</a></li><li><a href="/image-to-pdf/">Image to PDF</a></li></ul></div><div><h2>Inspect and code</h2><ul><li><a href="/image-info/">Image Info</a></li><li><a href="/color-picker/">Color Picker</a></li><li><a href="/image-to-base64/">Image to Base64</a></li><li><a href="/base64-to-image/">Base64 to Image</a></li></ul></div><div><h2>ImageTools4Free</h2><ul><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li></ul></div></div>
+    <p class="foot-note">© 2026 ImageTools4Free. All image processing happens in your browser. Your files are never uploaded.</p>
+  </div>
+</footer>
+<script src="/assets/common.js?v=3"></script>
+<script>
+var pdfItems=[],pdfBlob=null;
+function pdfAdd(inp){
+  var list=[].slice.call(inp.files||[]).filter(function(f){return /^image\//.test(f.type);});
+  inp.value='';
+  if(!list.length){toast('Please choose image files.');return;}
+  var slots=new Array(list.length),left=list.length;
+  list.forEach(function(f,i){var img=new Image();
+    img.onload=function(){slots[i]={file:f,img:img};done();};
+    img.onerror=function(){toast('Could not open '+f.name+'.');done();};
+    img.src=URL.createObjectURL(f);});
+  function done(){if(--left)return;slots.forEach(function(s){if(s)pdfItems.push(s);});pdfRender();}
+}
+function pdfMove(i,dir){var j=i+dir;if(j<0||j>=pdfItems.length)return;var t=pdfItems[i];pdfItems[i]=pdfItems[j];pdfItems[j]=t;pdfRender();}
+function pdfRemove(i){pdfItems.splice(i,1);pdfRender();}
+function pdfRender(){
+  var box=document.getElementById('pdf-list');
+  document.getElementById('pdf-btn').disabled=!pdfItems.length;
+  document.getElementById('pdf-result').style.display='none';
+  if(!pdfItems.length){box.innerHTML='<div class="preview-empty">Your pages will be listed here in order. Use the arrows to change the order.</div>';return;}
+  box.innerHTML='<div class="list-head">'+pdfItems.length+(pdfItems.length===1?' page':' pages')+'</div><ol class="page-list">'+pdfItems.map(function(it,i){
+    var nm=it.file.name.replace(/[<>&"]/g,'');
+    return '<li><img src="'+it.img.src+'" alt=""><div class="pl-meta"><div class="pl-name">'+nm+'</div><div class="pl-sub">'+it.img.width+' × '+it.img.height+', '+fmtSize(it.file.size)+'</div></div>'
+      +'<div class="pl-btns"><button class="icon-btn" onclick="pdfMove('+i+',-1)" aria-label="Move page '+(i+1)+' up"'+(i===0?' disabled':'')+'>↑</button>'
+      +'<button class="icon-btn" onclick="pdfMove('+i+',1)" aria-label="Move page '+(i+1)+' down"'+(i===pdfItems.length-1?' disabled':'')+'>↓</button>'
+      +'<button class="icon-btn" onclick="pdfRemove('+i+')" aria-label="Remove page '+(i+1)+'">×</button></div></li>';
+  }).join('')+'</ol>';
+}
+function pdfMake(){
+  if(!pdfItems.length)return;
+  var btn=document.getElementById('pdf-btn');btn.disabled=true;btn.textContent='Creating PDF…';
+  setTimeout(function(){
+    try{pdfBlob=buildPdf();}catch(err){toast('Could not create the PDF. Try fewer or smaller images.');btn.disabled=false;btn.textContent='Create PDF';return;}
+    btn.disabled=false;btn.textContent='Create PDF';
+    document.getElementById('pdf-stats').innerHTML='<div class="img-stat"><div class="img-stat-val">'+pdfItems.length+'</div><div class="img-stat-key">Pages</div></div><div class="img-stat"><div class="img-stat-val">'+fmtSize(pdfBlob.size)+'</div><div class="img-stat-key">File size</div></div>';
+    document.getElementById('pdf-result').style.display='block';document.getElementById('pdf-dl').style.display='inline-flex';
+    toast('PDF created.');
+  },30);
+}
+function pdfDownload(){if(pdfBlob)dlBlob(pdfBlob,'images.pdf');}
+function buildPdf(){
+  var size=document.getElementById('pdf-size').value,orient=document.getElementById('pdf-orient').value;
+  var mg=parseFloat(document.getElementById('pdf-margin').value),q=parseInt(document.getElementById('pdf-q').value)/100;
+  var PAGE={a4:[595.28,841.89],letter:[612,792]},enc=new TextEncoder(),chunks=[],pos=0,offs=[],n=pdfItems.length;
+  function add(x){var b=typeof x==='string'?enc.encode(x):x;chunks.push(b);pos+=b.length;}
+  function f(v){return (Math.round(v*100)/100).toString();}
+  function obj(num,body){offs[num]=pos;add(num+' 0 obj\n'+body+'\nendobj\n');}
+  add('%PDF-1.4\n');add(new Uint8Array([37,226,227,207,211,10]));
+  var kids=[];for(var k=0;k<n;k++)kids.push((3+3*k)+' 0 R');
+  obj(1,'<< /Type /Catalog /Pages 2 0 R >>');
+  obj(2,'<< /Type /Pages /Kids ['+kids.join(' ')+'] /Count '+n+' >>');
+  pdfItems.forEach(function(it,i){
+    var img=it.img,s=Math.min(1,5000/Math.max(img.width,img.height)),iw=Math.round(img.width*s),ih=Math.round(img.height*s);
+    var c=cv(iw,ih),ctx=c.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,iw,ih);ctx.drawImage(img,0,0,iw,ih);
+    var bin=atob(c.toDataURL('image/jpeg',q).split(',')[1]),bytes=new Uint8Array(bin.length);
+    for(var b=0;b<bin.length;b++)bytes[b]=bin.charCodeAt(b);
+    var pw,ph,dw,dh;
+    if(size==='fit'){dw=img.width*0.75;dh=img.height*0.75;pw=dw+2*mg;ph=dh+2*mg;}
+    else{pw=PAGE[size][0];ph=PAGE[size][1];
+      var land=orient==='landscape'||(orient==='auto'&&img.width>img.height);if(land){var t=pw;pw=ph;ph=t;}
+      var sc=Math.min((pw-2*mg)/img.width,(ph-2*mg)/img.height);dw=img.width*sc;dh=img.height*sc;}
+    var x=(pw-dw)/2,y=(ph-dh)/2,pn=3+3*i,cn=4+3*i,im=5+3*i;
+    obj(pn,'<< /Type /Page /Parent 2 0 R /MediaBox [0 0 '+f(pw)+' '+f(ph)+'] /Resources << /XObject << /Im'+i+' '+im+' 0 R >> /ProcSet [/PDF /ImageC] >> /Contents '+cn+' 0 R >>');
+    var cs='q '+f(dw)+' 0 0 '+f(dh)+' '+f(x)+' '+f(y)+' cm /Im'+i+' Do Q';
+    obj(cn,'<< /Length '+cs.length+' >>\nstream\n'+cs+'\nendstream');
+    offs[im]=pos;add(im+' 0 obj\n<< /Type /XObject /Subtype /Image /Width '+iw+' /Height '+ih+' /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length '+bytes.length+' >>\nstream\n');
+    add(bytes);add('\nendstream\nendobj\n');
+  });
+  var total=3+3*n,xref=pos,out='xref\n0 '+total+'\n0000000000 65535 f \n';
+  for(var o=1;o<total;o++)out+=('0000000000'+offs[o]).slice(-10)+' 00000 n \n';
+  add(out+'trailer\n<< /Size '+total+' /Root 1 0 R >>\nstartxref\n'+xref+'\n%%EOF\n');
+  return new Blob(chunks,{type:'application/pdf'});
+}
+</script>
+</body>
+</html>

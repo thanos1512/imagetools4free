@@ -7,7 +7,8 @@
 <meta name="description" content="Compress JPG, PNG and WebP images online for free. Reduce file size with adjustable quality, right in your browser. No upload, no signup.">
 <link rel="canonical" href="https://imagetools4free.vercel.app/image-compressor/">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#060d1f">
+<meta name="theme-color" content="#f2f4f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1320" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ImageTools4Free">
@@ -21,7 +22,10 @@
 <meta property="og:image:alt" content="ImageTools4Free – free online image tools">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600..800&display=swap">
+<link rel="stylesheet" href="/assets/style.css?v=3">
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
@@ -30,46 +34,40 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="site-nav" aria-label="Main">
-  <a class="logo" href="/">Image<b>Tools</b>4Free</a>
-  <div class="nav-links">
-    <a href="/">Tools</a>
-    <a href="/guides/">Guides</a>
-    <a href="/about/">About</a>
-    <a href="/contact/">Contact</a>
-    <a href="/privacy-policy/">Privacy</a>
-  </div>
+  <a class="logo" href="/"><span class="logo-mark"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15l-5-5L6 20"/><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="9.5" r="1.5"/></svg></span><span>ImageTools<b>4Free</b></span></a>
+  <div class="nav-links"><a href="/">All tools</a><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/contact/">Contact</a></div>
 </nav>
 
 <main id="main">
   <div class="tool-wrap">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span aria-current="page">Image Compressor</span></nav>
-    <div class="tool-head"><div class="tool-head-icon" aria-hidden="true">🗜️</div><div><h1 class="tool-head-name">Image Compressor</h1><p class="tool-head-desc">Reduce file size while keeping visual quality</p></div></div>
+    <div class="tool-head"><div class="tool-head-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14h6v6"/><path d="M20 10h-6V4"/><path d="M14 10l7-7"/><path d="M3 21l7-7"/></svg></div><div><h1 class="tool-head-name">Image Compressor</h1><p class="tool-head-desc">Reduce file size while keeping visual quality</p></div></div>
     <div class="two-col">
       <div>
         <div class="upload-box">
           <input type="file" id="comp-file" accept="image/*" onchange="compLoad(this)">
-          <div class="upload-icon">🖼️</div>
-          <div class="upload-title"><span>Click here</span> to choose image</div>
-          <div class="upload-sub">or drag &amp; drop your image here</div>
-          <div class="upload-sub">JPG · PNG · WebP · GIF · BMP</div>
+          <div class="upload-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4"/><path d="M7 9l5-5 5 5"/><path d="M4 19h16"/></svg></div>
+          <div class="upload-title"><span>Choose an image</span></div>
+          <div class="upload-sub">or drop it here. You can also paste with Ctrl+V.</div>
+          <div class="upload-sub">JPG, PNG, WebP, GIF or BMP</div>
         </div>
         <div class="settings">
-          <div class="settings-title">⚙️ Settings</div>
-          <div class="field"><label>Quality — lower = smaller file size</label>
+          <div class="settings-title">Settings</div>
+          <div class="field"><label for="comp-q">Quality (lower means a smaller file)</label>
             <div class="range-row"><input type="range" id="comp-q" min="1" max="100" value="75" oninput="document.getElementById('comp-qv').textContent=this.value+'%'"><span class="range-val" id="comp-qv">75%</span></div>
           </div>
-          <div class="field"><label>Output Format</label>
+          <div class="field"><label for="comp-fmt">Output format</label>
             <select id="comp-fmt" style="width:100%"><option value="image/jpeg">JPEG (.jpg) — smallest size</option><option value="image/webp">WebP (.webp) — best quality/size</option></select>
           </div>
           <div class="btn-row">
-            <button class="btn-main" id="comp-btn" onclick="doCompress()" disabled>🗜️ Compress Image</button>
-            <button class="btn-green" id="comp-dl" onclick="downloadCompressed()">⬇️ Download</button>
+            <button class="btn-main" id="comp-btn" onclick="doCompress()" disabled>Compress image</button>
+            <button class="btn-green" id="comp-dl" onclick="downloadCompressed()">Download image</button>
           </div>
         </div>
       </div>
       <div>
-        <div class="preview-box" id="comp-preview"><div class="preview-empty"><div class="preview-empty-icon">🗜️</div>Preview appears here<br><small>Upload image on the left</small></div></div>
-        <div class="result-panel" id="comp-result"><div class="result-title">✅ Result</div><div class="img-stats" id="comp-stats"></div></div>
+        <div class="preview-box" id="comp-preview"><div class="preview-empty">Your preview will appear here after you choose an image.</div></div>
+        <div class="result-panel" id="comp-result"><div class="result-title">Result</div><div class="img-stats" id="comp-stats"></div></div>
       </div>
     </div>
 
@@ -79,8 +77,8 @@
 <li>Click the upload box, or drag a picture onto it. JPG, PNG, WebP, GIF and BMP files all work.</li>
 <li>Move the <strong>Quality</strong> slider. 70–80% is a good starting point for photos.</li>
 <li>Pick the output format: JPEG for the widest support, or WebP for smaller files at the same quality.</li>
-<li>Press <strong>Compress Image</strong>. You will see the original size, the new size and how much you saved.</li>
-<li>If you are happy with the result, press <strong>Download</strong>. If not, change the quality and try again.</li>
+<li>Press <strong>Compress image</strong>. You will see the original size, the new size and how much you saved.</li>
+<li>If you are happy with the result, press <strong>Download image</strong>. If not, change the quality and try again.</li>
 </ol>
 <h2>Choosing the right quality</h2>
 <p>Quality controls how much detail the compressor is allowed to throw away. At 90% and above, the file is usually close to the original and the saving is small. Between 60% and 80%, most photos look the same to the eye but the file is often half the size or less. Below 50%, you may start to see blocky patches in smooth areas like skies and skin.</p><p>A simple method is to start at 75%, compress, and look at the preview closely. Lower the quality step by step until you notice a change, then go back up one step.</p>
@@ -101,45 +99,18 @@
 
     <section class="more-tools">
       <h2>More free image tools</h2>
-      <div class="grid compact">
-        <a class="card" href="/image-resizer/"><div class="card-icon" aria-hidden="true">📐</div><div class="card-name">Image Resizer</div><div class="card-desc">Resize to any width &amp; height</div><div class="card-hint">Open →</div></a>
-        <a class="card" href="/image-converter/"><div class="card-icon" aria-hidden="true">🔄</div><div class="card-name">Format Converter</div><div class="card-desc">Convert JPG, PNG, WebP</div><div class="card-hint">Open →</div></a>
-        <a class="card" href="/rotate-flip-image/"><div class="card-icon" aria-hidden="true">🔃</div><div class="card-name">Rotate &amp; Flip</div><div class="card-desc">Rotate or flip any image</div><div class="card-hint">Open →</div></a>
-        <a class="card" href="/grayscale-image/"><div class="card-icon" aria-hidden="true">🌑</div><div class="card-name">Grayscale Filter</div><div class="card-desc">Convert to black &amp; white</div><div class="card-hint">Open →</div></a>
-        <a class="card" href="/image-to-base64/"><div class="card-icon" aria-hidden="true">💻</div><div class="card-name">Image to Base64</div><div class="card-desc">Encode image to Base64</div><div class="card-hint">Open →</div></a>
-        <a class="card" href="/base64-to-image/"><div class="card-icon" aria-hidden="true">🖼️</div><div class="card-name">Base64 to Image</div><div class="card-desc">Decode Base64 to image</div><div class="card-hint">Open →</div></a>
-        <a class="card" href="/watermark-image/"><div class="card-icon" aria-hidden="true">✍️</div><div class="card-name">Watermark Tool</div><div class="card-desc">Add text watermark</div><div class="card-hint">Open →</div></a>
-        <a class="card" href="/crop-image/"><div class="card-icon" aria-hidden="true">✂️</div><div class="card-name">Image Cropper</div><div class="card-desc">Crop any part precisely</div><div class="card-hint">Open →</div></a>
-        <a class="card" href="/image-info/"><div class="card-icon" aria-hidden="true">ℹ️</div><div class="card-name">Image Info</div><div class="card-desc">View dimensions &amp; details</div><div class="card-hint">Open →</div></a>
-      </div>
+      <div class="tiles"><a class="tile" href="/image-resizer/" data-k="image resizer change width and height in pixels resize dimensions scale pixels enlarge"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg></span><span><span class="tile-name">Image Resizer</span><span class="tile-desc">Change width and height in pixels</span></span></a><a class="tile" href="/crop-image/" data-k="image cropper cut out the part you need crop cut trim square"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2v14a2 2 0 0 0 2 2h14"/><path d="M18 22V8a2 2 0 0 0-2-2H2"/></svg></span><span><span class="tile-name">Image Cropper</span><span class="tile-desc">Cut out the part you need</span></span></a><a class="tile" href="/image-converter/" data-k="format converter convert between jpg, png and webp convert jpg png webp jpeg format"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13l-3-3"/><path d="M20 16H7l3 3"/></svg></span><span><span class="tile-name">Format Converter</span><span class="tile-desc">Convert between JPG, PNG and WebP</span></span></a><a class="tile" href="/watermark-remover/" data-k="object &amp; watermark remover paint over text, stamps or objects to erase them remove watermark erase object text date stamp clean blemish logo"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 21h13"/><path d="M5.4 15.6l9.2-9.2a2 2 0 0 1 2.8 0l1.2 1.2a2 2 0 0 1 0 2.8L10 19H7.6l-2.2-2.2a1 1 0 0 1 0-1.2z"/><path d="M9.5 11.5l4 4"/></svg></span><span><span class="tile-name">Object &amp; Watermark Remover<span class="badge">New</span></span><span class="tile-desc">Paint over text, stamps or objects to erase them</span></span></a><a class="tile" href="/image-to-pdf/" data-k="image to pdf combine photos into one pdf file pdf document combine merge jpg to pdf"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h4"/></svg></span><span><span class="tile-name">Image to PDF<span class="badge">New</span></span><span class="tile-desc">Combine photos into one PDF file</span></span></a><a class="tile" href="/photo-filter/" data-k="photo filters brightness, contrast, colour and presets filter brightness contrast saturation edit effects vintage warm"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h9"/><path d="M17 6h3"/><path d="M4 12h3"/><path d="M11 12h9"/><path d="M4 18h11"/><path d="M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><span><span class="tile-name">Photo Filters<span class="badge">New</span></span><span class="tile-desc">Brightness, contrast, colour and presets</span></span></a></div>
     </section>
   </div>
 </main>
 <div id="toast" role="status" aria-live="polite"></div>
 <footer>
-  <div class="foot-tools">
-    <a href="/image-compressor/">Image Compressor</a>
-    <a href="/image-resizer/">Image Resizer</a>
-    <a href="/image-converter/">Format Converter</a>
-    <a href="/rotate-flip-image/">Rotate &amp; Flip</a>
-    <a href="/grayscale-image/">Grayscale Filter</a>
-    <a href="/image-to-base64/">Image to Base64</a>
-    <a href="/base64-to-image/">Base64 to Image</a>
-    <a href="/watermark-image/">Watermark Tool</a>
-    <a href="/crop-image/">Image Cropper</a>
-    <a href="/image-info/">Image Info</a>
+  <div class="foot-inner">
+    <div class="foot-cols"><div><h2>Make images smaller or bigger</h2><ul><li><a href="/image-compressor/">Image Compressor</a></li><li><a href="/image-resizer/">Image Resizer</a></li><li><a href="/crop-image/">Image Cropper</a></li></ul></div><div><h2>Edit and fix photos</h2><ul><li><a href="/watermark-remover/">Object &amp; Watermark Remover</a></li><li><a href="/blur-image/">Blur &amp; Pixelate</a></li><li><a href="/photo-filter/">Photo Filters</a></li><li><a href="/rotate-flip-image/">Rotate &amp; Flip</a></li><li><a href="/grayscale-image/">Black &amp; White Filter</a></li><li><a href="/watermark-image/">Add Watermark</a></li></ul></div><div><h2>Convert and save</h2><ul><li><a href="/image-converter/">Format Converter</a></li><li><a href="/image-to-pdf/">Image to PDF</a></li></ul></div><div><h2>Inspect and code</h2><ul><li><a href="/image-info/">Image Info</a></li><li><a href="/color-picker/">Color Picker</a></li><li><a href="/image-to-base64/">Image to Base64</a></li><li><a href="/base64-to-image/">Base64 to Image</a></li></ul></div><div><h2>ImageTools4Free</h2><ul><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li></ul></div></div>
+    <p class="foot-note">© 2026 ImageTools4Free. All image processing happens in your browser. Your files are never uploaded.</p>
   </div>
-  <div class="foot-links">
-    <a href="/">Home</a>
-    <a href="/guides/">Guides</a>
-    <a href="/about/">About</a>
-    <a href="/contact/">Contact</a>
-    <a href="/privacy-policy/">Privacy Policy</a>
-    <a href="/terms/">Terms of Service</a>
-  </div>
-  <div>© 2026 ImageTools4Free — All image processing happens in your browser. Your files are never uploaded.</div>
 </footer>
-<script src="/assets/common.js"></script>
+<script src="/assets/common.js?v=3"></script>
 <script>
 var compBlob=null;
 function compLoad(inp){loadImg(inp.files[0],'comp',function(img,file){showPreview('comp-preview',img,file);enBtn('comp-btn');});}
@@ -157,11 +128,11 @@ function doCompress(){
       '<div class="img-stat"><div class="img-stat-val">'+fmtSize(files['comp'].size)+'</div><div class="img-stat-key">Original</div></div>'
       +'<div class="img-stat"><div class="img-stat-val">'+fmtSize(blob.size)+'</div><div class="img-stat-key">Compressed</div></div>'
       +(parseFloat(saved)>=0
-        ? '<div class="img-stat"><div class="img-stat-val" style="color:#22c55e">-'+saved+'%</div><div class="img-stat-key">Saved</div></div>'
-        : '<div class="img-stat"><div class="img-stat-val" style="color:#f59e0b">+'+Math.abs(parseFloat(saved)).toFixed(1)+'%</div><div class="img-stat-key">Larger - lower the quality</div></div>');
+        ? '<div class="img-stat"><div class="img-stat-val" style="color:var(--ok)">-'+saved+'%</div><div class="img-stat-key">Saved</div></div>'
+        : '<div class="img-stat"><div class="img-stat-val" style="color:var(--warn)">+'+Math.abs(parseFloat(saved)).toFixed(1)+'%</div><div class="img-stat-key">Bigger. Try a lower quality</div></div>');
     document.getElementById('comp-result').style.display='block';
     document.getElementById('comp-dl').style.display='inline-flex';
-    toast('✅ Compressed!');
+    toast('Compressed!');
   },fmt,q);
 }
 function downloadCompressed(){var ext=document.getElementById('comp-fmt').value==='image/webp'?'webp':'jpg';dlBlob(compBlob,'compressed.'+ext);}

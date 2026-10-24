@@ -7,7 +7,8 @@
 <meta name="description" content="Free online image tools: compress, resize, convert, crop, rotate, watermark images and more. No signup required. Fast, easy, browser-based.">
 <link rel="canonical" href="https://imagetools4free.vercel.app/">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#060d1f">
+<meta name="theme-color" content="#f2f4f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1320" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ImageTools4Free">
@@ -21,7 +22,10 @@
 <meta property="og:image:alt" content="ImageTools4Free – free online image tools">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600..800&display=swap">
+<link rel="stylesheet" href="/assets/style.css?v=3">
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
@@ -30,47 +34,33 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="site-nav" aria-label="Main">
-  <a class="logo" href="/">Image<b>Tools</b>4Free</a>
-  <div class="nav-links">
-    <a href="/">Tools</a>
-    <a href="/guides/">Guides</a>
-    <a href="/about/">About</a>
-    <a href="/contact/">Contact</a>
-    <a href="/privacy-policy/">Privacy</a>
-  </div>
+  <a class="logo" href="/"><span class="logo-mark"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15l-5-5L6 20"/><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="9.5" r="1.5"/></svg></span><span>ImageTools<b>4Free</b></span></a>
+  <div class="nav-links"><a href="/" aria-current="page">All tools</a><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/contact/">Contact</a></div>
 </nav>
 
 <main id="main" class="home-main">
-  <div class="hero">
-    <h1>Free Online <span>Image Tools</span></h1>
-    <p>Compress, resize, convert, crop, rotate and watermark — free, instant, nothing uploaded to any server.</p>
-  </div>
-  <div class="outer-wrap">
-    <p class="grid-intro">Choose a tool to get started — all free, no signup:</p>
-    <div class="grid">
-          <a class="card" href="/image-compressor/"><span class="hot">Popular</span><div class="card-icon" aria-hidden="true">🗜️</div><div class="card-name">Image Compressor</div><div class="card-desc">Reduce file size, keep quality</div><div class="card-hint">Open →</div></a>
-          <a class="card" href="/image-resizer/"><span class="hot">Popular</span><div class="card-icon" aria-hidden="true">📐</div><div class="card-name">Image Resizer</div><div class="card-desc">Resize to any width &amp; height</div><div class="card-hint">Open →</div></a>
-          <a class="card" href="/image-converter/"><span class="hot">Popular</span><div class="card-icon" aria-hidden="true">🔄</div><div class="card-name">Format Converter</div><div class="card-desc">Convert JPG, PNG, WebP</div><div class="card-hint">Open →</div></a>
-          <a class="card" href="/rotate-flip-image/"><div class="card-icon" aria-hidden="true">🔃</div><div class="card-name">Rotate &amp; Flip</div><div class="card-desc">Rotate or flip any image</div><div class="card-hint">Open →</div></a>
-          <a class="card" href="/grayscale-image/"><div class="card-icon" aria-hidden="true">🌑</div><div class="card-name">Grayscale Filter</div><div class="card-desc">Convert to black &amp; white</div><div class="card-hint">Open →</div></a>
-          <a class="card" href="/image-to-base64/"><div class="card-icon" aria-hidden="true">💻</div><div class="card-name">Image to Base64</div><div class="card-desc">Encode image to Base64</div><div class="card-hint">Open →</div></a>
-          <a class="card" href="/base64-to-image/"><div class="card-icon" aria-hidden="true">🖼️</div><div class="card-name">Base64 to Image</div><div class="card-desc">Decode Base64 to image</div><div class="card-hint">Open →</div></a>
-          <a class="card" href="/watermark-image/"><span class="hot">New</span><div class="card-icon" aria-hidden="true">✍️</div><div class="card-name">Watermark Tool</div><div class="card-desc">Add text watermark</div><div class="card-hint">Open →</div></a>
-          <a class="card" href="/crop-image/"><div class="card-icon" aria-hidden="true">✂️</div><div class="card-name">Image Cropper</div><div class="card-desc">Crop any part precisely</div><div class="card-hint">Open →</div></a>
-          <a class="card" href="/image-info/"><div class="card-icon" aria-hidden="true">ℹ️</div><div class="card-name">Image Info</div><div class="card-desc">View dimensions &amp; details</div><div class="card-hint">Open →</div></a>
+<div class="outer-wrap">
+  <section class="hero">
+    <div class="hero-frame marks">
+      <h1>Image tools that work right in your browser</h1>
+      <p>15 free tools to compress, resize, convert, crop and fix your pictures. Nothing is uploaded, and there is nothing to sign up for.</p>
     </div>
+    <div class="finder">
+      <label for="tool-search">What do you want to do?</label>
+      <div class="search"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 21l-4.3-4.3"/><circle cx="11" cy="11" r="7"/></svg><input id="tool-search" type="search" placeholder="Try resize, pdf or blur" autocomplete="off"></div>
+      <p class="finder-hint">Or choose a tool from the list below.</p>
+    </div>
+  </section>
 
-    <section class="why">
-      <h2>Why use ImageTools4Free?</h2>
-      <div class="why-grid">
-        <div class="why-item"><div class="why-icon" aria-hidden="true">🔒</div><h3>100% Private</h3><p>Your images never leave your device. All processing is local.</p></div>
-        <div class="why-item"><div class="why-icon" aria-hidden="true">⚡</div><h3>Lightning Fast</h3><p>No server uploads. Instant results using browser technology.</p></div>
-        <div class="why-item"><div class="why-icon" aria-hidden="true">🆓</div><h3>Always Free</h3><p>No account, no watermarks, no hidden charges. Ever.</p></div>
-        <div class="why-item"><div class="why-icon" aria-hidden="true">📱</div><h3>Works Everywhere</h3><p>Desktop, mobile, tablet. Any modern browser supported.</p></div>
-      </div>
-    </section>
+  <section class="tool-group" aria-labelledby="g-size"><h2 id="g-size">Make images smaller or bigger</h2><div class="tiles"><a class="tile" href="/image-compressor/" data-k="image compressor reduce file size and keep quality compress smaller kb mb reduce size jpg"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14h6v6"/><path d="M20 10h-6V4"/><path d="M14 10l7-7"/><path d="M3 21l7-7"/></svg></span><span><span class="tile-name">Image Compressor</span><span class="tile-desc">Reduce file size and keep quality</span></span></a><a class="tile" href="/image-resizer/" data-k="image resizer change width and height in pixels resize dimensions scale pixels enlarge"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg></span><span><span class="tile-name">Image Resizer</span><span class="tile-desc">Change width and height in pixels</span></span></a><a class="tile" href="/crop-image/" data-k="image cropper cut out the part you need crop cut trim square"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2v14a2 2 0 0 0 2 2h14"/><path d="M18 22V8a2 2 0 0 0-2-2H2"/></svg></span><span><span class="tile-name">Image Cropper</span><span class="tile-desc">Cut out the part you need</span></span></a></div></section>
+  <section class="tool-group" aria-labelledby="g-edit"><h2 id="g-edit">Edit and fix photos</h2><div class="tiles"><a class="tile" href="/watermark-remover/" data-k="object &amp; watermark remover paint over text, stamps or objects to erase them remove watermark erase object text date stamp clean blemish logo"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 21h13"/><path d="M5.4 15.6l9.2-9.2a2 2 0 0 1 2.8 0l1.2 1.2a2 2 0 0 1 0 2.8L10 19H7.6l-2.2-2.2a1 1 0 0 1 0-1.2z"/><path d="M9.5 11.5l4 4"/></svg></span><span><span class="tile-name">Object &amp; Watermark Remover<span class="badge">New</span></span><span class="tile-desc">Paint over text, stamps or objects to erase them</span></span></a><a class="tile" href="/blur-image/" data-k="blur &amp; pixelate hide faces, names and numbers blur pixelate censor hide privacy face mosaic"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h4v4H4z"/><path d="M10 4h4v4h-4z"/><path d="M16 4h4v4h-4z"/><path d="M4 10h4v4H4z"/><path d="M16 10h4v4h-4z"/><path d="M4 16h4v4H4z"/><path d="M10 16h4v4h-4z"/><path d="M16 16h4v4h-4z"/></svg></span><span><span class="tile-name">Blur &amp; Pixelate<span class="badge">New</span></span><span class="tile-desc">Hide faces, names and numbers</span></span></a><a class="tile" href="/photo-filter/" data-k="photo filters brightness, contrast, colour and presets filter brightness contrast saturation edit effects vintage warm"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h9"/><path d="M17 6h3"/><path d="M4 12h3"/><path d="M11 12h9"/><path d="M4 18h11"/><path d="M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><span><span class="tile-name">Photo Filters<span class="badge">New</span></span><span class="tile-desc">Brightness, contrast, colour and presets</span></span></a><a class="tile" href="/rotate-flip-image/" data-k="rotate &amp; flip fix sideways or mirrored photos rotate flip mirror turn sideways"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></span><span><span class="tile-name">Rotate &amp; Flip</span><span class="tile-desc">Fix sideways or mirrored photos</span></span></a><a class="tile" href="/grayscale-image/" data-k="black &amp; white filter turn a colour photo grayscale grayscale black white monochrome"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 0 1 0 18"/><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" stroke="none"/></svg></span><span><span class="tile-name">Black &amp; White Filter</span><span class="tile-desc">Turn a colour photo grayscale</span></span></a><a class="tile" href="/watermark-image/" data-k="add watermark put your name or brand on a photo watermark text copyright brand name"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7V5h14v2"/><path d="M12 5v14"/><path d="M9 19h6"/></svg></span><span><span class="tile-name">Add Watermark</span><span class="tile-desc">Put your name or brand on a photo</span></span></a></div></section>
+  <section class="tool-group" aria-labelledby="g-convert"><h2 id="g-convert">Convert and save</h2><div class="tiles"><a class="tile" href="/image-converter/" data-k="format converter convert between jpg, png and webp convert jpg png webp jpeg format"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13l-3-3"/><path d="M20 16H7l3 3"/></svg></span><span><span class="tile-name">Format Converter</span><span class="tile-desc">Convert between JPG, PNG and WebP</span></span></a><a class="tile" href="/image-to-pdf/" data-k="image to pdf combine photos into one pdf file pdf document combine merge jpg to pdf"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h4"/></svg></span><span><span class="tile-name">Image to PDF<span class="badge">New</span></span><span class="tile-desc">Combine photos into one PDF file</span></span></a></div></section>
+  <section class="tool-group" aria-labelledby="g-inspect"><h2 id="g-inspect">Inspect and code</h2><div class="tiles"><a class="tile" href="/image-info/" data-k="image info see size, type and dimensions info details dimensions metadata size check"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16v-5"/><path d="M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg></span><span><span class="tile-name">Image Info</span><span class="tile-desc">See size, type and dimensions</span></span></a><a class="tile" href="/color-picker/" data-k="color picker get hex and rgb colours from a picture color colour picker hex rgb palette eyedropper"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.5-1.5H7l8.5-8.5"/><path d="M4.5 19.5V17l8.5-8.5"/><path d="M14 7l3-3a2.1 2.1 0 0 1 3 3l-3 3"/><path d="M12.5 5.5l6 6"/></svg></span><span><span class="tile-name">Color Picker<span class="badge">New</span></span><span class="tile-desc">Get HEX and RGB colours from a picture</span></span></a><a class="tile" href="/image-to-base64/" data-k="image to base64 turn a picture into code base64 encode data uri code"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8l-4 4 4 4"/><path d="M16 8l4 4-4 4"/><path d="M14 5l-4 14"/></svg></span><span><span class="tile-name">Image to Base64</span><span class="tile-desc">Turn a picture into code</span></span></a><a class="tile" href="/base64-to-image/" data-k="base64 to image turn base64 code back into a picture base64 decode data uri"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15l-5-5L6 20"/><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="9.5" r="1.5"/></svg></span><span><span class="tile-name">Base64 to Image</span><span class="tile-desc">Turn Base64 code back into a picture</span></span></a></div></section>
+  <p class="no-tools" id="no-tools" hidden>No tool matches “<b></b>”. Try a simpler word, such as resize, compress or pdf.</p>
 
-    <section class="tool-content home-text">
+  <section class="why"><h2>Why people use ImageTools4Free</h2><div class="why-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3"/><rect x="4.5" y="11" width="15" height="10" rx="2"/></svg><h3>Private by design</h3><p>Your pictures are processed on your own device and never uploaded.</p></div><div class="why-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><h3>Fast</h3><p>No waiting for uploads. Most tools finish in a second or two.</p></div><div class="why-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2z"/><path d="M12 21V7"/><path d="M12 7c-2-4-6-4-6-1.5S10 7 12 7z"/><path d="M12 7c2-4 6-4 6-1.5S14 7 12 7z"/></svg><h3>Free for everyone</h3><p>No account, no daily limits and no watermark added to your images.</p></div><div class="why-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 18h2"/><rect x="6" y="2" width="12" height="20" rx="2"/></svg><h3>Works on any device</h3><p>Use it on a phone, tablet or computer, in any modern browser.</p></div></section>
+
+  <section class="tool-content home-text">
 <h2>Free image tools that run in your browser</h2>
 <p>ImageTools4Free is a set of simple tools for everyday picture jobs. You can make a photo smaller for email, resize a profile picture, turn a WebP file into a JPG, or add your name to a photo in a few clicks. There is nothing to install and no account to create. <a href="/about/">Read more about the site</a>.</p>
 
@@ -83,11 +73,16 @@
 <tr><td>Change the width and height of a picture</td><td><a href="/image-resizer/">Image Resizer</a></td></tr>
 <tr><td>Switch between JPG, PNG and WebP</td><td><a href="/image-converter/">Format Converter</a></td></tr>
 <tr><td>Fix a sideways or upside-down photo</td><td><a href="/rotate-flip-image/">Rotate &amp; Flip</a></td></tr>
-<tr><td>Make a photo black and white</td><td><a href="/grayscale-image/">Grayscale Filter</a></td></tr>
+<tr><td>Make a photo black and white</td><td><a href="/grayscale-image/">Black &amp; White Filter</a></td></tr>
 <tr><td>Cut out one part of a picture</td><td><a href="/crop-image/">Image Cropper</a></td></tr>
-<tr><td>Put my name or brand on a photo</td><td><a href="/watermark-image/">Watermark Tool</a></td></tr>
+<tr><td>Put my name or brand on a photo</td><td><a href="/watermark-image/">Add Watermark</a></td></tr>
 <tr><td>Check a picture's size and dimensions</td><td><a href="/image-info/">Image Info</a></td></tr>
 <tr><td>Put an image inside HTML or CSS code</td><td><a href="/image-to-base64/">Image to Base64</a> and <a href="/base64-to-image/">Base64 to Image</a></td></tr>
+<tr><td>Remove a date stamp, text or object from my photo</td><td><a href="/watermark-remover/">Object &amp; Watermark Remover</a></td></tr>
+<tr><td>Hide a face, name or number before sharing</td><td><a href="/blur-image/">Blur &amp; Pixelate</a></td></tr>
+<tr><td>Make a dark or dull photo look better</td><td><a href="/photo-filter/">Photo Filters</a></td></tr>
+<tr><td>Put several pictures into one PDF</td><td><a href="/image-to-pdf/">Image to PDF</a></td></tr>
+<tr><td>Find the colour code in a logo or photo</td><td><a href="/color-picker/">Color Picker</a></td></tr>
 </tbody>
 </table>
 </div>
@@ -105,30 +100,15 @@
 <h2>Your pictures stay on your device</h2>
 <p>These tools use image features built into your web browser. When you pick a picture, it is processed on your own device and is never uploaded to our servers. You can read the details in our <a href="/privacy-policy/">Privacy Policy</a>.</p>
 </section>
-  </div>
+</div>
 </main>
+<div id="toast" role="status" aria-live="polite"></div>
 <footer>
-  <div class="foot-tools">
-    <a href="/image-compressor/">Image Compressor</a>
-    <a href="/image-resizer/">Image Resizer</a>
-    <a href="/image-converter/">Format Converter</a>
-    <a href="/rotate-flip-image/">Rotate &amp; Flip</a>
-    <a href="/grayscale-image/">Grayscale Filter</a>
-    <a href="/image-to-base64/">Image to Base64</a>
-    <a href="/base64-to-image/">Base64 to Image</a>
-    <a href="/watermark-image/">Watermark Tool</a>
-    <a href="/crop-image/">Image Cropper</a>
-    <a href="/image-info/">Image Info</a>
+  <div class="foot-inner">
+    <div class="foot-cols"><div><h2>Make images smaller or bigger</h2><ul><li><a href="/image-compressor/">Image Compressor</a></li><li><a href="/image-resizer/">Image Resizer</a></li><li><a href="/crop-image/">Image Cropper</a></li></ul></div><div><h2>Edit and fix photos</h2><ul><li><a href="/watermark-remover/">Object &amp; Watermark Remover</a></li><li><a href="/blur-image/">Blur &amp; Pixelate</a></li><li><a href="/photo-filter/">Photo Filters</a></li><li><a href="/rotate-flip-image/">Rotate &amp; Flip</a></li><li><a href="/grayscale-image/">Black &amp; White Filter</a></li><li><a href="/watermark-image/">Add Watermark</a></li></ul></div><div><h2>Convert and save</h2><ul><li><a href="/image-converter/">Format Converter</a></li><li><a href="/image-to-pdf/">Image to PDF</a></li></ul></div><div><h2>Inspect and code</h2><ul><li><a href="/image-info/">Image Info</a></li><li><a href="/color-picker/">Color Picker</a></li><li><a href="/image-to-base64/">Image to Base64</a></li><li><a href="/base64-to-image/">Base64 to Image</a></li></ul></div><div><h2>ImageTools4Free</h2><ul><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li></ul></div></div>
+    <p class="foot-note">© 2026 ImageTools4Free. All image processing happens in your browser. Your files are never uploaded.</p>
   </div>
-  <div class="foot-links">
-    <a href="/">Home</a>
-    <a href="/guides/">Guides</a>
-    <a href="/about/">About</a>
-    <a href="/contact/">Contact</a>
-    <a href="/privacy-policy/">Privacy Policy</a>
-    <a href="/terms/">Terms of Service</a>
-  </div>
-  <div>© 2026 ImageTools4Free — All image processing happens in your browser. Your files are never uploaded.</div>
 </footer>
+<script src="/assets/common.js?v=3"></script>
 </body>
 </html>

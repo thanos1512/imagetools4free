@@ -7,7 +7,8 @@
 <meta name="description" content="A simple guide to making photos smaller for email, websites and upload forms, without making them look worse. Covers resizing, compression and choosing a format.">
 <link rel="canonical" href="https://imagetools4free.vercel.app/guides/reduce-image-size/">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#060d1f">
+<meta name="theme-color" content="#f2f4f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1320" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ImageTools4Free">
@@ -21,7 +22,10 @@
 <meta property="og:image:alt" content="ImageTools4Free – free online image tools">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600..800&display=swap">
+<link rel="stylesheet" href="/assets/style.css?v=3">
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
@@ -30,14 +34,8 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="site-nav" aria-label="Main">
-  <a class="logo" href="/">Image<b>Tools</b>4Free</a>
-  <div class="nav-links">
-    <a href="/">Tools</a>
-    <a href="/guides/">Guides</a>
-    <a href="/about/">About</a>
-    <a href="/contact/">Contact</a>
-    <a href="/privacy-policy/">Privacy</a>
-  </div>
+  <a class="logo" href="/"><span class="logo-mark"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15l-5-5L6 20"/><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="9.5" r="1.5"/></svg></span><span>ImageTools<b>4Free</b></span></a>
+  <div class="nav-links"><a href="/">All tools</a><a href="/guides/" aria-current="page">Guides</a><a href="/about/">About</a><a href="/contact/">Contact</a></div>
 </nav>
 
 <main id="main">
@@ -63,7 +61,7 @@
 
 <h2>Step 2: Resize to the size you actually need</h2>
 <p>Think about where the image will be shown. A photo on a web page is rarely displayed wider than 1200–1600 pixels, even on a large screen. A profile picture may only be 400 pixels wide. Sending a 4000-pixel photo for those uses wastes space.</p>
-<p>Open the <a href="/image-resizer/">Image Resizer</a>, keep <em>Keep Proportions</em> switched on, and type the new width. As a rough guide:</p>
+<p>Open the <a href="/image-resizer/">Image Resizer</a>, keep <em>Keep proportions</em> switched on, and type the new width. As a rough guide:</p>
 <div class="table-wrap"><table><thead><tr><th>Where the image will be used</th><th>Suggested width</th></tr></thead><tbody>
 <tr><td>Full-width website banner</td><td>1600–1920 px</td></tr>
 <tr><td>Image inside a blog post or article</td><td>1000–1200 px</td></tr>
@@ -95,28 +93,13 @@
     <div class="read-next"><h2>Read next</h2><ul><li><a href="/guides/jpg-vs-png-vs-webp/">JPG vs PNG vs WebP: Which Image Format Should You Use?</a></li><li><a href="/guides/photo-size-for-online-forms/">How to Make a Photo the Right Size for Online Forms</a></li></ul></div>
   </div>
 </main>
+<div id="toast" role="status" aria-live="polite"></div>
 <footer>
-  <div class="foot-tools">
-    <a href="/image-compressor/">Image Compressor</a>
-    <a href="/image-resizer/">Image Resizer</a>
-    <a href="/image-converter/">Format Converter</a>
-    <a href="/rotate-flip-image/">Rotate &amp; Flip</a>
-    <a href="/grayscale-image/">Grayscale Filter</a>
-    <a href="/image-to-base64/">Image to Base64</a>
-    <a href="/base64-to-image/">Base64 to Image</a>
-    <a href="/watermark-image/">Watermark Tool</a>
-    <a href="/crop-image/">Image Cropper</a>
-    <a href="/image-info/">Image Info</a>
+  <div class="foot-inner">
+    <div class="foot-cols"><div><h2>Make images smaller or bigger</h2><ul><li><a href="/image-compressor/">Image Compressor</a></li><li><a href="/image-resizer/">Image Resizer</a></li><li><a href="/crop-image/">Image Cropper</a></li></ul></div><div><h2>Edit and fix photos</h2><ul><li><a href="/watermark-remover/">Object &amp; Watermark Remover</a></li><li><a href="/blur-image/">Blur &amp; Pixelate</a></li><li><a href="/photo-filter/">Photo Filters</a></li><li><a href="/rotate-flip-image/">Rotate &amp; Flip</a></li><li><a href="/grayscale-image/">Black &amp; White Filter</a></li><li><a href="/watermark-image/">Add Watermark</a></li></ul></div><div><h2>Convert and save</h2><ul><li><a href="/image-converter/">Format Converter</a></li><li><a href="/image-to-pdf/">Image to PDF</a></li></ul></div><div><h2>Inspect and code</h2><ul><li><a href="/image-info/">Image Info</a></li><li><a href="/color-picker/">Color Picker</a></li><li><a href="/image-to-base64/">Image to Base64</a></li><li><a href="/base64-to-image/">Base64 to Image</a></li></ul></div><div><h2>ImageTools4Free</h2><ul><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li></ul></div></div>
+    <p class="foot-note">© 2026 ImageTools4Free. All image processing happens in your browser. Your files are never uploaded.</p>
   </div>
-  <div class="foot-links">
-    <a href="/">Home</a>
-    <a href="/guides/">Guides</a>
-    <a href="/about/">About</a>
-    <a href="/contact/">Contact</a>
-    <a href="/privacy-policy/">Privacy Policy</a>
-    <a href="/terms/">Terms of Service</a>
-  </div>
-  <div>© 2026 ImageTools4Free — All image processing happens in your browser. Your files are never uploaded.</div>
 </footer>
+<script src="/assets/common.js?v=3"></script>
 </body>
 </html>

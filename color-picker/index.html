@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color Picker from Image – Get HEX &amp; RGB Codes from a Photo Free</title>
+<meta name="description" content="Click anywhere on a picture to get its colour as HEX, RGB and HSL, and see the main colours in the image. Free online colour picker, no upload.">
+<link rel="canonical" href="https://imagetools4free.vercel.app/color-picker/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#f2f4f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1320" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ImageTools4Free">
+<meta property="og:title" content="Color Picker from Image – Get HEX &amp; RGB Codes from a Photo Free">
+<meta property="og:description" content="Click anywhere on a picture to get its colour as HEX, RGB and HSL, and see the main colours in the image. Free online colour picker, no upload.">
+<meta property="og:url" content="https://imagetools4free.vercel.app/color-picker/">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://imagetools4free.vercel.app/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ImageTools4Free – free online image tools">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600..800&display=swap">
+<link rel="stylesheet" href="/assets/style.css?v=3">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Color Picker", "url": "https://imagetools4free.vercel.app/color-picker/", "description": "Click anywhere on a picture to get its colour as HEX, RGB and HSL, and see the main colours in the image. Free online colour picker, no upload.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Any (runs in the browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://imagetools4free.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Color Picker", "item": "https://imagetools4free.vercel.app/color-picker/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is the colour picker free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with no limits and no signup."}}, {"@type": "Question", "name": "Why is the colour slightly different from the original design?", "acceptedAnswer": {"@type": "Answer", "text": "JPG compression and photo lighting change colours a little. Pick from a large, flat area, or use the original PNG or SVG file if you have it."}}, {"@type": "Question", "name": "Is my image uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. Colours are read in your browser on your device."}}, {"@type": "Question", "name": "Does it work on a phone?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Tap the picture to pick a colour."}}]}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="site-nav" aria-label="Main">
+  <a class="logo" href="/"><span class="logo-mark"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15l-5-5L6 20"/><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="9.5" r="1.5"/></svg></span><span>ImageTools<b>4Free</b></span></a>
+  <div class="nav-links"><a href="/">All tools</a><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/contact/">Contact</a></div>
+</nav>
+
+<main id="main">
+  <div class="tool-wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span aria-current="page">Color Picker</span></nav>
+    <div class="tool-head"><div class="tool-head-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.5-1.5H7l8.5-8.5"/><path d="M4.5 19.5V17l8.5-8.5"/><path d="M14 7l3-3a2.1 2.1 0 0 1 3 3l-3 3"/><path d="M12.5 5.5l6 6"/></svg></div><div><h1 class="tool-head-name">Color Picker</h1><p class="tool-head-desc">Click a picture to get its HEX, RGB and HSL colour codes</p></div></div>
+    <div class="two-col wide">
+      <div>
+        <div class="upload-box">
+          <input type="file" id="cp-file" accept="image/*" onchange="cpLoad(this)">
+          <div class="upload-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4"/><path d="M7 9l5-5 5 5"/><path d="M4 19h16"/></svg></div>
+          <div class="upload-title"><span>Choose an image</span></div>
+          <div class="upload-sub">or drop it here. You can also paste with Ctrl+V.</div>
+          <div class="upload-sub">JPG, PNG, WebP, GIF or BMP</div>
+        </div>
+        <div class="settings">
+          <div class="settings-title">Picked colour</div>
+          <div class="swatch-row"><div class="swatch big" id="cp-sw"></div>
+            <div class="codes" id="cp-codes"><p class="hint">Click anywhere on your picture to pick a colour.</p></div></div>
+          <div class="settings-title spaced">Main colours in this picture</div>
+          <div class="palette" id="cp-pal"><p class="hint">Shown after you choose a picture.</p></div>
+          <div class="settings-title spaced">Your picks</div>
+          <div class="palette" id="cp-hist"><p class="hint">Colours you pick are saved here until you close the page.</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="preview-box stage" id="cp-stage"><div class="preview-empty">Your picture will appear here. Move over it to preview colours and click to pick one.</div></div>
+      </div>
+    </div>
+
+    <section class="tool-content">
+<h2>How to pick a colour from an image</h2>
+<ol>
+<li>Choose a picture, such as a logo, a screenshot or a photo.</li>
+<li>Move over the picture to preview colours. Click to pick one.</li>
+<li>Copy the HEX, RGB or HSL code with the <strong>Copy</strong> button.</li>
+<li>Use the <strong>Main colours</strong> palette to grab the most common colours in the picture with one click.</li>
+</ol>
+<h2>HEX, RGB and HSL explained</h2>
+<p><strong>HEX</strong> codes like <code>#2c4bdb</code> are used in websites, CSS, Canva and most design apps. <strong>RGB</strong> describes the amount of red, green and blue from 0 to 255, and is common in code and office programs. <strong>HSL</strong> describes hue (the colour on a colour wheel), saturation (how strong it is) and lightness, which makes it easy to create lighter or darker versions of the same colour.</p>
+<h2>Matching brand colours</h2>
+<p>If you are designing a poster, a social media post or a website and want it to match an existing logo, upload the logo and pick its main colour. Logos saved as JPG can have slightly different pixels near edges, so click in the middle of a solid area for the truest colour.</p>
+<h2>Frequently asked questions</h2>
+<h3>Is the colour picker free?</h3>
+<p>Yes, with no limits and no signup.</p>
+<h3>Why is the colour slightly different from the original design?</h3>
+<p>JPG compression and photo lighting change colours a little. Pick from a large, flat area, or use the original PNG or SVG file if you have it.</p>
+<h3>Is my image uploaded?</h3>
+<p>No. Colours are read in your browser on your device.</p>
+<h3>Does it work on a phone?</h3>
+<p>Yes. Tap the picture to pick a colour.</p>
+</section>
+
+    <section class="more-tools">
+      <h2>More free image tools</h2>
+      <div class="tiles"><a class="tile" href="/image-info/" data-k="image info see size, type and dimensions info details dimensions metadata size check"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16v-5"/><path d="M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg></span><span><span class="tile-name">Image Info</span><span class="tile-desc">See size, type and dimensions</span></span></a><a class="tile" href="/image-to-base64/" data-k="image to base64 turn a picture into code base64 encode data uri code"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8l-4 4 4 4"/><path d="M16 8l4 4-4 4"/><path d="M14 5l-4 14"/></svg></span><span><span class="tile-name">Image to Base64</span><span class="tile-desc">Turn a picture into code</span></span></a><a class="tile" href="/base64-to-image/" data-k="base64 to image turn base64 code back into a picture base64 decode data uri"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15l-5-5L6 20"/><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="9.5" r="1.5"/></svg></span><span><span class="tile-name">Base64 to Image</span><span class="tile-desc">Turn Base64 code back into a picture</span></span></a><a class="tile" href="/image-compressor/" data-k="image compressor reduce file size and keep quality compress smaller kb mb reduce size jpg"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14h6v6"/><path d="M20 10h-6V4"/><path d="M14 10l7-7"/><path d="M3 21l7-7"/></svg></span><span><span class="tile-name">Image Compressor</span><span class="tile-desc">Reduce file size and keep quality</span></span></a><a class="tile" href="/image-resizer/" data-k="image resizer change width and height in pixels resize dimensions scale pixels enlarge"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg></span><span><span class="tile-name">Image Resizer</span><span class="tile-desc">Change width and height in pixels</span></span></a><a class="tile" href="/image-converter/" data-k="format converter convert between jpg, png and webp convert jpg png webp jpeg format"><span class="tile-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13l-3-3"/><path d="M20 16H7l3 3"/></svg></span><span><span class="tile-name">Format Converter</span><span class="tile-desc">Convert between JPG, PNG and WebP</span></span></a></div>
+    </section>
+  </div>
+</main>
+<div id="toast" role="status" aria-live="polite"></div>
+<footer>
+  <div class="foot-inner">
+    <div class="foot-cols"><div><h2>Make images smaller or bigger</h2><ul><li><a href="/image-compressor/">Image Compressor</a></li><li><a href="/image-resizer/">Image Resizer</a></li><li><a href="/crop-image/">Image Cropper</a></li></ul></div><div><h2>Edit and fix photos</h2><ul><li><a href="/watermark-remover/">Object &amp; Watermark Remover</a></li><li><a href="/blur-image/">Blur &amp; Pixelate</a></li><li><a href="/photo-filter/">Photo Filters</a></li><li><a href="/rotate-flip-image/">Rotate &amp; Flip</a></li><li><a href="/grayscale-image/">Black &amp; White Filter</a></li><li><a href="/watermark-image/">Add Watermark</a></li></ul></div><div><h2>Convert and save</h2><ul><li><a href="/image-converter/">Format Converter</a></li><li><a href="/image-to-pdf/">Image to PDF</a></li></ul></div><div><h2>Inspect and code</h2><ul><li><a href="/image-info/">Image Info</a></li><li><a href="/color-picker/">Color Picker</a></li><li><a href="/image-to-base64/">Image to Base64</a></li><li><a href="/base64-to-image/">Base64 to Image</a></li></ul></div><div><h2>ImageTools4Free</h2><ul><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li></ul></div></div>
+    <p class="foot-note">© 2026 ImageTools4Free. All image processing happens in your browser. Your files are never uploaded.</p>
+  </div>
+</footer>
+<script src="/assets/common.js?v=3"></script>
+<script>
+var cp={c:null,d:null,w:0,h:0,hist:[]};
+function hex2(n){return ('0'+n.toString(16)).slice(-2);}
+function toHex(r,g,b){return '#'+hex2(r)+hex2(g)+hex2(b);}
+function toHsl(r,g,b){r/=255;g/=255;b/=255;var mx=Math.max(r,g,b),mn=Math.min(r,g,b),h=0,s=0,l=(mx+mn)/2;
+  if(mx!==mn){var d=mx-mn;s=l>0.5?d/(2-mx-mn):d/(mx+mn);h=mx===r?(g-b)/d+(g<b?6:0):mx===g?(b-r)/d+2:(r-g)/d+4;h*=60;}
+  return 'hsl('+Math.round(h)+', '+Math.round(s*100)+'%, '+Math.round(l*100)+'%)';}
+function cpLoad(inp){loadImg(inp.files[0],'cp',function(img){
+  var s=Math.min(1,2000/Math.max(img.width,img.height));cp.w=Math.round(img.width*s);cp.h=Math.round(img.height*s);
+  var stage=document.getElementById('cp-stage');stage.innerHTML='';var wrap=document.createElement('div');wrap.className='paint-wrap';
+  cp.c=cv(cp.w,cp.h);cp.c.className='paint-base pick';var x=cp.c.getContext('2d');x.drawImage(img,0,0,cp.w,cp.h);cp.d=x.getImageData(0,0,cp.w,cp.h).data;
+  var tip=document.createElement('div');tip.className='pick-tip';tip.id='cp-tip';
+  wrap.appendChild(cp.c);wrap.appendChild(tip);stage.appendChild(wrap);fitStage(stage,wrap,cp.w,cp.h);
+  cp.c.addEventListener('pointermove',function(e){var c=cpAt(e);tip.style.display='flex';tip.style.left=c.px+'px';tip.style.top=c.py+'px';tip.innerHTML='<i style="background:'+c.hex+'"></i>'+c.hex;});
+  cp.c.addEventListener('pointerleave',function(){tip.style.display='none';});
+  cp.c.addEventListener('click',function(e){var c=cpAt(e);cpPick(c.r,c.g,c.b,true);});
+  cpPalette();
+});}
+function cpAt(e){var r=cp.c.getBoundingClientRect(),x=Math.min(cp.w-1,Math.max(0,Math.floor((e.clientX-r.left)*cp.w/r.width))),y=Math.min(cp.h-1,Math.max(0,Math.floor((e.clientY-r.top)*cp.h/r.height))),i=(y*cp.w+x)*4;
+  return{r:cp.d[i],g:cp.d[i+1],b:cp.d[i+2],hex:toHex(cp.d[i],cp.d[i+1],cp.d[i+2]),px:e.clientX-r.left,py:e.clientY-r.top};}
+function cpPick(r,g,b,save){
+  var hex=toHex(r,g,b),rgb='rgb('+r+', '+g+', '+b+')',hsl=toHsl(r,g,b);
+  document.getElementById('cp-sw').style.background=hex;
+  document.getElementById('cp-codes').innerHTML=[['HEX',hex],['RGB',rgb],['HSL',hsl]].map(function(c){return '<div class="code-row"><span class="code-k">'+c[0]+'</span><code>'+c[1]+'</code><button class="btn-ghost sm" onclick="cpCopy(\''+c[1]+'\')">Copy</button></div>';}).join('');
+  if(save&&cp.hist[0]!==hex){cp.hist.unshift(hex);cp.hist=cp.hist.slice(0,12);
+    document.getElementById('cp-hist').innerHTML=cp.hist.map(function(h){return '<button class="pal" style="background:'+h+'" onclick="cpHex(\''+h+'\')" title="'+h+'" aria-label="Pick '+h+'"></button>';}).join('');}
+}
+function cpHex(h){cpPick(parseInt(h.substr(1,2),16),parseInt(h.substr(3,2),16),parseInt(h.substr(5,2),16),false);}
+function cpCopy(t){navigator.clipboard.writeText(t).then(function(){toast('Copied '+t);},function(){toast('Copy failed. Select the code and copy it yourself.');});}
+function cpPalette(){
+  var step=Math.max(1,Math.floor(Math.sqrt(cp.w*cp.h/40000))),bk={},i,x,y,k;
+  for(y=0;y<cp.h;y+=step)for(x=0;x<cp.w;x+=step){i=(y*cp.w+x)*4;if(cp.d[i+3]<128)continue;
+    k=(cp.d[i]>>4)+'_'+(cp.d[i+1]>>4)+'_'+(cp.d[i+2]>>4);var b=bk[k]||(bk[k]=[0,0,0,0]);b[0]+=cp.d[i];b[1]+=cp.d[i+1];b[2]+=cp.d[i+2];b[3]++;}
+  var list=Object.keys(bk).map(function(k){var b=bk[k];return[b[0]/b[3],b[1]/b[3],b[2]/b[3],b[3]];}).sort(function(a,b){return b[3]-a[3];}),pick=[];
+  list.forEach(function(c){if(pick.length>=8)return;for(var j=0;j<pick.length;j++){var p=pick[j];if(Math.abs(p[0]-c[0])+Math.abs(p[1]-c[1])+Math.abs(p[2]-c[2])<70)return;}pick.push(c);});
+  document.getElementById('cp-pal').innerHTML=pick.map(function(c){var h=toHex(Math.round(c[0]),Math.round(c[1]),Math.round(c[2]));return '<button class="pal" style="background:'+h+'" onclick="cpHex(\''+h+'\')" title="'+h+'" aria-label="Pick '+h+'"></button>';}).join('');
+}
+</script>
+</body>
+</html>
