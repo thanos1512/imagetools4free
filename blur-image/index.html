@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600..800&display=swap">
-<link rel="stylesheet" href="/assets/style.css?v=3">
+<link rel="stylesheet" href="/assets/style.css?v=4">
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
@@ -111,7 +111,7 @@
     <p class="foot-note">© 2026 ImageTools4Free. All image processing happens in your browser. Your files are never uploaded.</p>
   </div>
 </footer>
-<script src="/assets/common.js?v=3"></script>
+<script src="/assets/common.js?v=4"></script>
 <script>
 var bl={mode:'pix',scope:'areas',rects:[],c:null,o:null,src:null,w:0,h:0,drag:null};
 function blLoad(inp){loadImg(inp.files[0],'bl',function(img){
@@ -134,7 +134,7 @@ function blPos(e){var r=bl.o.getBoundingClientRect();return{x:Math.max(0,Math.mi
 function blPointer(e){
   if(!bl.src||bl.scope==='all')return;
   var p=blPos(e),ctx=bl.o.getContext('2d');
-  if(e.type==='pointerdown'){e.preventDefault();bl.o.setPointerCapture(e.pointerId);bl.drag={x:p.x,y:p.y};return;}
+  if(e.type==='pointerdown'){e.preventDefault();try{bl.o.setPointerCapture(e.pointerId);}catch(x){}bl.drag={x:p.x,y:p.y};return;}
   if(!bl.drag)return;
   var x=Math.min(bl.drag.x,p.x),y=Math.min(bl.drag.y,p.y),w=Math.abs(p.x-bl.drag.x),h=Math.abs(p.y-bl.drag.y);
   ctx.clearRect(0,0,bl.w,bl.h);

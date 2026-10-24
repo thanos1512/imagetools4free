@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600..800&display=swap">
-<link rel="stylesheet" href="/assets/style.css?v=3">
+<link rel="stylesheet" href="/assets/style.css?v=4">
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
@@ -111,7 +111,7 @@
     <p class="foot-note">© 2026 ImageTools4Free. All image processing happens in your browser. Your files are never uploaded.</p>
   </div>
 </footer>
-<script src="/assets/common.js?v=3"></script>
+<script src="/assets/common.js?v=4"></script>
 <script>
 var wr={c:null,o:null,ctx:null,octx:null,mask:null,w:0,h:0,hist:[],down:false,last:null};
 function wrLoad(inp){loadImg(inp.files[0],'wr',function(img){
@@ -135,7 +135,7 @@ function wrStamp(x,y,rad){
 }
 function wrPointer(e){
   if(!wr.mask)return;
-  if(e.type==='pointerdown'){e.preventDefault();wr.o.setPointerCapture(e.pointerId);wr.down=true;wr.hist.push({t:'s',m:wr.mask.slice()});if(wr.hist.length>8)wr.hist.shift();wr.last=null;}
+  if(e.type==='pointerdown'){e.preventDefault();try{wr.o.setPointerCapture(e.pointerId);}catch(x){}wr.down=true;wr.hist.push({t:'s',m:wr.mask.slice()});if(wr.hist.length>8)wr.hist.shift();wr.last=null;}
   if(!wr.down)return;
   if(e.type==='pointerup'||e.type==='pointercancel'||e.type==='pointerleave'){wr.down=false;wrSync();return;}
   var p=wrPos(e),rad=parseInt(document.getElementById('wr-size').value)/2*p.k;
