@@ -37,11 +37,14 @@ code{font-family:ui-monospace,Consolas,monospace;font-size:.88em;background:var(
 .skip-link{position:absolute;left:-999px;top:0;background:var(--brand);color:var(--brand-ink);padding:8px 14px;z-index:200;font-weight:700}
 .skip-link:focus{left:8px;top:8px}
 .site-nav{background:var(--surface);border-bottom:1px solid var(--line);padding:0 24px;min-height:62px;display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:0;z-index:100}
-.logo{display:flex;align-items:center;gap:9px;font-family:var(--display);font-size:20px;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
-.logo-mark{width:30px;height:30px;border-radius:8px;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center}
-.logo-mark .ico{width:18px;height:18px}
-.logo b{font-weight:800;color:var(--brand)}
-.logo>span:last-child{white-space:nowrap}
+.logo{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none}
+.logo-mark{display:grid;grid-template-columns:1fr 1fr;gap:3px;width:28px;height:28px;flex:none}
+.logo-mark i{border-radius:3px;background:var(--brand)}
+.logo-mark i:nth-child(2){background:var(--mark)}
+.logo-mark i:nth-child(3){background:var(--ok)}
+.logo-mark i:nth-child(4){background:#f0a54a}
+.logo-word{font-family:"Unbounded",var(--display);font-weight:700;font-size:18px;letter-spacing:-.03em;white-space:nowrap}
+@media(max-width:360px){.logo-word{font-size:16px}.logo-mark{width:24px;height:24px}}
 .nav-links{display:flex;gap:4px;align-items:center}
 .nav-links a{color:var(--ink-2);text-decoration:none;font-size:15px;padding:8px 12px;border-radius:var(--r-sm)}
 .nav-links a:hover{color:var(--ink);background:var(--surface-2)}
