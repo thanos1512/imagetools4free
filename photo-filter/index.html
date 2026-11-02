@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Photo Filters &amp; Editor Online – Brightness, Contrast and Presets Free</title>
+<title>Free Photo Filters Online – Brightness, Contrast &amp; Looks</title>
 <meta name="description" content="Brighten dark photos, boost colour or add a vintage, warm or black and white look. Simple sliders and one-tap presets. Free, no signup, no upload.">
 <link rel="canonical" href="https://imagetools4free.vercel.app/photo-filter/">
 <meta name="robots" content="index, follow">
@@ -12,7 +12,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ImageTools4Free">
-<meta property="og:title" content="Photo Filters &amp; Editor Online – Brightness, Contrast and Presets Free">
+<meta property="og:title" content="Free Photo Filters Online – Brightness, Contrast &amp; Looks">
 <meta property="og:description" content="Brighten dark photos, boost colour or add a vintage, warm or black and white look. Simple sliders and one-tap presets. Free, no signup, no upload.">
 <meta property="og:url" content="https://imagetools4free.vercel.app/photo-filter/">
 <meta name="twitter:card" content="summary_large_image">
@@ -22,11 +22,9 @@
 <meta property="og:image:alt" content="ImageTools4Free – free online image tools">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600..800&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700&text=ImageTools4Free&display=swap">
-<link rel="stylesheet" href="/assets/style.css?v=5">
+<link rel="preload" href="/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/atkinson-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=6">
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
@@ -107,7 +105,7 @@
     <p class="foot-note">© 2026 ImageTools4Free. All image processing happens in your browser. Your files are never uploaded.</p>
   </div>
 </footer>
-<script src="/assets/common.js?v=5"></script>
+<script src="/assets/common.js?v=6"></script>
 <script>
 var PF_S=[['br','Brightness',-100,100],['ct','Contrast',-100,100],['sa','Saturation',-100,100],['wa','Warmth',-100,100],['fd','Fade',0,100],['vg','Vignette',0,100]];
 var PF_P={'Original':{},'Vivid':{br:5,ct:15,sa:35},'Warm':{wa:35,sa:10},'Cool':{wa:-35,sa:5},'Vintage':{wa:30,sa:-35,fd:35,ct:-10,vg:40},'Black & white':{sa:-100,ct:20},'Fade':{fd:45,sa:-15,br:5},'Dramatic':{ct:40,sa:-20,vg:55,br:-5}};

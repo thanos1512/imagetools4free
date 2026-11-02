@@ -22,11 +22,9 @@
 <meta property="og:image:alt" content="ImageTools4Free – free online image tools">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600..800&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700&text=ImageTools4Free&display=swap">
-<link rel="stylesheet" href="/assets/style.css?v=5">
+<link rel="preload" href="/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/atkinson-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=6">
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
@@ -106,7 +104,7 @@
     <p class="foot-note">© 2026 ImageTools4Free. All image processing happens in your browser. Your files are never uploaded.</p>
   </div>
 </footer>
-<script src="/assets/common.js?v=5"></script>
+<script src="/assets/common.js?v=6"></script>
 <script>
 function wmLoad(inp){loadImg(inp.files[0],'wm',function(img,file){wmPreview();enBtn('wm-btn');});}
 function wmDraw(){

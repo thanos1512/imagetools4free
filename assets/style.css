@@ -1,5 +1,10 @@
 /* ImageTools4Free – visual system
    Paper and ink, with cobalt for actions and magenta crop marks as the signature. */
+@font-face{font-family:"Bricolage Grotesque";src:url(/assets/fonts/bricolage.woff2) format("woff2");font-weight:600 800;font-display:swap}
+@font-face{font-family:"Atkinson Hyperlegible";src:url(/assets/fonts/atkinson-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Atkinson Hyperlegible";src:url(/assets/fonts/atkinson-700.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Atkinson Hyperlegible";src:url(/assets/fonts/atkinson-400i.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Unbounded";src:url(/assets/fonts/unbounded-logo.woff2) format("woff2");font-weight:700;font-display:swap}
 :root{
   --paper:#f2f4f8; --surface:#ffffff; --surface-2:#f7f8fb; --line:#dbe1ec; --line-2:#c7cfdf;
   --ink:#17203a; --ink-2:#4b5672; --ink-3:#6b7590;
