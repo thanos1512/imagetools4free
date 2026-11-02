@@ -24,7 +24,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/atkinson-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/style.css?v=8">
+<link rel="stylesheet" href="/assets/style.css?v=9">
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
@@ -40,14 +40,21 @@
 <main id="main" class="home-main">
 <div class="outer-wrap">
   <section class="hero">
-    <div class="hero-frame marks">
+    <div class="hero-bg" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i></div>
+    <div class="hero-copy marks">
       <h1>Image tools that work right in your browser</h1>
       <p>16 free tools to compress, resize, convert, crop and fix your pictures. Nothing is uploaded, and there is nothing to sign up for.</p>
+      <div class="quick" aria-label="Popular tasks"><a class="quick-link" href="/compress-image-to-50kb/">Compress to 50 KB</a><a class="quick-link" href="/passport-photo-maker/">Passport photo</a><a class="quick-link" href="/watermark-remover/">Remove a watermark</a><a class="quick-link" href="/image-to-pdf/">JPG to PDF</a><a class="quick-link" href="/image-resizer/">Resize for Instagram</a></div>
     </div>
-    <div class="finder">
+    <div class="finder hero-card">
       <label for="tool-search">What do you want to do?</label>
       <div class="search"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 21l-4.3-4.3"/><circle cx="11" cy="11" r="7"/></svg><input id="tool-search" type="search" placeholder="Try resize, pdf or blur" autocomplete="off"></div>
       <p class="finder-hint">Or choose a tool from the list below.</p>
+      <ul class="trust">
+        <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Your photos never leave your device</li>
+        <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>No signup and no daily limits</li>
+        <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Works on phones and computers</li>
+      </ul>
     </div>
   </section>
 
@@ -110,6 +117,6 @@
     <p class="foot-note">© 2026 ImageTools4Free. All image processing happens in your browser. Your files are never uploaded.</p>
   </div>
 </footer>
-<script src="/assets/common.js?v=8"></script>
+<script src="/assets/common.js?v=9"></script>
 </body>
 </html>
