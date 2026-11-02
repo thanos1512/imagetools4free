@@ -24,7 +24,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/atkinson-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/style.css?v=7">
+<link rel="stylesheet" href="/assets/style.css?v=8">
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
@@ -44,10 +44,10 @@
     <div class="two-col">
       <div>
         <div class="upload-box">
-          <input type="file" id="cvt-file" accept="image/*" onchange="cvtLoad(this)">
+          <input type="file" id="cvt-file" accept="image/*" multiple onchange="cvtLoad(this)">
           <div class="upload-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4"/><path d="M7 9l5-5 5 5"/><path d="M4 19h16"/></svg></div>
-          <div class="upload-title"><span>Choose an image</span></div>
-          <div class="upload-sub">or drop it here. You can also paste with Ctrl+V.</div>
+          <div class="upload-title"><span>Choose images</span></div>
+          <div class="upload-sub">One picture or many at once. You can also drop or paste them.</div>
           <div class="upload-sub">JPG, PNG, WebP, GIF or BMP</div>
         </div>
         <div class="settings">
@@ -109,21 +109,27 @@
 <div id="toast" role="status" aria-live="polite"></div>
 <footer>
   <div class="foot-inner">
-    <div class="foot-cols"><div><h2>Make images smaller or bigger</h2><ul><li><a href="/image-compressor/">Image Compressor</a></li><li><a href="/image-resizer/">Image Resizer</a></li><li><a href="/crop-image/">Image Cropper</a></li></ul></div><div><h2>Edit and fix photos</h2><ul><li><a href="/watermark-remover/">Object &amp; Watermark Remover</a></li><li><a href="/blur-image/">Blur &amp; Pixelate</a></li><li><a href="/photo-filter/">Photo Filters</a></li><li><a href="/rotate-flip-image/">Rotate &amp; Flip</a></li><li><a href="/grayscale-image/">Black &amp; White Filter</a></li><li><a href="/watermark-image/">Add Watermark</a></li></ul></div><div><h2>Convert and save</h2><ul><li><a href="/image-converter/">Format Converter</a></li><li><a href="/image-to-pdf/">Image to PDF</a></li></ul></div><div><h2>Inspect and code</h2><ul><li><a href="/image-info/">Image Info</a></li><li><a href="/color-picker/">Color Picker</a></li><li><a href="/image-to-base64/">Image to Base64</a></li><li><a href="/base64-to-image/">Base64 to Image</a></li></ul></div><div><h2>ImageTools4Free</h2><ul><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li></ul></div></div>
+    <div class="foot-cols"><div><h2>Make images smaller or bigger</h2><ul><li><a href="/image-compressor/">Image Compressor</a></li><li><a href="/image-resizer/">Image Resizer</a></li><li><a href="/crop-image/">Image Cropper</a></li><li><a href="/passport-photo-maker/">Passport Photo Maker</a></li></ul></div><div><h2>Edit and fix photos</h2><ul><li><a href="/watermark-remover/">Object &amp; Watermark Remover</a></li><li><a href="/blur-image/">Blur &amp; Pixelate</a></li><li><a href="/photo-filter/">Photo Filters</a></li><li><a href="/rotate-flip-image/">Rotate &amp; Flip</a></li><li><a href="/grayscale-image/">Black &amp; White Filter</a></li><li><a href="/watermark-image/">Add Watermark</a></li></ul></div><div><h2>Convert and save</h2><ul><li><a href="/image-converter/">Format Converter</a></li><li><a href="/image-to-pdf/">Image to PDF</a></li></ul></div><div><h2>Inspect and code</h2><ul><li><a href="/image-info/">Image Info</a></li><li><a href="/color-picker/">Color Picker</a></li><li><a href="/image-to-base64/">Image to Base64</a></li><li><a href="/base64-to-image/">Base64 to Image</a></li></ul></div><div><h2>ImageTools4Free</h2><ul><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li></ul></div></div>
     <p class="foot-note">© 2026 ImageTools4Free. All image processing happens in your browser. Your files are never uploaded.</p>
   </div>
 </footer>
-<script src="/assets/common.js?v=7"></script>
+<script src="/assets/common.js?v=8"></script>
 <script>
-function cvtLoad(inp){loadImg(inp.files[0],'cvt',function(img,file){showPreview('cvt-preview',img,file);enBtn('cvt-btn');});}
+function cvtLoad(inp){
+  if(inp.files.length>1){batchStart('cvt',inp.files,{box:'cvt-preview',btn:'cvt-btn',label:'Convert all',single:'Convert and download',zip:'converted-images.zip',run:cvtOne});return;}
+  batchExit();document.getElementById('cvt-btn').textContent='Convert and download';
+  loadImg(inp.files[0],'cvt',function(img,file){showPreview('cvt-preview',img,file);enBtn('cvt-btn');});}
+function cvtOne(img,file,cb){var fmt=document.getElementById('cvt-fmt').value,q=parseInt(document.getElementById('cvt-q').value)/100,c=cv(img.width,img.height);
+  c.getContext('2d').drawImage(img,0,0);produce(c,{fmt:fmt,q:q,limit:kbLimit()},cb);}
 function doConvert(){
+  if(batchActive('cvt'))return batchRun();
   var img=imgs['cvt'];if(!img)return;
   var fmt=document.getElementById('cvt-fmt').value,q=parseInt(document.getElementById('cvt-q').value)/100;
   var ext={jpeg:'jpg',png:'png',webp:'webp'}[fmt.split('/')[1]];
   var c=cv(img.width,img.height),ctx=c.getContext('2d');
   if(fmt==='image/jpeg'){ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);}
   ctx.drawImage(img,0,0);
-  exportImage(c,'converted',{fmt:fmt,q:q});
+  exportImage(c,cleanName(files['cvt'].name),{fmt:fmt,q:q});
 }
 </script>
 </body>

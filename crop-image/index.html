@@ -24,7 +24,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/atkinson-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/style.css?v=7">
+<link rel="stylesheet" href="/assets/style.css?v=8">
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
@@ -41,7 +41,7 @@
   <div class="tool-wrap">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span aria-current="page">Image Cropper</span></nav>
     <div class="tool-head"><div class="tool-head-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2v14a2 2 0 0 0 2 2h14"/><path d="M18 22V8a2 2 0 0 0-2-2H2"/></svg></div><div><h1 class="tool-head-name">Image Cropper</h1><p class="tool-head-desc">Crop any part of your image precisely</p></div></div>
-    <div class="two-col">
+    <div class="two-col wide">
       <div>
         <div class="upload-box">
           <input type="file" id="crop-file" accept="image/*" onchange="cropLoad(this)">
@@ -52,11 +52,16 @@
         </div>
         <div class="settings">
           <div class="settings-title">Crop area</div>
-          <div id="crop-info" class="status-note">Upload an image first.</div>
-          <div class="field"><label for="crop-x">Left edge, X (pixels)</label><input type="number" id="crop-x" value="0" style="width:110px"></div>
-          <div class="field"><label for="crop-y">Top edge, Y (pixels)</label><input type="number" id="crop-y" value="0" style="width:110px"></div>
-          <div class="field"><label for="crop-w">Crop width (pixels)</label><input type="number" id="crop-w" value="400" style="width:110px"></div>
-          <div class="field"><label for="crop-h">Crop height (pixels)</label><input type="number" id="crop-h" value="400" style="width:110px"></div>
+          <p class="hint">Drag the box on your picture to move it, or drag its pink corners to resize it. You can also type exact numbers below.</p>
+          <div class="field"><span class="label">Shape</span>
+            <div class="chips" id="crop-ratios" role="group" aria-label="Shape"><button type="button" class="chip on" data-r="0" onclick="cropRatio(this)">Free</button><button type="button" class="chip" data-r="1" onclick="cropRatio(this)">Square 1:1</button><button type="button" class="chip" data-r="1.3333" onclick="cropRatio(this)">4:3</button><button type="button" class="chip" data-r="0.75" onclick="cropRatio(this)">3:4</button><button type="button" class="chip" data-r="1.7778" onclick="cropRatio(this)">16:9</button><button type="button" class="chip" data-r="0.5625" onclick="cropRatio(this)">9:16</button><button type="button" class="chip" data-r="1.5" onclick="cropRatio(this)">3:2</button><button type="button" class="chip" data-r="0.6667" onclick="cropRatio(this)">2:3</button><button type="button" class="chip" data-r="orig" onclick="cropRatio(this)">Original shape</button></div></div>
+          <div class="xywh">
+            <div class="field"><label for="crop-w">Width (pixels)</label><input type="number" id="crop-w" min="1" inputmode="numeric" oninput="cropTyped('w')"></div>
+            <div class="field"><label for="crop-h">Height (pixels)</label><input type="number" id="crop-h" min="1" inputmode="numeric" oninput="cropTyped('h')"></div>
+            <div class="field"><label for="crop-x">From left, X</label><input type="number" id="crop-x" min="0" inputmode="numeric" oninput="cropTyped('x')"></div>
+            <div class="field"><label for="crop-y">From top, Y</label><input type="number" id="crop-y" min="0" inputmode="numeric" oninput="cropTyped('y')"></div>
+          </div>
+          <div id="crop-info" class="status-note">Choose an image to start.</div>
           <div class="save-opts">
           <div class="settings-title spaced">Save as</div>
           <div class="field"><label for="so-fmt">Format</label>
@@ -69,16 +74,16 @@
           <div class="btn-row"><button class="btn-main" id="crop-btn" onclick="doCrop()" disabled>Crop and download</button></div>
         </div>
       </div>
-      <div><div class="preview-box" id="crop-preview"><div class="preview-empty">Your preview will appear here after you choose an image.</div></div></div>
+      <div><div class="preview-box stage" id="crop-preview"><div class="preview-empty">Your picture will appear here with a box you can drag to choose the area to keep.</div></div></div>
     </div>
 
     <section class="tool-content">
 <h2>How to crop an image</h2>
 <ol>
-<li>Upload your picture. Its full size in pixels is shown above the settings.</li>
-<li>Enter <strong>X</strong> (how far from the left edge to start) and <strong>Y</strong> (how far from the top to start).</li>
-<li>Enter the <strong>width</strong> and <strong>height</strong> of the area you want to keep.</li>
-<li>Press <strong>Crop and download</strong> to save the cropped area as a PNG.</li>
+<li>Choose your picture. A box appears on it.</li>
+<li>Pick a <strong>Shape</strong> if you need one, such as <em>Square 1:1</em> for a profile photo or <em>16:9</em> for a YouTube thumbnail. Choose <em>Free</em> to draw any shape.</li>
+<li>Drag the box to move it, and drag its pink corners to make it bigger or smaller. For exact results, type the width, height and position in pixels.</li>
+<li>Choose a format and, if you need to, a maximum file size. Then press <strong>Crop and download</strong>.</li>
 </ol>
 <h2>Understanding X, Y, width and height</h2>
 <p>Picture positions are measured in pixels from the top-left corner. X = 0 and Y = 0 is that corner. If your image is 1000 × 800 pixels and you want the middle 500 × 400 area, start at X = 250 and Y = 200, with width 500 and height 400.</p><p>To crop to a square from the centre of a 1200 × 800 photo, use width and height 800, X = 200 and Y = 0.</p>
@@ -104,27 +109,39 @@
 <div id="toast" role="status" aria-live="polite"></div>
 <footer>
   <div class="foot-inner">
-    <div class="foot-cols"><div><h2>Make images smaller or bigger</h2><ul><li><a href="/image-compressor/">Image Compressor</a></li><li><a href="/image-resizer/">Image Resizer</a></li><li><a href="/crop-image/">Image Cropper</a></li></ul></div><div><h2>Edit and fix photos</h2><ul><li><a href="/watermark-remover/">Object &amp; Watermark Remover</a></li><li><a href="/blur-image/">Blur &amp; Pixelate</a></li><li><a href="/photo-filter/">Photo Filters</a></li><li><a href="/rotate-flip-image/">Rotate &amp; Flip</a></li><li><a href="/grayscale-image/">Black &amp; White Filter</a></li><li><a href="/watermark-image/">Add Watermark</a></li></ul></div><div><h2>Convert and save</h2><ul><li><a href="/image-converter/">Format Converter</a></li><li><a href="/image-to-pdf/">Image to PDF</a></li></ul></div><div><h2>Inspect and code</h2><ul><li><a href="/image-info/">Image Info</a></li><li><a href="/color-picker/">Color Picker</a></li><li><a href="/image-to-base64/">Image to Base64</a></li><li><a href="/base64-to-image/">Base64 to Image</a></li></ul></div><div><h2>ImageTools4Free</h2><ul><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li></ul></div></div>
+    <div class="foot-cols"><div><h2>Make images smaller or bigger</h2><ul><li><a href="/image-compressor/">Image Compressor</a></li><li><a href="/image-resizer/">Image Resizer</a></li><li><a href="/crop-image/">Image Cropper</a></li><li><a href="/passport-photo-maker/">Passport Photo Maker</a></li></ul></div><div><h2>Edit and fix photos</h2><ul><li><a href="/watermark-remover/">Object &amp; Watermark Remover</a></li><li><a href="/blur-image/">Blur &amp; Pixelate</a></li><li><a href="/photo-filter/">Photo Filters</a></li><li><a href="/rotate-flip-image/">Rotate &amp; Flip</a></li><li><a href="/grayscale-image/">Black &amp; White Filter</a></li><li><a href="/watermark-image/">Add Watermark</a></li></ul></div><div><h2>Convert and save</h2><ul><li><a href="/image-converter/">Format Converter</a></li><li><a href="/image-to-pdf/">Image to PDF</a></li></ul></div><div><h2>Inspect and code</h2><ul><li><a href="/image-info/">Image Info</a></li><li><a href="/color-picker/">Color Picker</a></li><li><a href="/image-to-base64/">Image to Base64</a></li><li><a href="/base64-to-image/">Base64 to Image</a></li></ul></div><div><h2>ImageTools4Free</h2><ul><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li></ul></div></div>
     <p class="foot-note">© 2026 ImageTools4Free. All image processing happens in your browser. Your files are never uploaded.</p>
   </div>
 </footer>
-<script src="/assets/common.js?v=7"></script>
+<script src="/assets/common.js?v=8"></script>
 <script>
+var cropper=null,cropR=0;
 function cropLoad(inp){
   loadImg(inp.files[0],'crop',function(img,file){
-    showPreview('crop-preview',img,file);
-    document.getElementById('crop-w').value=Math.min(400,img.width);
-    document.getElementById('crop-h').value=Math.min(400,img.height);
-    document.getElementById('crop-info').textContent='Image: '+img.width+'×'+img.height+' px';
+    cropper=new Cropper(document.getElementById('crop-preview'),img,{onChange:cropFields});
+    var act=document.querySelector('#crop-ratios .chip.on');cropRatio(act,true);
+    if(!cropR)cropper.set({x:img.width*0.1,y:img.height*0.1,w:img.width*0.8,h:img.height*0.8});
     enBtn('crop-btn');
   });
 }
+function cropRatio(btn,keep){
+  document.querySelectorAll('#crop-ratios .chip').forEach(function(b){b.classList.toggle('on',b===btn);});
+  var v=btn.getAttribute('data-r'),img=imgs['crop'];cropR=v==='orig'?(img?img.width/img.height:0):parseFloat(v)||0;
+  if(cropper)cropper.setRatio(cropR);
+}
+function cropFields(r){
+  ['x','y','w','h'].forEach(function(k){var el=document.getElementById('crop-'+k);if(document.activeElement!==el)el.value=r[k];});
+  var img=imgs['crop'];document.getElementById('crop-info').textContent='Keeping '+r.w+' × '+r.h+' pixels of your '+img.width+' × '+img.height+' picture.';
+}
+function cropTyped(k){
+  if(!cropper)return;var r=cropper.get(),v=parseInt(document.getElementById('crop-'+k).value);if(!(v>=0))return;
+  r[k]=v;if(cropR){if(k==='w')r.h=Math.round(v/cropR);if(k==='h')r.w=Math.round(v*cropR);}
+  cropper.set(r);
+}
 function doCrop(){
-  var img=imgs['crop'];if(!img)return;
-  var x=parseInt(document.getElementById('crop-x').value)||0,y=parseInt(document.getElementById('crop-y').value)||0;
-  var w=parseInt(document.getElementById('crop-w').value)||100,h=parseInt(document.getElementById('crop-h').value)||100;
-  var c=cv(w,h);c.getContext('2d').drawImage(img,x,y,w,h,0,0,w,h);
-  exportImage(c,'cropped',{keepSize:true});
+  var img=imgs['crop'];if(!img||!cropper)return;var r=cropper.get();
+  var c=cv(r.w,r.h);c.getContext('2d').drawImage(img,r.x,r.y,r.w,r.h,0,0,r.w,r.h);
+  exportImage(c,cleanName(files['crop'].name)+'-cropped',{keepSize:true});
 }
 </script>
 </body>

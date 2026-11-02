@@ -24,7 +24,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/atkinson-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/style.css?v=7">
+<link rel="stylesheet" href="/assets/style.css?v=8">
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
@@ -44,17 +44,32 @@
     <div class="two-col">
       <div>
         <div class="upload-box">
-          <input type="file" id="rsz-file" accept="image/*" onchange="rszLoad(this)">
+          <input type="file" id="rsz-file" accept="image/*" multiple onchange="rszLoad(this)">
           <div class="upload-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4"/><path d="M7 9l5-5 5 5"/><path d="M4 19h16"/></svg></div>
-          <div class="upload-title"><span>Choose an image</span></div>
-          <div class="upload-sub">or drop it here. You can also paste with Ctrl+V.</div>
+          <div class="upload-title"><span>Choose images</span></div>
+          <div class="upload-sub">One picture or many at once. You can also drop or paste them.</div>
           <div class="upload-sub">JPG, PNG, WebP, GIF or BMP</div>
         </div>
         <div class="settings">
           <div class="settings-title">New size</div>
-          <div class="field"><label for="rsz-w">Width (pixels)</label><input type="number" id="rsz-w" placeholder="e.g. 800" style="width:120px" oninput="rszSync('w')"></div>
-          <div class="field"><label for="rsz-h">Height (pixels)</label><input type="number" id="rsz-h" placeholder="e.g. 600" style="width:120px" oninput="rszSync('h')"></div>
-          <div class="field"><button class="chip on" id="rsz-lock" onclick="rszToggleLock()">Keep proportions: on</button></div>
+          <div class="field"><label for="rsz-preset">Ready-made sizes <span class="optional">(optional)</span></label>
+            <select id="rsz-preset" onchange="rszPreset(this.value)"><option value="">Choose a size…</option><optgroup label="Social media"><option value="px:1080x1080">Instagram post, square (1080 × 1080)</option><option value="px:1080x1350">Instagram post, portrait (1080 × 1350)</option><option value="px:1080x1920">Story or Reel: Instagram, WhatsApp, Facebook (1080 × 1920)</option><option value="px:500x500">WhatsApp profile photo (500 × 500)</option><option value="px:1200x630">Facebook post or link image (1200 × 630)</option><option value="px:851x315">Facebook cover (851 × 315)</option><option value="px:1280x720">YouTube thumbnail (1280 × 720)</option><option value="px:2560x1440">YouTube channel banner (2560 × 1440)</option><option value="px:1600x900">X (Twitter) post (1600 × 900)</option><option value="px:1500x500">X (Twitter) header (1500 × 500)</option><option value="px:1584x396">LinkedIn banner (1584 × 396)</option></optgroup><optgroup label="Screens and websites"><option value="px:1920x1080">Full HD wallpaper (1920 × 1080)</option><option value="px:1200x675">Blog or website image (1200 × 675)</option></optgroup><optgroup label="Printing (300 DPI)"><option value="mm:35x45">Passport-size photo (35 × 45 mm)</option><option value="in:2x2">2 × 2 inch photo</option><option value="in:4x6">4 × 6 inch photo print</option><option value="in:5x7">5 × 7 inch photo print</option><option value="mm:210x297">A4 page (210 × 297 mm)</option></optgroup></select></div>
+          <div class="field"><span class="label">Measure in</span>
+            <div class="chips" id="rsz-units" role="group" aria-label="Unit"><button type="button" class="chip on" data-u="px" onclick="rszUnit(&#39;px&#39;)">Pixels</button><button type="button" class="chip" data-u="pct" onclick="rszUnit(&#39;pct&#39;)">Percent</button><button type="button" class="chip" data-u="cm" onclick="rszUnit(&#39;cm&#39;)">cm</button><button type="button" class="chip" data-u="mm" onclick="rszUnit(&#39;mm&#39;)">mm</button><button type="button" class="chip" data-u="in" onclick="rszUnit(&#39;in&#39;)">Inches</button></div></div>
+          <div class="field" id="rsz-pct-row" hidden><label for="rsz-pct">Size compared with the original</label>
+            <div class="range-row"><input type="range" id="rsz-pct" min="5" max="200" value="50" oninput="rszUpdate()"><span class="range-val" id="rsz-pctv">50%</span></div>
+            <div class="chips sm" data-for="rsz-pct" role="group" aria-label="Quick percentages"><button type="button" class="chip" data-v="25">25%</button><button type="button" class="chip on" data-v="50">50%</button><button type="button" class="chip" data-v="75">75%</button><button type="button" class="chip" data-v="150">150%</button><button type="button" class="chip" data-v="200">200%</button></div></div>
+          <div class="wh-row" id="rsz-wh-row">
+            <div class="field"><label for="rsz-w">Width <span class="optional rsz-u">(pixels)</span></label><input type="number" id="rsz-w" min="0" step="any" inputmode="decimal" placeholder="Width" oninput="rszSync('w')"></div>
+            <div class="field"><label for="rsz-h">Height <span class="optional rsz-u">(pixels)</span></label><input type="number" id="rsz-h" min="0" step="any" inputmode="decimal" placeholder="Height" oninput="rszSync('h')"></div>
+          </div>
+          <div class="field" id="rsz-dpi-row" hidden><label for="rsz-dpi">Print quality (DPI)</label>
+            <select id="rsz-dpi" onchange="rszUpdate()"><option value="300">300 DPI (photo prints, recommended)</option><option value="200">200 DPI</option><option value="150">150 DPI (large posters)</option><option value="96">96 DPI (screens)</option></select></div>
+          <div class="field"><button type="button" class="chip on" id="rsz-lock" onclick="rszToggleLock()">Keep proportions: on</button></div>
+          <div class="field" id="rsz-fit-row" hidden><label for="rsz-fit">If the shape changes</label>
+            <select id="rsz-fit" onchange="rszUpdate()"><option value="crop">Crop the edges (no stretching)</option><option value="pad">Add white borders</option><option value="stretch">Stretch to fit</option></select></div>
+          <p class="hint sm" id="rsz-batch-hint" hidden>Each image keeps its shape and fits inside the width and height you enter. Smaller images are not enlarged. Leave one box empty to set only the other.</p>
+          <p class="status-note" id="rsz-out"></p>
           <div class="save-opts">
           <div class="settings-title spaced">Save as</div>
           <div class="field"><label for="so-fmt">Format</label>
@@ -104,27 +119,89 @@
 <div id="toast" role="status" aria-live="polite"></div>
 <footer>
   <div class="foot-inner">
-    <div class="foot-cols"><div><h2>Make images smaller or bigger</h2><ul><li><a href="/image-compressor/">Image Compressor</a></li><li><a href="/image-resizer/">Image Resizer</a></li><li><a href="/crop-image/">Image Cropper</a></li></ul></div><div><h2>Edit and fix photos</h2><ul><li><a href="/watermark-remover/">Object &amp; Watermark Remover</a></li><li><a href="/blur-image/">Blur &amp; Pixelate</a></li><li><a href="/photo-filter/">Photo Filters</a></li><li><a href="/rotate-flip-image/">Rotate &amp; Flip</a></li><li><a href="/grayscale-image/">Black &amp; White Filter</a></li><li><a href="/watermark-image/">Add Watermark</a></li></ul></div><div><h2>Convert and save</h2><ul><li><a href="/image-converter/">Format Converter</a></li><li><a href="/image-to-pdf/">Image to PDF</a></li></ul></div><div><h2>Inspect and code</h2><ul><li><a href="/image-info/">Image Info</a></li><li><a href="/color-picker/">Color Picker</a></li><li><a href="/image-to-base64/">Image to Base64</a></li><li><a href="/base64-to-image/">Base64 to Image</a></li></ul></div><div><h2>ImageTools4Free</h2><ul><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li></ul></div></div>
+    <div class="foot-cols"><div><h2>Make images smaller or bigger</h2><ul><li><a href="/image-compressor/">Image Compressor</a></li><li><a href="/image-resizer/">Image Resizer</a></li><li><a href="/crop-image/">Image Cropper</a></li><li><a href="/passport-photo-maker/">Passport Photo Maker</a></li></ul></div><div><h2>Edit and fix photos</h2><ul><li><a href="/watermark-remover/">Object &amp; Watermark Remover</a></li><li><a href="/blur-image/">Blur &amp; Pixelate</a></li><li><a href="/photo-filter/">Photo Filters</a></li><li><a href="/rotate-flip-image/">Rotate &amp; Flip</a></li><li><a href="/grayscale-image/">Black &amp; White Filter</a></li><li><a href="/watermark-image/">Add Watermark</a></li></ul></div><div><h2>Convert and save</h2><ul><li><a href="/image-converter/">Format Converter</a></li><li><a href="/image-to-pdf/">Image to PDF</a></li></ul></div><div><h2>Inspect and code</h2><ul><li><a href="/image-info/">Image Info</a></li><li><a href="/color-picker/">Color Picker</a></li><li><a href="/image-to-base64/">Image to Base64</a></li><li><a href="/base64-to-image/">Base64 to Image</a></li></ul></div><div><h2>ImageTools4Free</h2><ul><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li></ul></div></div>
     <p class="foot-note">© 2026 ImageTools4Free. All image processing happens in your browser. Your files are never uploaded.</p>
   </div>
 </footer>
-<script src="/assets/common.js?v=7"></script>
+<script src="/assets/common.js?v=8"></script>
 <script>
-var rszLock=true;
-function rszLoad(inp){loadImg(inp.files[0],'rsz',function(img,file){showPreview('rsz-preview',img,file);document.getElementById('rsz-w').value=img.width;document.getElementById('rsz-h').value=img.height;enBtn('rsz-btn');});}
-function rszToggleLock(){rszLock=!rszLock;var b=document.getElementById('rsz-lock');b.textContent=rszLock?'Keep proportions: on':'Keep proportions: off';b.classList.toggle('on',rszLock);}
-function rszSync(ch){
-  if(!rszLock||!imgs['rsz'])return;
-  var r=imgs['rsz'].width/imgs['rsz'].height;
-  if(ch==='w'){var w=parseInt(document.getElementById('rsz-w').value)||1;document.getElementById('rsz-h').value=Math.round(w/r);}
-  else{var h=parseInt(document.getElementById('rsz-h').value)||1;document.getElementById('rsz-w').value=Math.round(h*r);}
+var rsz={unit:'px',lock:true},RSZ_LBL={px:'(pixels)',cm:'(cm)',mm:'(mm)',in:'(inches)'};
+function rszDpiV(){return parseInt(document.getElementById('rsz-dpi').value)||300;}
+function toPx(v,u){v=parseFloat(v);if(!(v>0))return NaN;var d=rszDpiV();return u==='cm'?v/2.54*d:u==='mm'?v/25.4*d:u==='in'?v*d:v;}
+function fromPx(px,u){var d=rszDpiV(),v=u==='cm'?px*2.54/d:u==='mm'?px*25.4/d:u==='in'?px/d:px;return u==='px'?Math.round(v):Math.round(v*100)/100;}
+function rszBatch(){return batchActive('rsz');}
+function rszLoad(inp){
+  if(inp.files.length>1){batchStart('rsz',inp.files,{box:'rsz-preview',btn:'rsz-btn',label:'Resize all',single:'Resize and download',suffix:'-resized',zip:'resized-images.zip',run:rszOne,onStart:function(){document.getElementById('rsz-w').value='';document.getElementById('rsz-h').value='';}});rszUpdate();return;}
+  batchExit();document.getElementById('rsz-btn').textContent='Resize and download';
+  loadImg(inp.files[0],'rsz',function(img,file){showPreview('rsz-preview',img,file);
+    document.getElementById('rsz-w').value=fromPx(img.width,rsz.unit==='pct'?'px':rsz.unit);document.getElementById('rsz-h').value=fromPx(img.height,rsz.unit==='pct'?'px':rsz.unit);
+    enBtn('rsz-btn');rszUpdate();});
 }
+function rszUnit(u){
+  var old=rsz.unit,w=document.getElementById('rsz-w'),h=document.getElementById('rsz-h');
+  if(old!=='pct'&&u!=='pct'){var pw=toPx(w.value,old),ph=toPx(h.value,old);w.value=pw>0?fromPx(pw,u):'';h.value=ph>0?fromPx(ph,u):'';}
+  else if(u!=='pct'&&imgs['rsz']&&!rszBatch()){var t=rszTarget(imgs['rsz'].width,imgs['rsz'].height);if(t){w.value=fromPx(t.w,u);h.value=fromPx(t.h,u);}}
+  rsz.unit=u;document.querySelectorAll('#rsz-units .chip').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-u')===u);});
+  document.querySelectorAll('.rsz-u').forEach(function(e){e.textContent=RSZ_LBL[u]||'';});
+  document.getElementById('rsz-pct-row').hidden=u!=='pct';document.getElementById('rsz-wh-row').hidden=u==='pct';
+  document.getElementById('rsz-dpi-row').hidden=!(u==='cm'||u==='mm'||u==='in');
+  w.step=h.step=u==='px'?'1':'any';rszUpdate();
+}
+function rszToggleLock(force){rsz.lock=typeof force==='boolean'?force:!rsz.lock;var b=document.getElementById('rsz-lock');
+  b.textContent=rsz.lock?'Keep proportions: on':'Keep proportions: off';b.classList.toggle('on',rsz.lock);
+  if(rsz.lock&&!rszBatch())rszSync('w');rszUpdate();}
+function rszSync(ch){
+  var img=imgs['rsz'];
+  if(rsz.lock&&img&&!rszBatch()&&rsz.unit!=='pct'){var r=img.width/img.height,u=rsz.unit;
+    if(ch==='w'){var w=toPx(document.getElementById('rsz-w').value,u);if(w>0)document.getElementById('rsz-h').value=fromPx(w/r,u);}
+    else{var h=toPx(document.getElementById('rsz-h').value,u);if(h>0)document.getElementById('rsz-w').value=fromPx(h*r,u);}}
+  rszUpdate();
+}
+function rszPreset(v){
+  if(!v)return;var m=v.split(':'),d=m[1].split('x');
+  rszUnit(m[0]);rszToggleLock(false);document.getElementById('rsz-fit').value='crop';
+  if(m[0]!=='px')document.getElementById('rsz-dpi').value='300';
+  document.getElementById('rsz-w').value=d[0];document.getElementById('rsz-h').value=d[1];rszUpdate();
+}
+// Target pixel size and drawing mode for an image of iw x ih
+function rszTarget(iw,ih){
+  var u=rsz.unit;
+  if(u==='pct'){var p=parseInt(document.getElementById('rsz-pct').value)/100;return {w:Math.max(1,Math.round(iw*p)),h:Math.max(1,Math.round(ih*p)),mode:'scale'};}
+  var W=toPx(document.getElementById('rsz-w').value,u),H=toPx(document.getElementById('rsz-h').value,u);
+  if(rsz.lock){
+    if(rszBatch()){var s=Math.min(W>0?W/iw:Infinity,H>0?H/ih:Infinity,1);if(!(W>0||H>0))return null;return {w:Math.max(1,Math.round(iw*s)),h:Math.max(1,Math.round(ih*s)),mode:'scale'};}
+    if(W>0)return {w:Math.round(W),h:Math.max(1,Math.round(W*ih/iw)),mode:'scale'};
+    if(H>0)return {w:Math.max(1,Math.round(H*iw/ih)),h:Math.round(H),mode:'scale'};return null;}
+  if(!(W>0&&H>0))return null;
+  return {w:Math.max(1,Math.round(W)),h:Math.max(1,Math.round(H)),mode:document.getElementById('rsz-fit').value};
+}
+function rszUpdate(){
+  document.getElementById('rsz-pctv').textContent=document.getElementById('rsz-pct').value+'%';
+  var b=rszBatch(),u=rsz.unit,phys=u==='cm'||u==='mm'||u==='in',out=document.getElementById('rsz-out'),img=imgs['rsz'];
+  document.getElementById('rsz-fit-row').hidden=rsz.lock||u==='pct';
+  document.getElementById('rsz-batch-hint').hidden=!(b&&rsz.lock&&u!=='pct');
+  if(b){out.textContent=u==='pct'?'Each image will be '+document.getElementById('rsz-pct').value+'% of its size.':'';return;}
+  if(!img){out.textContent='';return;}
+  var t=rszTarget(img.width,img.height);
+  if(!t){out.textContent='Enter a width and a height.';return;}
+  out.textContent='New size: '+t.w+' × '+t.h+' pixels'+(phys?' ('+fromPx(t.w,u)+' × '+fromPx(t.h,u)+' '+(u==='in'?'inches':u)+' at '+rszDpiV()+' DPI)':'')+'.';
+}
+function rszDraw(img,t){
+  var c=cv(t.w,t.h),x=c.getContext('2d'),s,dw,dh;x.imageSmoothingQuality='high';
+  if(t.mode==='crop'){s=Math.max(t.w/img.width,t.h/img.height);dw=img.width*s;dh=img.height*s;x.drawImage(img,(t.w-dw)/2,(t.h-dh)/2,dw,dh);}
+  else if(t.mode==='pad'){x.fillStyle='#fff';x.fillRect(0,0,t.w,t.h);s=Math.min(t.w/img.width,t.h/img.height);dw=img.width*s;dh=img.height*s;x.drawImage(img,(t.w-dw)/2,(t.h-dh)/2,dw,dh);}
+  else x.drawImage(img,0,0,t.w,t.h);
+  return c;
+}
+function rszDpiOut(){var u=rsz.unit;return (u==='cm'||u==='mm'||u==='in')?rszDpiV():undefined;}
+function rszOne(img,file,cb){var t=rszTarget(img.width,img.height)||{w:img.width,h:img.height,mode:'scale'};
+  produce(rszDraw(img,t),{fmt:chosenFormat(file),limit:kbLimit(),keepSize:true,dpi:rszDpiOut()},cb);}
 function doResize(){
-  var img=imgs['rsz'];if(!img)return;
-  var w=parseInt(document.getElementById('rsz-w').value),h=parseInt(document.getElementById('rsz-h').value);
-  if(!w||!h){toast('Enter width and height.');return;}
-  var c=cv(w,h);c.getContext('2d').drawImage(img,0,0,w,h);
-  exportImage(c,'resized-'+w+'x'+h,{keepSize:true});
+  if(rszBatch()){if(rsz.unit!=='pct'&&!rszTarget(1000,1000)){toast(rsz.lock?'Enter a width or a height.':'Enter a width and a height.');return;}return batchRun();}
+  var img=imgs['rsz'];if(!img)return;var t=rszTarget(img.width,img.height);
+  if(!t){toast('Enter a width and a height.');return;}
+  if(t.w>16000||t.h>16000){toast('That is too large. Please keep the width and height under 16,000 pixels.');return;}
+  exportImage(rszDraw(img,t),cleanName(files['rsz'].name)+'-'+t.w+'x'+t.h,{keepSize:true,dpi:rszDpiOut()});
 }
 </script>
 </body>

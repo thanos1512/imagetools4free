@@ -24,7 +24,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/atkinson-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/style.css?v=7">
+<link rel="stylesheet" href="/assets/style.css?v=8">
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
@@ -44,10 +44,10 @@
     <div class="two-col">
       <div>
         <div class="upload-box">
-          <input type="file" id="comp-file" accept="image/*" onchange="compLoad(this)">
+          <input type="file" id="comp-file" accept="image/*" multiple onchange="compLoad(this)">
           <div class="upload-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4"/><path d="M7 9l5-5 5 5"/><path d="M4 19h16"/></svg></div>
-          <div class="upload-title"><span>Choose an image</span></div>
-          <div class="upload-sub">or drop it here. You can also paste with Ctrl+V.</div>
+          <div class="upload-title"><span>Choose images</span></div>
+          <div class="upload-sub">One photo or many at once. You can also drop or paste them.</div>
           <div class="upload-sub">JPG, PNG, WebP, GIF or BMP</div>
         </div>
         <div class="settings">
@@ -72,7 +72,7 @@
       </div>
       <div>
         <div class="preview-box" id="comp-preview"><div class="preview-empty">Your preview will appear here after you choose an image.</div></div>
-        <div class="result-panel" id="comp-result"><div class="result-title">Result</div><div class="img-stats" id="comp-stats"></div></div>
+        <div class="result-panel" id="comp-result"><div class="result-title">Result</div><p class="live-note">Drag the slider on the picture to compare. The result updates as you change the settings.</p><div class="img-stats" id="comp-stats"></div></div>
       </div>
     </div>
 
@@ -109,21 +109,34 @@
 <div id="toast" role="status" aria-live="polite"></div>
 <footer>
   <div class="foot-inner">
-    <div class="foot-cols"><div><h2>Make images smaller or bigger</h2><ul><li><a href="/image-compressor/">Image Compressor</a></li><li><a href="/image-resizer/">Image Resizer</a></li><li><a href="/crop-image/">Image Cropper</a></li></ul></div><div><h2>Edit and fix photos</h2><ul><li><a href="/watermark-remover/">Object &amp; Watermark Remover</a></li><li><a href="/blur-image/">Blur &amp; Pixelate</a></li><li><a href="/photo-filter/">Photo Filters</a></li><li><a href="/rotate-flip-image/">Rotate &amp; Flip</a></li><li><a href="/grayscale-image/">Black &amp; White Filter</a></li><li><a href="/watermark-image/">Add Watermark</a></li></ul></div><div><h2>Convert and save</h2><ul><li><a href="/image-converter/">Format Converter</a></li><li><a href="/image-to-pdf/">Image to PDF</a></li></ul></div><div><h2>Inspect and code</h2><ul><li><a href="/image-info/">Image Info</a></li><li><a href="/color-picker/">Color Picker</a></li><li><a href="/image-to-base64/">Image to Base64</a></li><li><a href="/base64-to-image/">Base64 to Image</a></li></ul></div><div><h2>ImageTools4Free</h2><ul><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li></ul></div></div>
+    <div class="foot-cols"><div><h2>Make images smaller or bigger</h2><ul><li><a href="/image-compressor/">Image Compressor</a></li><li><a href="/image-resizer/">Image Resizer</a></li><li><a href="/crop-image/">Image Cropper</a></li><li><a href="/passport-photo-maker/">Passport Photo Maker</a></li></ul></div><div><h2>Edit and fix photos</h2><ul><li><a href="/watermark-remover/">Object &amp; Watermark Remover</a></li><li><a href="/blur-image/">Blur &amp; Pixelate</a></li><li><a href="/photo-filter/">Photo Filters</a></li><li><a href="/rotate-flip-image/">Rotate &amp; Flip</a></li><li><a href="/grayscale-image/">Black &amp; White Filter</a></li><li><a href="/watermark-image/">Add Watermark</a></li></ul></div><div><h2>Convert and save</h2><ul><li><a href="/image-converter/">Format Converter</a></li><li><a href="/image-to-pdf/">Image to PDF</a></li></ul></div><div><h2>Inspect and code</h2><ul><li><a href="/image-info/">Image Info</a></li><li><a href="/color-picker/">Color Picker</a></li><li><a href="/image-to-base64/">Image to Base64</a></li><li><a href="/base64-to-image/">Base64 to Image</a></li></ul></div><div><h2>ImageTools4Free</h2><ul><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li></ul></div></div>
     <p class="foot-note">© 2026 ImageTools4Free. All image processing happens in your browser. Your files are never uploaded.</p>
   </div>
 </footer>
-<script src="/assets/common.js?v=7"></script>
+<script src="/assets/common.js?v=8"></script>
 <script>
-var compBlob=null,compFmt='image/jpeg';
-function compLoad(inp){loadImg(inp.files[0],'comp',function(img,file){showPreview('comp-preview',img,file);enBtn('comp-btn');document.getElementById('comp-result').style.display='none';document.getElementById('comp-dl').style.display='none';});}
+var compBlob=null,compFmt='image/jpeg',compUrl=null,compTimer=null,compRunId=0;
+function compLoad(inp){
+  document.getElementById('comp-result').style.display='none';document.getElementById('comp-dl').style.display='none';
+  if(inp.files.length>1){batchStart('comp',inp.files,{box:'comp-preview',btn:'comp-btn',label:'Compress all',single:'Compress image',suffix:'-compressed',zip:'compressed-images.zip',run:compOne});return;}
+  batchExit();document.getElementById('comp-btn').textContent='Compress image';
+  loadImg(inp.files[0],'comp',function(img,file){showPreview('comp-preview',img,file);enBtn('comp-btn');doCompress(true);});
+}
+function compSettings(){return {fmt:document.getElementById('comp-fmt').value,limit:kbLimit('comp-kb'),q:parseInt(document.getElementById('comp-q').value)/100};}
+function compOne(img,file,cb){var s=compSettings();
+  if(s.limit){if(file.size<=s.limit&&sameFormat(file)===s.fmt)return cb({b:file,w:img.width,h:img.height});fitToSize(img,s.fmt,s.limit,cb);}
+  else encodeTo(img,1,s.fmt,s.q,function(b,w,h){cb({b:b,w:w,h:h});});}
 function compMode(){
   var kb=kbLimit('comp-kb'),png=document.getElementById('comp-fmt').value==='image/png';
   document.getElementById('comp-q-row').hidden=!!kb||png;
   document.getElementById('comp-png-note').hidden=!png||!!kb;
+  compLive();
 }
+function compLive(){if(batchActive('comp')||!imgs['comp'])return;clearTimeout(compTimer);compTimer=setTimeout(function(){doCompress(true);},450);}
 function compShow(r){
   var file=files['comp'],img=imgs['comp'];compBlob=r.b;
+  if(compUrl)URL.revokeObjectURL(compUrl);compUrl=URL.createObjectURL(r.b);
+  compareView(document.getElementById('comp-preview'),img.src,compUrl,['Original','Compressed']);
   var saved=((1-r.b.size/file.size)*100).toFixed(1),dims=r.w!==img.width?'<div class="img-stat"><div class="img-stat-val">'+r.w+' × '+r.h+'</div><div class="img-stat-key">New pixels</div></div>':'';
   document.getElementById('comp-stats').innerHTML=
     '<div class="img-stat"><div class="img-stat-val">'+fmtSize(file.size)+'</div><div class="img-stat-key">Original</div></div>'
@@ -134,19 +147,20 @@ function compShow(r){
   document.getElementById('comp-result').style.display='block';
   document.getElementById('comp-dl').style.display='inline-flex';
 }
-function doCompress(){
+function doCompress(quiet){
+  if(batchActive('comp'))return batchRun();
   var img=imgs['comp'];if(!img)return;
-  var fmt=document.getElementById('comp-fmt').value,limit=kbLimit('comp-kb'),btn=document.getElementById('comp-btn');compFmt=fmt;
+  var s=compSettings(),btn=document.getElementById('comp-btn'),id=++compRunId;compFmt=s.fmt;
   btn.disabled=true;btn.textContent='Compressing…';
-  function done(r){btn.disabled=false;btn.textContent='Compress image';compShow(r);
-    if(r.miss)toast('Could not get under '+fmtSize(limit)+'. This is the smallest version that still looks reasonable.');
-    else toast(limit?'Done. Your image is now '+fmtSize(r.b.size)+'.':'Compressed to '+fmtSize(r.b.size)+'.');}
-  if(limit){
-    if(files['comp'].size<=limit&&sameFormat(files['comp'])===fmt){btn.disabled=false;btn.textContent='Compress image';compShow({b:files['comp'],w:img.width,h:img.height});toast('Your image is already under '+fmtSize(limit)+'.');return;}
-    fitToSize(img,fmt,limit,done);
-  }else encodeTo(img,1,fmt,parseInt(document.getElementById('comp-q').value)/100,function(b,w,h){done({b:b,w:w,h:h});});
+  compOne(img,files['comp'],function(r){
+    if(id!==compRunId)return;
+    btn.disabled=false;btn.textContent='Compress image';compShow(r);
+    if(r.miss)toast('Could not get under '+fmtSize(s.limit)+'. This is the smallest version that still looks reasonable.');
+    else if(quiet!==true)toast(s.limit?'Done. Your image is now '+fmtSize(r.b.size)+'.':'Compressed to '+fmtSize(r.b.size)+'.');
+  });
 }
-function downloadCompressed(){if(!compBlob)return;dlBlob(compBlob,'compressed.'+EXT[compFmt]);}
+function downloadCompressed(){if(!compBlob)return;dlBlob(compBlob,cleanName(files['comp'].name)+'-compressed.'+EXT[compFmt]);}
+document.getElementById('comp-q').addEventListener('input',compLive);
 (function(){var m=location.pathname.match(/compress-image-to-(\d+)kb/);if(m){var k=document.getElementById('comp-kb');k.value=m[1];k.dispatchEvent(new Event('input',{bubbles:true}));}compMode();})();
 </script>
 </body>
