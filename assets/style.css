@@ -308,3 +308,14 @@ a:focus-visible,button:focus-visible,.upload-box:focus-visible,select:focus-visi
   .two-col.wide .stage{order:2;min-height:220px}
   .two-col.wide .settings{order:3;margin-top:0}
 }
+/* size + format options */
+.kb-row{display:flex;align-items:center;max-width:220px;border:1.5px solid var(--line-2);border-radius:var(--r-sm);background:var(--surface)}
+.kb-row:focus-within{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
+.kb-row input[type=number]{border:0!important;box-shadow:none!important;width:100%!important;font-size:17px;font-weight:700;padding:10px 12px}
+.kb-unit{padding:0 14px;color:var(--ink-2);font-weight:700;border-left:1px solid var(--line)}
+.chips.sm{margin-top:10px;gap:6px}
+.chips.sm .chip{padding:5px 11px;font-size:13px}
+.hint.sm{font-size:13.5px;margin:8px 0 0}
+.optional{font-weight:400;color:var(--ink-3)}
+.save-opts{border-top:1px solid var(--line);margin-top:18px;padding-top:2px}
+.save-opts .settings-title.spaced{margin-top:16px}

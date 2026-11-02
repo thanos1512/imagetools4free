@@ -24,7 +24,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/atkinson-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/style.css?v=6">
+<link rel="stylesheet" href="/assets/style.css?v=7">
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
@@ -55,6 +55,15 @@
           <div class="field"><label for="rsz-w">Width (pixels)</label><input type="number" id="rsz-w" placeholder="e.g. 800" style="width:120px" oninput="rszSync('w')"></div>
           <div class="field"><label for="rsz-h">Height (pixels)</label><input type="number" id="rsz-h" placeholder="e.g. 600" style="width:120px" oninput="rszSync('h')"></div>
           <div class="field"><button class="chip on" id="rsz-lock" onclick="rszToggleLock()">Keep proportions: on</button></div>
+          <div class="save-opts">
+          <div class="settings-title spaced">Save as</div>
+          <div class="field"><label for="so-fmt">Format</label>
+            <select id="so-fmt"><option value="same">Same as original</option><option value="image/jpeg">JPG (small files, works everywhere)</option><option value="image/png">PNG (best quality, keeps transparency)</option><option value="image/webp">WebP (smallest, for websites)</option></select></div>
+          <div class="field"><label for="so-kb">Maximum file size <span class="optional">(optional)</span></label>
+            <div class="kb-row"><input type="number" id="so-kb" min="5" step="1" placeholder="No limit" inputmode="numeric"><span class="kb-unit">KB</span></div>
+            <div class="chips sm" data-for="so-kb" role="group" aria-label="Quick sizes"><button type="button" class="chip on" data-v="">No limit</button><button type="button" class="chip" data-v="20">20 KB</button><button type="button" class="chip" data-v="50">50 KB</button><button type="button" class="chip" data-v="100">100 KB</button><button type="button" class="chip" data-v="200">200 KB</button><button type="button" class="chip" data-v="500">500 KB</button></div>
+            <p class="hint sm">Type any size, such as 40 or 60. Your chosen pixel size is kept; only the quality is lowered to fit.</p></div>
+          </div>
           <div class="btn-row"><button class="btn-main" id="rsz-btn" onclick="doResize()" disabled>Resize and download</button></div>
         </div>
       </div>
@@ -99,7 +108,7 @@
     <p class="foot-note">© 2026 ImageTools4Free. All image processing happens in your browser. Your files are never uploaded.</p>
   </div>
 </footer>
-<script src="/assets/common.js?v=6"></script>
+<script src="/assets/common.js?v=7"></script>
 <script>
 var rszLock=true;
 function rszLoad(inp){loadImg(inp.files[0],'rsz',function(img,file){showPreview('rsz-preview',img,file);document.getElementById('rsz-w').value=img.width;document.getElementById('rsz-h').value=img.height;enBtn('rsz-btn');});}
@@ -115,7 +124,7 @@ function doResize(){
   var w=parseInt(document.getElementById('rsz-w').value),h=parseInt(document.getElementById('rsz-h').value);
   if(!w||!h){toast('Enter width and height.');return;}
   var c=cv(w,h);c.getContext('2d').drawImage(img,0,0,w,h);
-  c.toBlob(function(blob){dlBlob(blob,'resized-'+w+'x'+h+'.png');toast('Resized!');},'image/png');
+  exportImage(c,'resized-'+w+'x'+h,{keepSize:true});
 }
 </script>
 </body>

@@ -24,7 +24,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/atkinson-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/style.css?v=6">
+<link rel="stylesheet" href="/assets/style.css?v=7">
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
@@ -61,6 +61,13 @@
           </div>
           <div class="field" id="cvt-qrow"><label for="cvt-q">Quality</label>
             <div class="range-row"><input type="range" id="cvt-q" min="1" max="100" value="92" oninput="document.getElementById('cvt-qv').textContent=this.value+'%'"><span class="range-val" id="cvt-qv">92%</span></div>
+          </div>
+          <div class="save-opts">
+          <div class="settings-title spaced">Save as</div>
+                    <div class="field"><label for="so-kb">Maximum file size <span class="optional">(optional)</span></label>
+            <div class="kb-row"><input type="number" id="so-kb" min="5" step="1" placeholder="No limit" inputmode="numeric"><span class="kb-unit">KB</span></div>
+            <div class="chips sm" data-for="so-kb" role="group" aria-label="Quick sizes"><button type="button" class="chip on" data-v="">No limit</button><button type="button" class="chip" data-v="20">20 KB</button><button type="button" class="chip" data-v="50">50 KB</button><button type="button" class="chip" data-v="100">100 KB</button><button type="button" class="chip" data-v="200">200 KB</button><button type="button" class="chip" data-v="500">500 KB</button></div>
+            <p class="hint sm">Type any size, such as 40 or 60. Leave it empty to keep the best quality.</p></div>
           </div>
           <div class="btn-row"><button class="btn-main" id="cvt-btn" onclick="doConvert()" disabled>Convert and download</button></div>
         </div>
@@ -106,7 +113,7 @@
     <p class="foot-note">© 2026 ImageTools4Free. All image processing happens in your browser. Your files are never uploaded.</p>
   </div>
 </footer>
-<script src="/assets/common.js?v=6"></script>
+<script src="/assets/common.js?v=7"></script>
 <script>
 function cvtLoad(inp){loadImg(inp.files[0],'cvt',function(img,file){showPreview('cvt-preview',img,file);enBtn('cvt-btn');});}
 function doConvert(){
@@ -116,7 +123,7 @@ function doConvert(){
   var c=cv(img.width,img.height),ctx=c.getContext('2d');
   if(fmt==='image/jpeg'){ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);}
   ctx.drawImage(img,0,0);
-  c.toBlob(function(blob){dlBlob(blob,'converted.'+ext);toast('Converted!');},fmt,q);
+  exportImage(c,'converted',{fmt:fmt,q:q});
 }
 </script>
 </body>

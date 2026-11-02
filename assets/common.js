@@ -1,7 +1,7 @@
 var imgs={}, files={};
 function loadImg(file, key, cb) {
   if(!file||!file.type.match(/^image\//)){toast('Please choose an image file, such as a JPG or PNG.');return;}
-  files[key]=file;
+  files[key]=file;lastFile=file;
   var img=new Image();
   img.onload=function(){imgs[key]=img;cb(img,file);};
   img.onerror=function(){toast('This picture could not be opened. Try saving it as JPG or PNG first.');};
@@ -98,6 +98,79 @@ function inpaint(d,w,h,isMasked){
   for(t=0;t<idx.length;t++){i=idx[t];d[i*4]=F[i*3];d[i*4+1]=F[i*3+1];d[i*4+2]=F[i*3+2];}
   if(grain)for(i=0;i<n;i++)if(filled[i]){var g=(Math.random()-0.5)*grain;d[i*4]+=g;d[i*4+1]+=g;d[i*4+2]+=g;}
 }
+
+// ── SAVING: format choice + optional maximum file size ─────────────────
+var lastFile=null;
+var EXT={'image/jpeg':'jpg','image/png':'png','image/webp':'webp'};
+// Draw src (image or canvas) at a scale and encode it. JPG gets a white background.
+function encodeTo(src,scale,fmt,q,cb){
+  var w=Math.max(1,Math.round(src.width*scale)),h=Math.max(1,Math.round(src.height*scale)),c=cv(w,h),x=c.getContext('2d');
+  if(fmt==='image/jpeg'){x.fillStyle='#fff';x.fillRect(0,0,w,h);}
+  x.imageSmoothingQuality='high';x.drawImage(src,0,0,w,h);
+  c.toBlob(function(b){cb(b,w,h);},fmt,q);
+}
+// Find the best version of src that fits under limit bytes.
+// JPG/WebP: highest quality that fits, shrinking pixels only if needed. PNG: shrink pixels only.
+// opts.keepSize: never change the pixel size (used where the user chose exact pixels).
+function fitToSize(src,fmt,limit,cb,opts){
+  opts=opts||{};
+  if(fmt==='image/png'){
+    encodeTo(src,1,fmt,1,function(b,w,h){
+      if(b.size<=limit)return cb({b:b,w:w,h:h});
+      if(opts.keepSize)return cb({b:b,w:w,h:h,miss:true});
+      var lo=0.02,hi=1,best=null,n=0;
+      (function step(){var s=(lo+hi)/2;encodeTo(src,s,fmt,1,function(b2,w2,h2){
+        if(b2.size<=limit){best={b:b2,w:w2,h:h2};lo=s;}else hi=s;
+        if(++n<9)return step();
+        if(best)return cb(best);
+        encodeTo(src,lo,fmt,1,function(b3,w3,h3){cb({b:b3,w:w3,h:h3,miss:true});});
+      });})();
+    });
+    return;
+  }
+  var minQ=opts.keepSize?0.1:0.35,scale=opts.keepSize?1:Math.min(1,Math.sqrt(limit*14/(src.width*src.height))),rounds=0;
+  (function attempt(){
+    var lo=minQ,hi=0.92,best=null,n=0;
+    (function step(){var q=(lo+hi)/2;encodeTo(src,scale,fmt,q,function(b,w,h){
+      if(b.size<=limit){best={b:b,w:w,h:h,q:q};lo=q;}else hi=q;
+      if(++n<7)return step();
+      if(best){
+        if(!opts.keepSize&&scale<1&&best.q>0.8&&rounds<20){var up=Math.min(1,scale*1.12),keep=best;
+          return encodeTo(src,up,fmt,0.8,function(b2){if(b2.size<=limit){scale=up;rounds++;attempt();}else cb(keep);});}
+        return cb(best);}
+      if(opts.keepSize||++rounds>20){return encodeTo(src,scale,fmt,minQ,function(b,w,h){cb({b:b,w:w,h:h,q:minQ,miss:true});});}
+      scale*=0.85;attempt();
+    });})();
+  })();
+}
+function sameFormat(file){var t=file&&file.type;return /jpe?g/.test(t)?'image/jpeg':(t==='image/webp'?'image/webp':'image/png');}
+function chosenFormat(file){var s=document.getElementById('so-fmt');return s&&s.value!=='same'?s.value:sameFormat(file);}
+function kbLimit(id){var el=document.getElementById(id||'so-kb');var v=el&&parseFloat(el.value);return v>0?Math.round(v*1024):0;}
+// Save a finished canvas using the page's "Save as" options.
+function exportImage(c,base,opts){
+  opts=opts||{};
+  var fmt=opts.fmt||chosenFormat(lastFile),limit=kbLimit(),q=opts.q||0.92;
+  function out(r){
+    dlBlob(r.b,base+'.'+EXT[fmt]);
+    if(r.miss&&fmt==='image/png'&&opts.keepSize)toast('PNG can’t be made smaller without changing the pixel size. Choose JPG or WebP to reach '+fmtSize(limit)+'.');
+    else if(r.miss)toast('Could not get under '+fmtSize(limit)+'. Downloaded the smallest version: '+fmtSize(r.b.size)+'.');
+    else toast('Downloaded '+EXT[fmt].toUpperCase()+', '+fmtSize(r.b.size)+(r.w!==c.width?' ('+r.w+' × '+r.h+' px)':'')+'.');
+    if(opts.done)opts.done(r);
+  }
+  if(limit)fitToSize(c,fmt,limit,out,{keepSize:opts.keepSize});
+  else encodeTo(c,1,fmt,q,function(b,w,h){out({b:b,w:w,h:h});});
+}
+// Quick-pick chips that fill a KB box: <div class="chips" data-for="input-id"><button data-v="50">
+document.addEventListener('click',function(e){
+  var b=e.target.closest&&e.target.closest('.chips[data-for] button');if(!b)return;
+  var inp=document.getElementById(b.parentNode.getAttribute('data-for'));if(!inp)return;
+  inp.value=b.getAttribute('data-v');inp.dispatchEvent(new Event('input',{bubbles:true}));
+});
+document.addEventListener('input',function(e){
+  var inp=e.target;if(!inp.id)return;
+  var g=document.querySelector('.chips[data-for="'+inp.id+'"]');if(!g)return;
+  g.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-v')===String(inp.value).trim());});
+});
 
 // ── UPLOAD BOXES: keyboard access, drag & drop, paste, file name ─────────────────
 function feedInput(input,list){

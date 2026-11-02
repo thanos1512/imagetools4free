@@ -24,7 +24,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/atkinson-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/style.css?v=6">
+<link rel="stylesheet" href="/assets/style.css?v=7">
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
@@ -52,15 +52,17 @@
         </div>
         <div class="settings">
           <div class="settings-title">Settings</div>
-          <div class="field"><label for="comp-goal">File size goal</label>
-            <select id="comp-goal" onchange="compGoal()"><option value="0">No limit (use the quality slider)</option><option value="20">Under 20 KB</option><option value="50">Under 50 KB</option><option value="100">Under 100 KB</option><option value="200">Under 200 KB</option><option value="500">Under 500 KB</option><option value="1024">Under 1 MB</option><option value="custom">Custom size…</option></select>
+          <div class="field"><label for="comp-kb">Target file size</label>
+            <div class="kb-row"><input type="number" id="comp-kb" min="5" step="1" placeholder="No limit" inputmode="numeric" oninput="compMode()"><span class="kb-unit">KB</span></div>
+            <div class="chips sm" data-for="comp-kb" role="group" aria-label="Quick sizes"><button type="button" class="chip on" data-v="">No limit</button><button type="button" class="chip" data-v="20">20 KB</button><button type="button" class="chip" data-v="50">50 KB</button><button type="button" class="chip" data-v="100">100 KB</button><button type="button" class="chip" data-v="200">200 KB</button><button type="button" class="chip" data-v="500">500 KB</button></div>
+            <p class="hint sm">Type any size, such as 40 or 60, and the tool makes your image just under it. Leave it empty to choose the quality yourself.</p>
           </div>
-          <div class="field" id="comp-custom-row" hidden><label for="comp-custom">Maximum size in KB</label><input type="number" id="comp-custom" min="5" max="20000" value="150" inputmode="numeric"></div>
           <div class="field" id="comp-q-row"><label for="comp-q">Quality (lower means a smaller file)</label>
             <div class="range-row"><input type="range" id="comp-q" min="1" max="100" value="75" oninput="document.getElementById('comp-qv').textContent=this.value+'%'"><span class="range-val" id="comp-qv">75%</span></div>
           </div>
-          <div class="field"><label for="comp-fmt">Output format</label>
-            <select id="comp-fmt" style="width:100%"><option value="image/jpeg">JPEG (.jpg) — smallest size</option><option value="image/webp">WebP (.webp) — best quality/size</option></select>
+          <p class="hint sm" id="comp-png-note" hidden>PNG keeps every detail, so it can only get smaller by reducing the pixel size. Set a target size above to do that.</p>
+          <div class="field"><label for="comp-fmt">Save as</label>
+            <select id="comp-fmt" onchange="compMode()"><option value="image/jpeg">JPG (smallest, works everywhere)</option><option value="image/webp">WebP (small, for websites)</option><option value="image/png">PNG (best quality, keeps transparency)</option></select>
           </div>
           <div class="btn-row">
             <button class="btn-main" id="comp-btn" onclick="doCompress()" disabled>Compress image</button>
@@ -78,13 +80,13 @@
 <h2>How to compress an image</h2>
 <ol>
 <li>Click the upload box, or drag a picture onto it. JPG, PNG, WebP, GIF and BMP files all work.</li>
-<li>Pick a <strong>File size goal</strong> such as <em>Under 50 KB</em>, or leave it on <em>No limit</em> and move the <strong>Quality</strong> slider. 70–80% is a good starting point for photos.</li>
+<li>Type a <strong>Target file size</strong> such as 50 or 60 KB, or leave it empty and move the <strong>Quality</strong> slider. 70–80% is a good starting point for photos.</li>
 <li>Pick the output format: JPEG for the widest support, or WebP for smaller files at the same quality.</li>
 <li>Press <strong>Compress image</strong>. You will see the original size, the new size and how much you saved.</li>
 <li>If you are happy with the result, press <strong>Download image</strong>. If not, change the quality and try again.</li>
 </ol>
 <h2>Compress to a specific size</h2>
-<p>Many forms say something like "photo must be under 50 KB". Instead of guessing the quality, choose a <strong>File size goal</strong>. The tool finds the best quality that fits, and only reduces the pixel size if it has to. There are also quick pages for the most common limits: <a href="/compress-image-to-20kb/">compress to 20 KB</a>, <a href="/compress-image-to-50kb/">compress to 50 KB</a> and <a href="/compress-image-to-100kb/">compress to 100 KB</a>.</p>
+<p>Many forms say something like "photo must be under 50 KB". Instead of guessing the quality, type a <strong>Target file size</strong>, such as 40 or 60 KB. The tool finds the best quality that fits, and only reduces the pixel size if it has to. There are also quick pages for the most common limits: <a href="/compress-image-to-20kb/">compress to 20 KB</a>, <a href="/compress-image-to-50kb/">compress to 50 KB</a> and <a href="/compress-image-to-100kb/">compress to 100 KB</a>.</p>
 <h2>Choosing the right quality</h2>
 <p>Quality controls how much detail the compressor is allowed to throw away. At 90% and above, the file is usually close to the original and the saving is small. Between 60% and 80%, most photos look the same to the eye but the file is often half the size or less. Below 50%, you may start to see blocky patches in smooth areas like skies and skin.</p><p>A simple method is to start at 75%, compress, and look at the preview closely. Lower the quality step by step until you notice a change, then go back up one step.</p>
 <h2>JPEG or WebP?</h2>
@@ -115,31 +117,14 @@
     <p class="foot-note">© 2026 ImageTools4Free. All image processing happens in your browser. Your files are never uploaded.</p>
   </div>
 </footer>
-<script src="/assets/common.js?v=6"></script>
+<script src="/assets/common.js?v=7"></script>
 <script>
-var compBlob=null;
+var compBlob=null,compFmt='image/jpeg';
 function compLoad(inp){loadImg(inp.files[0],'comp',function(img,file){showPreview('comp-preview',img,file);enBtn('comp-btn');document.getElementById('comp-result').style.display='none';document.getElementById('comp-dl').style.display='none';});}
-function compGoal(){var g=document.getElementById('comp-goal').value;
-  document.getElementById('comp-custom-row').hidden=g!=='custom';document.getElementById('comp-q-row').hidden=g!=='0';}
-function compLimit(){var g=document.getElementById('comp-goal').value;if(g==='0')return 0;
-  var kb=g==='custom'?parseFloat(document.getElementById('comp-custom').value):parseFloat(g);return kb>0?kb*1024:0;}
-function encode(img,scale,fmt,q,cb){var w=Math.max(1,Math.round(img.width*scale)),h=Math.max(1,Math.round(img.height*scale)),c=cv(w,h),ctx=c.getContext('2d');
-  if(fmt==='image/jpeg'){ctx.fillStyle='#fff';ctx.fillRect(0,0,w,h);}ctx.imageSmoothingQuality='high';ctx.drawImage(img,0,0,w,h);
-  c.toBlob(function(b){cb(b,w,h);},fmt,q);}
-function fitSize(img,fmt,limit,cb){
-  var scale=Math.min(1,Math.sqrt(limit*14/(img.width*img.height))),rounds=0;
-  (function attempt(){
-    var lo=0.35,hi=0.92,best=null,n=0;
-    (function step(){var q=(lo+hi)/2;encode(img,scale,fmt,q,function(b,w,h){
-      if(b.size<=limit){best={b:b,w:w,h:h,q:q};lo=q;}else hi=q;
-      if(++n<7)return step();
-      if(best){
-        if(scale<1&&best.q>0.8&&rounds<20){var up=Math.min(1,scale*1.12);if(up>scale){var keep=best;encode(img,up,fmt,0.8,function(b2,w2,h2){if(b2.size<=limit){scale=up;rounds++;attempt();}else cb(keep);});return;}}
-        return cb(best);}
-      if(++rounds>20){encode(img,scale,fmt,0.35,function(b,w,h){cb({b:b,w:w,h:h,q:0.35,miss:true});});return;}
-      scale*=0.85;attempt();
-    });})();
-  })();
+function compMode(){
+  var kb=kbLimit('comp-kb'),png=document.getElementById('comp-fmt').value==='image/png';
+  document.getElementById('comp-q-row').hidden=!!kb||png;
+  document.getElementById('comp-png-note').hidden=!png||!!kb;
 }
 function compShow(r){
   var file=files['comp'],img=imgs['comp'];compBlob=r.b;
@@ -149,25 +134,24 @@ function compShow(r){
     +'<div class="img-stat"><div class="img-stat-val">'+fmtSize(r.b.size)+'</div><div class="img-stat-key">Compressed</div></div>'
     +(parseFloat(saved)>=0
       ? '<div class="img-stat"><div class="img-stat-val" style="color:var(--ok)">-'+saved+'%</div><div class="img-stat-key">Saved</div></div>'
-      : '<div class="img-stat"><div class="img-stat-val" style="color:var(--warn)">+'+Math.abs(parseFloat(saved)).toFixed(1)+'%</div><div class="img-stat-key">Bigger. Try a lower quality</div></div>')+dims;
+      : '<div class="img-stat"><div class="img-stat-val" style="color:var(--warn)">+'+Math.abs(parseFloat(saved)).toFixed(1)+'%</div><div class="img-stat-key">Bigger. Try a lower quality or JPG</div></div>')+dims;
   document.getElementById('comp-result').style.display='block';
   document.getElementById('comp-dl').style.display='inline-flex';
 }
 function doCompress(){
   var img=imgs['comp'];if(!img)return;
-  var fmt=document.getElementById('comp-fmt').value,limit=compLimit(),btn=document.getElementById('comp-btn');
-  if(document.getElementById('comp-goal').value==='custom'&&!limit){toast('Enter the maximum size in KB.');return;}
+  var fmt=document.getElementById('comp-fmt').value,limit=kbLimit('comp-kb'),btn=document.getElementById('comp-btn');compFmt=fmt;
   btn.disabled=true;btn.textContent='Compressing…';
   function done(r){btn.disabled=false;btn.textContent='Compress image';compShow(r);
     if(r.miss)toast('Could not get under '+fmtSize(limit)+'. This is the smallest version that still looks reasonable.');
-    else toast(limit?'Done. Your image is now '+fmtSize(r.b.size)+'.':'Compressed.');}
+    else toast(limit?'Done. Your image is now '+fmtSize(r.b.size)+'.':'Compressed to '+fmtSize(r.b.size)+'.');}
   if(limit){
-    if(files['comp'].size<=limit&&/jpe?g/.test(files['comp'].type)&&fmt==='image/jpeg'){done({b:files['comp'],w:img.width,h:img.height,q:1});toast('Your image is already under '+fmtSize(limit)+'.');return;}
-    fitSize(img,fmt,limit,done);
-  }else encode(img,1,fmt,parseInt(document.getElementById('comp-q').value)/100,function(b,w,h){done({b:b,w:w,h:h});});
+    if(files['comp'].size<=limit&&sameFormat(files['comp'])===fmt){btn.disabled=false;btn.textContent='Compress image';compShow({b:files['comp'],w:img.width,h:img.height});toast('Your image is already under '+fmtSize(limit)+'.');return;}
+    fitToSize(img,fmt,limit,done);
+  }else encodeTo(img,1,fmt,parseInt(document.getElementById('comp-q').value)/100,function(b,w,h){done({b:b,w:w,h:h});});
 }
-function downloadCompressed(){if(!compBlob)return;var ext=document.getElementById('comp-fmt').value==='image/webp'?'webp':'jpg';dlBlob(compBlob,'compressed.'+ext);}
-(function(){var m=location.pathname.match(/compress-image-to-(\d+)kb/);if(m){var g=document.getElementById('comp-goal');g.value=m[1];compGoal();}})();
+function downloadCompressed(){if(!compBlob)return;dlBlob(compBlob,'compressed.'+EXT[compFmt]);}
+(function(){var m=location.pathname.match(/compress-image-to-(\d+)kb/);if(m){var k=document.getElementById('comp-kb');k.value=m[1];k.dispatchEvent(new Event('input',{bubbles:true}));}compMode();})();
 </script>
 </body>
 </html>

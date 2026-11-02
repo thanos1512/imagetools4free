@@ -24,7 +24,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/atkinson-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/style.css?v=6">
+<link rel="stylesheet" href="/assets/style.css?v=7">
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2885801344245320" crossorigin="anonymous"></script>
@@ -55,11 +55,18 @@
           <div class="chips" id="pf-presets" role="group" aria-label="Looks"></div>
           <div class="settings-title spaced">Adjust</div>
           <div id="pf-sliders"></div>
-          <div class="field"><label for="pf-fmt">Save as</label>
-            <select id="pf-fmt"><option value="image/jpeg">JPG (smaller file)</option><option value="image/png">PNG (best quality)</option></select></div>
           <div class="btn-row tight">
             <button class="btn-ghost" id="pf-reset" onclick="pfPreset('Original')" disabled>Reset</button>
             <button class="btn-ghost" id="pf-cmp" disabled>Hold to compare</button>
+          </div>
+          <div class="save-opts">
+          <div class="settings-title spaced">Save as</div>
+          <div class="field"><label for="so-fmt">Format</label>
+            <select id="so-fmt"><option value="same">Same as original</option><option value="image/jpeg">JPG (small files, works everywhere)</option><option value="image/png">PNG (best quality, keeps transparency)</option><option value="image/webp">WebP (smallest, for websites)</option></select></div>
+          <div class="field"><label for="so-kb">Maximum file size <span class="optional">(optional)</span></label>
+            <div class="kb-row"><input type="number" id="so-kb" min="5" step="1" placeholder="No limit" inputmode="numeric"><span class="kb-unit">KB</span></div>
+            <div class="chips sm" data-for="so-kb" role="group" aria-label="Quick sizes"><button type="button" class="chip on" data-v="">No limit</button><button type="button" class="chip" data-v="20">20 KB</button><button type="button" class="chip" data-v="50">50 KB</button><button type="button" class="chip" data-v="100">100 KB</button><button type="button" class="chip" data-v="200">200 KB</button><button type="button" class="chip" data-v="500">500 KB</button></div>
+            <p class="hint sm">Type any size, such as 40 or 60. Leave it empty to keep the best quality.</p></div>
           </div>
           <div class="btn-row"><button class="btn-main" id="pf-btn" onclick="pfDownload()" disabled>Download photo</button></div>
         </div>
@@ -105,7 +112,7 @@
     <p class="foot-note">© 2026 ImageTools4Free. All image processing happens in your browser. Your files are never uploaded.</p>
   </div>
 </footer>
-<script src="/assets/common.js?v=6"></script>
+<script src="/assets/common.js?v=7"></script>
 <script>
 var PF_S=[['br','Brightness',-100,100],['ct','Contrast',-100,100],['sa','Saturation',-100,100],['wa','Warmth',-100,100],['fd','Fade',0,100],['vg','Vignette',0,100]];
 var PF_P={'Original':{},'Vivid':{br:5,ct:15,sa:35},'Warm':{wa:35,sa:10},'Cool':{wa:-35,sa:5},'Vintage':{wa:30,sa:-35,fd:35,ct:-10,vg:40},'Black & white':{sa:-100,ct:20},'Fade':{fd:45,sa:-15,br:5},'Dramatic':{ct:40,sa:-20,vg:55,br:-5}};
@@ -147,10 +154,10 @@ function applyFilter(im,v){
 }
 function pfDownload(){
   var img=imgs['pf'];if(!img)return;
-  var s=Math.min(1,Math.sqrt(24e6/(img.width*img.height))),w=Math.round(img.width*s),h=Math.round(img.height*s),fmt=document.getElementById('pf-fmt').value;
-  var c=cv(w,h),x=c.getContext('2d');if(fmt==='image/jpeg'){x.fillStyle='#fff';x.fillRect(0,0,w,h);}x.drawImage(img,0,0,w,h);
+  var s=Math.min(1,Math.sqrt(24e6/(img.width*img.height))),w=Math.round(img.width*s),h=Math.round(img.height*s);
+  var c=cv(w,h),x=c.getContext('2d');x.drawImage(img,0,0,w,h);
   var im=x.getImageData(0,0,w,h);applyFilter(im,pf.v);x.putImageData(im,0,0);
-  c.toBlob(function(b){dlBlob(b,'filtered.'+(fmt==='image/png'?'png':'jpg'));toast('Photo downloaded.');},fmt,0.92);
+  exportImage(c,'filtered');
 }
 </script>
 </body>
